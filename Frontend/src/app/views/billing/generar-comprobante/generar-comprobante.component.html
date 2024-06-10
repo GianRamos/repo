@@ -1,0 +1,276 @@
+<div class="box_container">
+<!-- ***************** CAJA 1 *************** -->
+<div class="container mt-3">
+  <div class="row">
+    <!-- Primer contenedor (9 grillas) -->
+    <div class="col-md-9">
+      <div class="row contenedor_data_comprobante">
+        <h2 class="title mb-2">Comprobante</h2>
+        <div class="col-md-4">
+          <div class="input-field">
+            <select id="tipo_comprobante" class="form-select " required>
+              <option value="" disabled selected hidden></option>
+              <option value="Boleta">Boleta</option>
+              <option value="Factura">Factura</option>
+            </select>
+            <label for="tipo_comprobante" class="form-label select_label">Tipo de comprobante</label>
+          </div>
+          <div class="input-field mt-4">
+            <input id="fecha" type="date" class="form-control " required>
+            <label for="fecha" class="form-label">Fecha de emisión</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="input-field">
+            <input id="serie" type="text" class="form-control" placeholder="" required>
+            <label for="serie" class="form-label">Serie</label>
+          </div>
+          <div class="input-field mb2 mt-4">
+            <input type="text" class="form-control" placeholder="" maxlength="11" required>
+            <label for="RUC" class="form-label">RUC de la Empresa</label>
+          </div>
+
+
+        </div>
+        <div class="col-md-4">
+          <div class="input-field">
+            <input type="text" class="form-control" placeholder="" required>
+            <label for="name" class="form-label">Número de comprobante</label>
+          </div>
+          <div class="input-field mt-4">
+            <select id="document-type" class="form-select" required>
+              <option value="" disabled selected hidden></option>
+              <option value="Efectivo">Efectivo</option>
+              <option value="Tarjeta">Tarjeta</option>
+              <option value="Transferencia">Transferencia</option>
+            </select>
+            <label for="document-type" class="form-label">Medio de pago</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Segundo contenedor (3 grillas) -->
+    <div class="col-md-3 pt-0">
+      <div class="row box_estado_sistema ms-1 mb-1">
+        <h2 class="title_box text-center mb-1">Estado del Sistema</h2>
+        <div class="col-md-6 text-end">
+          <div class="mt-2"><span>NUBEFACT:</span></div>
+          <div class="mt-4"><span>MODO:</span></div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class=" mt-1 border border-white border-1 rounded-1 box_system_state_1 d-flex justify-content-center align-items-center">
+            <div class="box_system_text">ACTIVO</div>
+          </div>
+          <div class="mt-3 border border-white border-1 rounded-1 box_system_state_2 d-flex justify-content-center align-items-center">
+            <div class="box_system_text">PRODUCCIÓN</div>
+          </div>
+        </div>
+
+      </div>
+      <app-slider></app-slider>
+    </div>
+  </div>
+</div>
+<!-- ***************** CAJA 2 *************** -->
+<div class="container mt-2">
+  <div class="row">
+    <!-- Primer contenedor (6 grillas) -->
+    <div class="col-md-6">
+      <div class="row contenedor_data_comprobante">
+        <h2 class="title mb-2">Datos del Cliente</h2>
+        <div class="col-md-12 input-field">
+          <input id="nombre_cliente" type="text" class="form-control" placeholder="" required>
+          <label for="nombre_cliente" class="form-label ms-2">Nombre del Cliente</label>
+        </div>
+        <div class="col-md-6">
+          <div class="input-field mt-4">
+            <select id="document-type" class="form-select" required>
+              <option value="" disabled selected hidden></option>
+              <option value="DNI">DNI</option>
+              <option value="C.E">C.E</option>
+            </select>
+            <label for="document-type" class="form-label">Tipo Documento</label>
+          </div>
+          <div class="input-field  mt-4">
+            <input id="celular" type="text" class="form-control" placeholder="" required>
+            <label for="celular" class="form-label">Nº Celular</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-field  mt-4">
+            <input id="num_documento" type="text" class="form-control" placeholder="" required>
+            <label for="num_documento" class="form-label">Nº Documento</label>
+          </div>
+          <div class="input-field  mt-4">
+            <input id="email" type="email" class="form-control" placeholder="" required>
+            <label for="email" class="form-label ">Email</label>
+          </div>
+        </div>
+        <div class="col-md-12 input-field mt-4">
+          <input id="dirección" type="text" class="form-control" placeholder="" required>
+          <label for="dirección" class="form-label ms-2">Dirección</label>
+        </div>
+      </div>
+    </div>
+    <!-- Segundo contenedor (6 grillas) -->
+    <div class="col-md-6">
+      <div class="row box_list_items ms-1">
+        <h2 class="list_items_text text-center mb-2 mt-2">Lista de Items</h2>
+        <div>
+          <div class="mb-3 list_items section_2 producto">
+            <div class="row d-flex title__list">
+              <div class="col-2 d-flex justify-content-center  title_table">Código</div>
+              <div class="col-2 d-flex justify-content-center title_table">Descripción</div>
+              <div class="col-2 d-flex justify-content-center title_table">Precio</div>
+              <div class="col-2 d-flex justify-content-center title_table">Cantidad</div>
+              <div class="col-2 d-flex justify-content-center title_table">Total</div>
+              <div class="col-2 d-flex justify-content-center title_table">Eliminar</div>
+            </div>
+            <ng-container *ngIf="dataCaptured">
+              <div class="row" *ngFor="let producto of servicios; index as i">
+                <div class="col-2 div__product"><span class="span__product">{{producto.codigo}}</span></div>
+                <div class="col-2 p-0 div__product"><span class="span__product">{{producto.descripcion}}</span></div>
+                <div class="col-2 div__product"><span class="span__product">{{producto.precio}}</span></div>
+                <div class="col-2 div__product"><span class="span__product">{{producto.cantidad}}</span></div>
+                <div class="col-2 div__product"><span class="span__product">{{producto.total}}</span></div>
+                <div class="col-2 div__product">
+                  <button mat-icon-button (click)="eliminarProducto(i)" class= "icon-btn__1">
+                    <mat-icon class="icon_1">delete_forever</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+          <div class="row pb-3 d-flex justify-content-center">
+            <!-- <div class="col-md-12 d-flex justify-content-evenly"> -->
+              <!-- <div class="col-4"> -->
+                <div class="col-md-2 mt-3"><span class="ms-3">Subtotal</span></div>
+                <div class="col-md-2 mt-2 border border-white border-1 rounded-1 box_system_output pt-1">
+                  <span class="span_output">S/. {{calcularSubtotal() | number:'1.2-2' }}</span>
+                </div>
+              <!-- </div> -->
+              <!-- <div class="col-4"> -->
+                <div class="col-md-2 mt-3"><span class="ms-5">IGV</span></div>
+                <div class="col-md-2 mt-2 mb-2 border border-white border-1 rounded-1 box_system_output pt-1">
+                  <span class="span_output">S/.{{calcularIGV() | number:'1.2-2'}}</span>
+                </div>
+              <!-- </div> -->
+              <!-- <div class="col-4"> -->
+                <div class="col-md-2 mt-3"><span class="ms-4">TOTAL:</span></div>
+                <div class="col-md-2 mt-2 mb-2 border border-white border-1 rounded-1 box_system_output pt-1">
+                <span class="span_output">S/. {{calcularTotal() | number:'1.2-2'}}</span>
+                </div>
+              <!-- </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- ***************** CAJA 3 *************** -->
+<div class="container  mt-2">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row contenedor_data_comprobante section_3 align-items-center">
+        <h2 class="title mb-2">Servicios</h2>
+        <form [formGroup]="productoForm">
+          <div formArrayName="productos" *ngFor="let producto of productos.controls; index as i">
+            <div [formGroupName]="i">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-field">
+                    <select id="servicio" class="form-select" formControlName="servicio" required>
+                      <option value="" disabled selected hidden></option>
+                      <option value="Feature1">Feature1</option>
+                      <option value="Feature2">Feature2</option>
+                    </select>
+                    <label for="servicio" class="form-label">Servicio</label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="input-field">
+                    <input #precio id="precio" type="text" class="form-control" formControlName="precio" placeholder="">
+                    <label for="precio" class="form-label">Precio</label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="input-field">
+                    <input id="cantidad" type="text" class="form-control" formControlName="cantidad" placeholder="" required>
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="input-field mt-4">
+                    <select id="Tipo" class="form-select" formControlName="tipo" required>
+                      <option value="" disabled selected hidden></option>
+                      <option value="Feature1">Feature1</option>
+                      <option value="Feature2">Feature2</option>
+                    </select>
+                    <label for="Tipo" class="form-label">Tipo</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-field mt-4">
+                    <input id="descripcion" type="text" class="form-control" formControlName="descripcion" placeholder="" required>
+                    <label for="Descripción" class="form-label">Descripción</label>
+                  </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                  <div class="mt-4" >
+                    <button mat-icon-button class="icon-btn add-btn " (click)="capturarData()">
+                      <mat-icon class="icon icon_1">add</mat-icon>
+                    </button>
+                  </div>
+                  <div class="mt-4">
+                    <button mat-icon-button class="icon-btn delete-btn px-1 py-1" (click)="limpiarInputs()">
+                      <mat-icon class="icon icon_1">delete_forever</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 mt-3 d-flex justify-content-center">
+      <div class="row box_list_btns justify-content-evenly align-items-center ms-2 pe-2">
+        <div class="col-md-4 ps-3">
+          <button type="button" class="btn btn-outline-danger d-flex align-items-center  " (click)="eliminarComprobante()">
+            ELIMINAR
+            <img src="../../../../assets/images/icons/comprobante_color.svg" alt="Eliminar" class="icon_delete ">
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button type="button" class="btn btn_2 btn-secondary d-flex align-items-center justify-content-center" (click)="guardarComprobante()">
+            GUARDAR
+            <img src="../../../../assets/images/icons/comprobante_white.svg" alt="Guardar comprobante" class="icon_save ">
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button type="button" class="btn btn_1 btn-primary d-flex align-items-center justify-content-center" (click)="generarComprobante()">
+            GENERAR
+            <img src="../../../../assets/images/icons/comprobante_white.svg" alt="Guardar comprobante" class="icon_generate">
+          </button>
+        </div>
+      </div>
+
+      <a href="https://wa.me/51918795733?text=¡Hola!,%20¡deseo%20información%20para%20la%20gestión%20de%20mi%20negocio" target="_blank" class="whatsapp-button">
+      <div class="row">
+        <span class="span_w">
+          <span class="span_whatssapp">¿Tienes alguna duda?</span>
+          <a href="https://wa.me/51918795733?text=¡Hola!,%20¡deseo%20información%20para%20la%20gestión%20de%20mi%20negocio" target="_blank" class="escríbenos fw-bolder">Escríbenos
+          </a>
+          <img src="../../../assets/images/icons/WhatsAppLOGO.svg" alt="WhatsApp" style="height: 50px;" class="">
+        </span>
+      </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+</div>

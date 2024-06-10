@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- inicio favicon  iphone retina, ipad, iphone en orden-->
+    <!-- 	<link rel="icon" type="image/png" href="../static/img/favicon/256x256.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/img/favicon/114x114.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/img/favicon/72x72.png">
+        <link rel="apple-touch-icon-precomposed" href="../static/img/favicon/57x57.png"> -->
+    <!-- end favicon -->
+
+    
+
+
+    <link rel="stylesheet" type="text/css" href="../static/js/validationform/validationEngine.jquery.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css?v=11cxs9IAY"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/blocks_styl.css?v=21cxs9IAY"/>
+</head>
+
+<body class="">
+
+    <!-- html solo para el menu responsive -->
+    <div  class="menu-mobile-open icon-menu"></div>
+    <div class="menu-mobile-close icon-close"></div>
+    <div class="menu-overlay"></div>
+    <!-- html solo para el menu responsive -->
+
+    <div class="cnt-wrapper">
+        <header class="header">
+    <div class="header-block">
+        <div class="header-ctn wancho">
+            <a href="home.html" class="header-logo">
+                <img src="../static/img/header-logo.svg">
+            </a>
+            <div class="header-navigation">
+                <nav class="header-menu">
+                    <ul class="header-wrap menu-list"> <!-- "menu-list" es usado para el menu responsive -->
+                        <li class="header-item"><a href="listado-servicios-1.html" class="header-link active">Servicios </a></li>
+                        <li class="header-item"><a href="nosotros.html" class="header-link">Nosotros</a></li>
+                        <li class="header-item"><a href="listado-tramites.html" class="header-link">Trámites</a></li>
+                        <li class="header-item"><a href="consultar-tramite.html" class="header-link">Consultar Trámite</a></li>
+                        <li class="header-item"><a href="blog.html" class="header-link">Blog</a></li>
+                        <li class="header-item"><a href="contacto.html" class="header-link">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div class="header-button">
+                    <a href="#" class="g-btn-bg" target="_blank">Iniciar Sesión</a>
+                </div>
+                <div class="header-whatsapp">
+                    <a href="https://api.whatsapp.com/send?phone=999999999" target="_blank" class="icon-whatsapp"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+        <div class="wrapper">
+            
+
+<section class="b47">
+    <div class="wancho">
+        <div class="b47-libro-top">
+            <h3 class="b47-title-libro">Libro de Reclamaciones</h3>
+            <div class="b47-description-libro">
+                <p>Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, esta institución cuenta con un libro de reclamaciones a su disposición</p>
+            </div>          
+        </div>
+        <div class="b47-libro-down">
+            <div class="b47-libro-form">
+                <form id="formulario-reclamos" method="post">
+                    <div class="b47-date">
+                        <div class="b47-date-item date">
+                            <p>
+                                Fecha:
+                            </p>
+                            <span><input type="" class="b47-current-date" readonly value=""></span>
+                        </div>
+                        <div class="b47-date-item codigo">
+                            <p>
+                                Nº 000 000001-201X 
+                            </p>
+                            <span>Este número se actualizará cuando termine de registrarse</span>
+                        </div>
+                    </div>
+                    <div class="b47-list-box">    
+                        <div class="b47-libro-box">
+                            <h4 class="b47-subtitle-libro">Antes de empezar, indícanos el lugar en el que se dieron los sucesos del reclamo:</h4>
+                            <div class="g5-select g5-item-input">
+                                <select id="form-sedes" name="name-sede" class="form-input validate[required]">
+                                    <option value=""></option>
+									<option value="Establecimiento-1">Establecimiento-1</option>
+									<option value="Establecimiento-2">Establecimiento-2</option>
+                                </select>
+                                <label class="input-label" for="form-sedes"><span>Establecimiento</span><i class="icon-arrow-down"></i></label>
+                            </div>
+                            <div class="b47-nota">
+                                <p>Nota: Si la queja o reclamo se relaciona con un proyecto entregado, consignar a la oficina principal.</p>
+                            </div>
+                        </div>
+                        <div class="b47-libro-box">
+                            <h5 class="b47-title-box">1. Identificación del consumidor reclamante</h5>
+                            <div class="g5-input-two">
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"  id="form_nombre" name="your-name" class="validKeypress form-input validate[required] ">
+                                    <label class="input-label" for="form_nombre"><span>Nombres*</span></label>
+                                </div>
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"  id="form_apellido" name="your-last-name" class="validKeypress form-input validate[required] ">
+                                    <label class="input-label" for="form_apellido"><span>Apellidos*</span></label>
+                                </div>                      
+                            </div>
+                            <div class="g5-input-two">
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"  id="form_email" name="your-email"  class="validate[required,custom[email]] form-input">
+                                    <label for="form_email"><span>Correo electrónico*</span></label>
+                                </div>                       
+                                <div class="g5-input g5-item-input">
+                                    <input type="text" maxlength="9"  id="form_phone" name="your-phone" class="form-input soloNumber validKeypress validate[required,custom[onlyNumberSp],minSize[9],maxSize[9]]">
+                                    <label class="input-label" for="form_phone"><span>Teléfono/celular*</span></label>
+                                </div>                      
+                            </div>
+                            <div class="g5-input-two">
+                                <div class="g5-select g5-item-input">
+                                    <select id="form-documento" name="tipo-documento" class="form-input validate[required]">
+                                        <option value=""></option>
+                                        <option value="DNI">DNI</option>
+                                        <option value="Pasaporte">Pasaporte</option>
+                                        <option value="C.E.">C.E.</option>
+                                        <option value="R.U.C.">R.U.C.</option>
+                                    </select>
+                                    <label class="input-label" for="form-documento"><span>Tipo de documento</span><i class="icon-arrow-down"></i></label>
+                                </div>
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"   id="form_numero" name="nro-documento" class="form-input soloNumber validKeypress validate[required,custom[onlyNumberSp]]">
+                                    <label class="input-label" for="form_numero"><span>Nº de documento*</span></label>
+                                </div>  
+                            </div>
+                            <div class="g5-input-two">
+                                <div class="g5-select g5-item-input">
+                                    <select id="form-departamento" name="departamento" class="form-input validate[required]"></select>
+                                    <label class="input-label" for="form-departamento"><span>Departamento</span><i class="icon-arrow-down"></i></label>
+                                </div>
+                                <div class="g5-select g5-item-input">
+                                    <select disabled id="form-provincia" name="provincia" class="form-input validate[required]"></select>
+                                    <label class="input-label" for="form-provincia"><span>Provincia</span><i class="icon-arrow-down"></i></label>
+                                </div>
+                            </div>
+                            <div class="g5-input-two">
+                                <div class="g5-select g5-item-input">
+                                    <select disabled id="form-distrito" name="distrito" class="form-input validate[required]"></select>
+                                    <label class="input-label" for="form-distrito"><span>Distrito</span><i class="icon-arrow-down"></i></label>
+                                </div>
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"  id="form_direccion" name="address" class="validKeypress form-input validate[required] ">
+                                    <label class="input-label" for="form_direccion"><span>Dirección*</span></label>
+                                </div>
+                            </div>
+                            <div class="g5-input-two">
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"  id="form_nombre-tutor" name="name-tutor" class="validKeypress form-input ">
+                                    <label class="input-label" for="form_nombre-tutor"><span>Nombre del Tutor</span></label>
+                                </div>
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"  id="form_apellido-tutor" name="apellido-tutor" class="validKeypress form-input">
+                                    <label class="input-label" for="form_apellido-tutor"><span>Apellidos del Tutor</span></label>
+                                </div>                      
+                            </div>
+                            <div class="g5-input-two">
+                                <div class="g5-select g5-item-input">
+                                    <select id="form-documento-tutor" name="tipo-documento-tutor" class="form-input">
+                                        <option value=""></option>
+                                        <option value="DNI">DNI</option>
+                                        <option value="Pasaporte">Pasaporte</option>
+                                        <option value="C.E.">C.E.</option>
+                                        <option value="R.U.C.">R.U.C.</option>
+                                    </select>
+                                    <label class="input-label" for="form-documento-tutor"><span>Tipo de documento</span><i class="icon-arrow-down"></i></label>
+                                </div>
+                                <div class="g5-input g5-item-input">
+                                    <input type="text"   id="form_numero-tutor" name="nro-documento-tutor" class="form-input soloNumber">
+                                    <label class="input-label" for="form_numero-tutor"><span>N° de documento</span></label>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="b47-libro-box">
+                            <h5 class="b47-title-box">2. Identificación del bien contratado</h5>
+                            <div class="b47-list-radios">
+                                <div class="g5-input-radio">
+                                    <input type="radio" value="Producto" checked name="identificacion-bien-contratado" id="form_detalle-proyecto">
+                                    <label for="form_detalle-proyecto">Producto</label>
+                                </div>
+                                <div class="g5-input-radio">
+                                    <input type="radio" value="Servicio" name="identificacion-bien-contratado" id="form_detalle-servicio">
+                                    <label for="form_detalle-servicio">Servicio</label>
+                                </div>                              
+                            </div>
+                            <div class="g5-item-input g5-textarea">
+                                <textarea id="form_description" name="descripcion-bien-contratado"  class="form-input validate[required]"></textarea>
+                                <label class="input-label" for="form_description"><span>Descripción*</span></label>
+                            </div>
+                        </div>
+                        <div class="b47-libro-box">
+                            <h5 class="b47-title-box">3. Detalle de la Reclamación y Pedido del Consumidor</h5>
+                            <div class="b47-list-radios">
+                                <div class="g5-input-radio">
+                                    <input checked name="tipo-reclamacion" value="Reclamo" type="radio" id="form_detalle-reclamo">
+                                    <label for="form_detalle-reclamo">Reclamo</label>
+                                </div> 
+                                <div class="g5-input-radio">
+                                    <input name="tipo-reclamacion" value="Queja" type="radio"  id="form_detalle-queja">
+                                    <label for="form_detalle-queja">Queja</label>
+                                </div>                             
+                            </div>
+                            <div class="b47-box-reclamo">
+								<p><strong>*Reclamo:</strong> Disconformidad relacionada a los proyectos o servicios<br><strong>*** Queja:</strong> Disconformidad no relacionada a los proyectos o servicios; o, malestar o descontento respecto a la atención al público.</p>
+                            </div>
+                            <div class="g5-item-input g5-textarea">
+                                <textarea id="form_detalle" name="detalle-reclamacion" required="required" class="form-input validate[required]"></textarea>
+                                <label class="input-label " for="form_detalle"><span>Detalle*</span></label>
+                            </div>
+                            <div class="g5-item-input g5-textarea">
+                                <textarea id="form_pedido" name="pedido-reclamacion" required="required" class="form-input validate[required]"></textarea>
+                                <label class="input-label" for="form_pedido"><span>Pedido*</span></label>
+                            </div>
+                            <div class="g5-select g5-input-file">
+                                <input id="file-input" type="file" class="validate[custom[validateMIME[jpg|jpeg|png]]" data-errormessage-custom-error="Debe adjuntar archivo (imágenes JPG, PNG, JPEG)" name="file-input">
+                                <label class="input-label no-effect" for="file-input">
+                                    <i class="g5-icoinput icon-adjunta"></i>
+                                    <div class="g5-text-input" data-text="Adjuntar Archivo">
+                                        Adjuntar archivo
+                                    </div>
+                                    <div class="g5-inpufile-text">Adjuntar archivo (PDF, PPTX, WORD o imágenes JPG, PNG)</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="b47-libro-box observacion">
+                            <h5 class="b47-title-box">4. Observaciones y acciones adoptadas por el proveedor</h5>
+                            <div class="b47-libro-observacion">
+								<p>Descripción: “Al ser un reclamo virtual, su caso será derivado al área de atención al cliente, a fin de dar respuesta dentro del plazo legalmente establecido.</p>
+                            </div>
+                        </div>
+                        <div class="b47-libro-box">
+                            <h5 class="b47-title-box">5. Autorizo notificación del resultado del reclamo al correo consignado</h5>
+                            <div class="b47-list-radios">
+                                <div class="g5-input-radio">
+                                    <input name="autorizo-notificacion-resultado" value="Si" type="radio" checked id="form_detalle-si">
+                                    <label for="form_detalle-si">Si</label>
+                                </div>
+                                <div class="g5-input-radio">
+                                    <input name="autorizo-notificacion-resultado" value="No" type="radio" id="form_detalle-no">
+                                    <label for="form_detalle-no">No</label>
+                                </div>                              
+                            </div>
+                        </div>
+                    </div> 
+                    <span class="g5-required">(*) Campos obligatorios</span>
+                    <div class="b47-libro-formulacion">
+						<p>* La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI.</p>
+						<p>* El proveedor deberá dar respuesta al reclamo en un plazo no mayor a treinta (30) días calendario, pudiendo ampliar el plazo hasta por treinta (30) días más, previa comunicación al consumidor.</p>
+                    </div>                         
+                    <div class="g5-terminos">
+                        <input type="checkbox" checked id="form_privacity" class="validate[required]" name="agree-terms-terms">
+                        <label for="form_privacity" class="g5-terminos_nota">
+                        	<span class="g5-terminos_icon"></span>
+                            <div class="g5-terminos_text">
+				                <p>He leído y acepto las <a href="politicas-de-privacidad.html" target="_blank">Políticas de Privacidad</a> de Notaria Ramos</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="b47-btn">
+                        <button type="submit" class="g-btn-bg bg_blue b47-send">Enviar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+        </div>
+        <footer class="footer">
+    <div class="footer_content wancho">
+        <div class="footer_up">
+            <div class="footer_left">
+                <figure class="footer_logo">
+                    <img src="../static/img/footer-logo.svg">
+                </figure>
+                <div class="footer_networks">
+                    <ul class="footer_networks_wrap">
+                        <li class="footer_networks_item"><a href="#" class="footer_networks_link icon-facebook"></a></li>
+                        <li class="footer_networks_item"><a href="#" class="footer_networks_link icon-twitter"></a></li>
+                        <li class="footer_networks_item"><a href="#" class="footer_networks_link icon-youtube"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_right">
+                <div class="footer_box footer_box_1">
+                    <span class="footer_title footerOpenToggle">Servicios</span>
+                    <div class="footer_menu footer_toggle_contain">
+                        <ul class="footer_menu_wrap">
+                            <li class="footer_menu_item"><a href="listado-servicios-2.html" class="footer_menu_link">Transferencia Vehicular</a></li>
+                            <li class="footer_menu_item"><a href="listado-servicios-2.html" class="footer_menu_link">Escrituras Públicas</a></li>
+                            <li class="footer_menu_item"><a href="listado-servicios-2.html" class="footer_menu_link active">Asuntos no Contenciosos</a></li>
+                            <li class="footer_menu_item"><a href="listado-servicios-2.html" class="footer_menu_link">Legalización de Documentos</a></li>
+                            <li class="footer_menu_item"><a href="listado-servicios-2.html" class="footer_menu_link">Servicios Notariales</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer_box footer_box_2">
+                    <span class="footer_title footerOpenToggle">Explora</span>
+                    <div class="footer_menu footer_toggle_contain">
+                        <ul class="footer_menu_wrap">
+                            <li class="footer_menu_item"><a href="nosotros.html" class="footer_menu_link">La Notaria</a></li>
+                            <li class="footer_menu_item"><a href="nuestro-equipo.html" class="footer_menu_link">Nuestro Equipo</a></li>
+                            <li class="footer_menu_item"><a href="listado-tramites.html" class="footer_menu_link">Trámites en Línea</a></li>
+                            <li class="footer_menu_item"><a href="consultar-tramite.html" class="footer_menu_link">Consultar Trámite</a></li>
+                            <li class="footer_menu_item"><a href="contacto.html" class="footer_menu_link">Reservar Citas</a></li>
+                            <li class="footer_menu_item"><a href="blog.html" class="footer_menu_link">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer_box footer_box_3">
+                    <span class="footer_title footerOpenToggle">Legales</span>
+                    <div class="footer_menu footer_toggle_contain">
+                        <ul class="footer_menu_wrap">
+                            <li class="footer_menu_item"><a href="libro-de-reclamaciones.html" class="footer_menu_link">Libro de Reclamaciones</a></li>
+                            <li class="footer_menu_item"><a href="politicas-de-privacidad.html" class="footer_menu_link">Política de privacidad</a></li>
+                            <li class="footer_menu_item"><a href="politicas-de-privacidad.html" class="footer_menu_link">Política de cookies</a></li>
+                            <li class="footer_menu_item"><a href="politicas-de-privacidad.html" class="footer_menu_link">Términos y condiciones</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer_box footer_box_4">
+                    <span class="footer_title">Contacto</span>
+                    <div class="footer_info">
+                        <div class="footer_info_box">
+                            <span class="footer_info_icon icon-email"></span>
+                            <div class="footer_info_texts">
+                                <p><strong>ESCRÍBENOs</strong></p>
+                                <p><a href="mailto:informes@notariaramos.pe">informes@notariaramos.pe</a></p>
+                            </div>
+                        </div>
+                        <div class="footer_info_box">
+                            <span class="footer_info_icon icon-phone"></span>
+                            <div class="footer_info_texts">
+                                <p><strong>LLáMANOS</strong></p>
+                                <p><a href="tel:012638686">01 2638686</a></p>
+                            </div>
+                        </div>
+                        <div class="footer_info_box">
+                            <span class="footer_info_icon icon-location"></span>
+                            <div class="footer_info_texts">
+                                <p><strong>VISíTANOS EN </strong></p>
+                                <p><a href="https://www.google.com/maps/place/Av.+la+Marina+1443,+San+Miguel+15086/@-12.0796774,-77.0823854,17z/data=!3m1!4b1!4m6!3m5!1s0x9105c90ce371107b:0x650a490d0d31a08a!8m2!3d-12.0796827!4d-77.0775145!16s%2Fg%2F11fszsnhpy?authuser=0&entry=ttu" target="_blank">Avenida La Marina 1443 <br>San Miguel, Lima - Perú</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_down">
+            <div class="footer_copyright">
+                <p><span id="id_year"></span> Alessandra Ramos - Notaria de Lima | Todos los derechos reservados</p>
+            </div>
+            <a href="https://www.staffdigital.pe/proyecto/" target="_blank" class="footer_team">
+                <p>Diseño web por <strong>StaffDigital</strong></p>
+            </a>
+        </div>
+    </div>
+</footer>
+
+    </div>
+
+    <!-- contenedor del menu responsive -->
+    <div class="menu-sidebar" data-menu="left-in">
+        <div class="menu-sidebar-cnt"></div>
+    </div>
+
+    <script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../static/js/validationform/jquery.validationEngine.js" type="text/javascript"></script>
+    <script src="../static/js/main.js" type="text/javascript"></script>
+    <!-- JSADD START -->
+
+    <script type="text/javascript">
+        $(function(){
+            //+++ FOOTER RESPONSIVE - ACORDEON +++
+            if($(window).innerWidth() < 1025){
+                $('.footerOpenToggle').on('click', function(event){
+                    console.log("footer aquiiiii");
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active').parent().find('.footer_toggle_contain').stop().slideUp();
+                    }else{
+                        $('.footer_title').removeClass('active');
+                        $('.footer_toggle_contain').stop().slideUp();
+                        $(this).addClass('active').parent().find('.footer_toggle_contain').stop().slideToggle();
+                    };
+                })
+            }
+            //<<< END >>>
+        });
+    </script>
+
+    
+<script type="text/javascript">
+    function inputFile(elementFile, elementText){
+        var inputFileSize = document.querySelector(elementFile)
+        var renderTextInputFile = document.querySelector(elementText)
+        inputFileSize.onchange = function(){
+            var val = this.value.split('\\').pop()
+            var validar = this.value.length
+            var text = renderTextInputFile.getAttribute('data-text')
+            // console.log('TEXT', text)
+            if(validar && this.files[0].size < 10000000){
+                renderTextInputFile.innerText = val
+                renderTextInputFile.classList.add("completed")
+            } else{
+                renderTextInputFile.innerText = text
+                renderTextInputFile.classList.remove("completed")
+            }
+        }
+    }
+
+
+    $(function(){
+        //- +++ input File +++
+        inputFile('#file-input', '.g5-text-input')
+        //- <<< end >>>
+
+
+        let data_today = new Date();
+        let dd = String(data_today.getDate()).padStart(2, '0');
+        let mm = String(data_today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = data_today.getFullYear();    
+        let current_date = dd + '/' + mm + '/' + yyyy;
+        $('.b47-current-date').val(current_date);
+
+
+        //efecto levantar label de formulario
+        var inputs = document.getElementsByClassName("form-input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener("blur", function(e) {
+                e.currentTarget.closest('.g5-item-input').classList.remove('inFocus');
+            });     
+            inputs[i].addEventListener("focus", function(e) {
+                e.currentTarget.closest('.g5-item-input').classList.add('inFocus');
+                if (this.value.length >= 1) {
+                    this.nextElementSibling.classList.add("fijar");
+                } else {
+                    this.nextElementSibling.classList.remove("fijar");
+                }
+            });
+            inputs[i].addEventListener("change", function() {
+                if (this.value == "") {
+                this.nextElementSibling.classList.remove("fijar");
+                } else {
+                    this.nextElementSibling.classList.add("fijar");
+                }
+            });
+        }
+        //efecto levantar label de formulario
+
+
+        //validate type document solo numeros
+        $('.soloNumber').keypress(validateNumber);
+        function validateNumber(event) {
+            var key = window.event ? event.keyCode : event.which;
+            if (event.keyCode === 8 || event.keyCode === 46) {
+                return true;
+            } else if ( key < 48 || key > 57 ) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+        //validate type document solo numeros
+
+
+        $("form").validationEngine('attach', {
+            promptPosition: "topLeft",
+            autoHidePrompt: true,
+            autoPositionUpdate: false,
+            autoHideDelay: 2000,
+            binded: false,
+            scroll: false,
+            validateNonVisibleFields: true,
+            showOneMessage: false
+        });
+
+
+        $('.b47-send').on('click', function(event) {
+            event.preventDefault();
+                var valid = $(this).closest('form').validationEngine('validate');
+                if (!valid) {
+                    console.log('error: campos vacios');
+                }else {
+                    console.log('formulario OK');
+                    
+                }
+        });
+
+    });
+</script>
+
+ 
+</body>
+</html>

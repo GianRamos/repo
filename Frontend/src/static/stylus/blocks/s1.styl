@@ -1,0 +1,201 @@
+.b1
+	background-color c-8
+	position relative
+	padding 36px 0 168px 0
+
+.b1-content
+	max-width 1400px
+	position relative
+
+.b1-banner
+	width 100%
+	height 650px
+	background-position center
+	background-repeat no-repeat
+	background-size cover
+	border-radius 50px
+
+.b1-block
+	width 100%
+	position absolute
+	top 0
+	left 0
+	z-index 2
+	box-sizing border-box
+	padding 50px 0 0 47px
+	@media screen and (max-width 767px)
+		padding 30px 20px 0 20px
+
+.b1-info
+	max-width 678px
+	width 100%
+	margin 0
+
+.b1-title
+	display block
+	line-height 104px
+	color c-3
+	font-family t-0
+	font-weight 500
+	font-size 90px
+	margin 0
+	@media screen and (max-width 767px)
+		line-height 1.4
+		font-size 40px
+
+.b1-buttons
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	align-items center
+
+.b1-btn
+	margin 20px 18px 0 0
+
+.b1-image
+	width 453px
+	position absolute
+	bottom 18px
+	right 0
+	margin 0
+	@media screen and (max-width 960px)
+		display none
+
+	img
+		img-res()
+
+.b1-slider
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	justify-content space-between
+	align-items flex-start
+	max-width 942px
+	width 100%
+	margin 70px 0 0 0
+
+.b1-left
+	width 70px
+
+.b1-right
+	width calc(851% * 100 / 942)
+	overflow hidden
+	@media screen and (max-width 960px)
+		width calc(100% - 80px)
+
+.b1-controls
+	display flex
+	flex-direction row
+	flex-wrap wrap
+
+.b1-arrow
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 30px
+	height 30px
+	color c-3
+	font-size 14px
+	cursor pointer
+	border 1px solid c-3
+	border-radius 50%
+	opacity 0.2
+	box-sizing border-box
+	margin 0 10px 0 0
+	@media screen and (min-width 1025px)
+		transition all .25s ease
+		&:hover
+			opacity 1
+
+	&:last-child
+		margin-right 0
+
+.b1-scrolling
+	margin-top 71px
+	a
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width 32px
+		height 118px
+		background-color c-2
+		color c-1
+		font-size 17px
+		border-radius 24px
+		margin 0
+
+.b1-slider-wrap
+	width calc(100% + 22px)
+	margin-left -11px
+
+.b1-item
+	box-sizing border-box
+	padding 0 11px
+
+.b1-card
+	display block
+	max-width 269px
+	width 100%
+	overflow hidden
+	border-radius 10px
+	position relative
+	margin 0 auto
+	@media screen and (max-width 960px)
+		max-width 287px
+
+.b1-bg
+	width 100%
+	height 218px
+	background-position center
+	background-repeat no-repeat
+	background-size cover
+	position relative
+	&:before
+		content ""
+		width 100%
+		height 100%
+		background linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.56) 58.39%)
+		position absolute
+		top 0
+		left 0
+
+.b1-down
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	justify-content space-between
+	align-items center
+	width 100%
+	position absolute
+	bottom 0
+	left 0
+	box-sizing border-box
+	padding 0 20px 26px 20px
+	@media screen and (max-width 767px)
+		padding 0 10px 15px 10px
+
+.b1-subtitle
+	display block
+	width calc(100% - 40px)
+	line-height 1.2
+	color c-22
+	font-family t-0
+	font-weight 400
+	font-size 20px
+	margin 0
+
+.b1-icon
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 30px
+	height 30px
+	color c-3
+	font-size 12px
+	border 1px solid c-3
+	border-radius 50%
+	box-sizing border-box
+	margin 0

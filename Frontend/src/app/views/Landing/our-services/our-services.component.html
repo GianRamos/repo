@@ -1,0 +1,282 @@
+<div class="services-section">
+  <div class="Logo-column">
+    <div class="logo-column_img">
+      <img src="../../../assets/images/services/Logo Icon.svg" alt="Logo Gestipyme">
+    </div>
+
+    <h3 class="Logo-column_title">Nuestros servicios</h3>
+    <p>Nuestro equipo experto está aquí para impulsar tu éxito.</p>
+    <app-contact-button></app-contact-button>
+  </div>
+  <div class="services-column">
+    <!-- Servicio 1 -->
+    <div class="service-box">
+      <div class="service-image">
+        <img src="../../../assets/images/services/Constitucion de empresa.svg" alt="Constitucion de empresa">
+      </div>
+      <div class="service-content_box">
+        <div class="service-content">
+          <h3 class="service-title">Constitución de Empresas</h3>
+          <p class="service-description">Desde S/. 429</p>
+          <button class="view-more-button" (click)="openModal('modal1')">Ver más</button>
+          <p class="service-description_disclaimer"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicio 2 -->
+    <div class="service-box">
+      <div class="service-image">
+        <img src="../../../assets/images/services/Gestion de tramites servicio.svg" alt="Servicios de Facturación">
+      </div>
+      <div class="service-content_box">
+        <div class="service-content">
+          <h3 class="service-title">Servicios de Facturación</h3>
+          <p class="service-description">Desde S/.70</p>
+          <button class="view-more-button" (click)="openModal('modal2')">Ver más</button>
+          <p class="service-description_disclaimer"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicio 3 -->
+    <div class="service-box">
+      <div class="service-image">
+        <img src="../../../assets/images/services/Servicio contable.svg" alt="Servicio contable">
+      </div>
+      <div class="service-content_box">
+        <div class="service-content">
+          <h3 class="service-title">Servicio Contable</h3>
+          <p class="service-description">Desde S/. 250</p>
+          <button class="view-more-button" (click)="openModal('modal3')">Ver más</button>
+          <p class="service-description_disclaimer"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicio 4 -->
+    <div class="service-box">
+      <div class="service-image">
+        <img src="../../../assets/images/services/Gestion de tramites legales.svg" alt="Trámites Legales">
+      </div>
+      <div class="service-content_box">
+        <div class="service-content">
+          <h3 class="service-title">Gestión de Trámites Legales</h3>
+          <p class="service-description"></p>
+          <button class="view-more-button" (click)="openModal('modal4')">Ver más</button>
+          <p class="service-description_disclaimer">*No tiene costo adicional</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicio 5 -->
+    <div class="service-box">
+      <div class="service-image">
+        <img src="../../../assets/images/services/Servicios administrativos.svg" alt="Servicios administrativos">
+      </div>
+      <div class="service-content_box">
+        <div class="service-content">
+          <h3 class="service-title">Servicios Administrativos</h3>
+          <p class="service-description"></p>
+          <button class="view-more-button" (click)="openModal('modal5')">Ver más</button>
+          <p class="service-description_disclaimer">*Los costos varian</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicio 6 -->
+    <div class="service-box">
+      <div class="service-image">
+        <img src="../../../assets/images/services/Plataforma de gestion.svg" alt="Plataforma de gestion">
+      </div>
+      <div class="service-content_box">
+        <div class="service-content">
+          <h3 class="service-title">Asesoramiento</h3>
+          <p class="service-description"></p>
+          <button class="view-more-button" (click)="openModal('modal6')">Ver más</button>
+          <p class="service-description_disclaimer">*Los costos varian</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODALES-->
+
+<!-- Modal 1 -->
+<div id="modal1" class="modal">
+  <div class="modal-content modal-header modal-dialog modal-constitucion modal-lg ">
+    <button class="btn-close" (click)="closeModal('modal1')"></button>
+    <div class="modal-text">
+      <div class="modal-body modal-text-constitucion">
+        <h6 class="modal-title" id="exampleModalToggleLabel">Constitución de Empresas</h6>
+        <h1 class="modal-body_slogan">¡Dale vida a tu sueño empresarial en solo 6 pasos con GestiPyme!</h1>
+        <h3>Tenemos costos desde 429</h3>
+        <p class="p1"><strong>1. Registra tu Empresa:</strong> Completa el formulario de registro con tus datos y los de tu
+          empresa.</p>
+        <p class="p2"><strong>2. Elige tu Tipo de Empresa:</strong> Selecciona entre EIRL, SRL u otro tipo de sociedad.</p>
+        <p class="p3"><strong>3. Define tu Capital Social:</strong> Establece el monto inicial de inversión para tu empresa.</p>
+        <p><strong>4. Elige tu Razón Social:</strong> Selecciona el nombre que identificará a tu negocio ante la ley.
+        </p>
+        <p><strong>5. Registra tu RUC:</strong> Obtén tu Registro Único de Contribuyentes para operar legalmente.</p>
+        <p><strong>6. Firma tu Documentación:</strong> Revisa y firma los documentos para completar el proceso.</p>
+        <div class="modal-body_buttons">
+          <a routerLink="/crear-empresa" class="btn-bussines btn-secondary "
+            (click)="closeModal('modal1'); redirectToCrearEmpresa()">Crea tu
+            empresa</a>
+          <a href="#serviceplans" class="btn-plans btn-secondary" (click)="closeModal('modal1')">Ver planes</a>
+        </div>
+        <div class="modalfooter">
+          <button type="button" class="btn-more_services" (click)="closeModal('modal1')">Ver más servicios</button>
+        </div>
+      </div>
+      <img src="../../../assets/images/modals/modal1.svg" alt="" class="img-modal">
+    </div>
+  </div>
+</div>
+<!-- Modal 2 -->
+<div id="modal2" class="modal">
+  <div class="modal-content modal-header modal-dialog modal-constitucion modal-lg ">
+    <button class="btn-close" (click)="closeModal('modal2')"></button>
+    <div class="modal-text">
+      <div class="modal-body modal-text-constitucion">
+        <h6 class="modal-title" id="exampleModalToggleLabel">Servicios de Facturación</h6>
+        <h1 class="modal-body_slogan">¿Quieres simplificar tu facturación y llevar el control de tus ventas de manera
+          eficiente?</h1>
+        <h3>Tenemos paquetes al alcance de tu bolsillo, desde S/99.</h3>
+        <p class="modal-body_paragraph">Con nuestra plataforma, podrás generar, enviar y gestionar tus facturas de forma
+          rápida y sencilla,
+          manteniendo un registro preciso de todas tus transacciones comerciales.
+          No pierdas más tiempo con procesos complicados. ¡Con <strong>GestiPyme</strong>,
+          la facturación de tu empresa nunca había sido tan fácil!
+        </p>
+        <div class="modal-body_buttons">
+          <button type="button" class="btn-bussines btn-secondary" (click)="closeModal('modal2'); redirectToCrearEmpresa()" >¡Comienza
+            ahora!</button>
+          <a href="#serviceplans" class="btn-plans btn-secondary" (click)="closeModal('modal2')">Ver planes</a>
+        </div>
+        <div class="modalfooter">
+          <button type="button" class="btn-more_services" (click)="closeModal('modal2')">Ver más servicios</button>
+        </div>
+      </div>
+      <img src="../../../assets/images/modals/modal2.svg" alt="" class="img-modal">
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+<div id="modal3" class="modal">
+  <div class="modal-content modal-header modal-dialog modal-constitucion modal-lg ">
+    <button class="btn-close" (click)="closeModal('modal3')"></button>
+    <div class="modal-text">
+      <div class="modal-body modal-text-constitucion">
+        <h6 class="modal-title" id="exampleModalToggleLabel">Servicio Contable</h6>
+        <h1 class="modal-body_slogan">¿Quieres llevar la contabilidad de tu negocio de manera eficiente y sin
+          complicaciones?</h1>
+        <h3>Nuestros servicios contables simplifican tus procesos
+          financieros y garantizan control total.</h3>
+        <p class="modal-body_paragraph">Con nuestra plataforma de contabilidad, podrás gestionar tus libros contables,
+          generar informes financieros y realizar un seguimiento preciso de tus ingresos y
+          gastos.</p>
+        <div class="modal-body_buttons">
+          <button type="button" class="btn-bussines btn-secondary" (click)="closeModal('modal3'); redirectToCrearEmpresa()">¡Comienza
+              ahora!</button>
+          <a href="#serviceplans" class="btn-plans btn-secondary" (click)="closeModal('modal3')">Ver planes</a>
+        </div>
+        <div class="modalfooter">
+          <button type="button" class="btn-more_services" (click)="closeModal('modal3')">Ver más servicios</button>
+        </div>
+      </div>
+      <img src="../../../assets/images/modals/modal3.svg" alt="" class="img-modal">
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4 -->
+<div id="modal4" class="modal">
+  <div class="modal-content modal-header modal-dialog modal-constitucion modal-lg ">
+    <button class="btn-close" (click)="closeModal('modal4')"></button>
+    <div class="modal-text">
+      <div class="modal-body modal-text-constitucion">
+        <h6 class="modal-title" id="exampleModalToggleLabel">Gestión de Trámites Legales</h6>
+        <h1 class="modal-body_slogan">¿Quieres asegurarte de que todos los aspectos legales de tu negocio estén en orden
+          y al día?</h1>
+        <h3>En GestiPyme, entendemos la importancia de una gestión
+          legal eficiente y sin complicaciones.</h3>
+        <p class="modal-body_paragraph">Confía en GestiPyme para manejar todos los aspectos legales de tu empresa de
+          manera eficiente y
+          profesional. ¡Deja que nosotros nos encarguemos de la burocracia para que tú
+          puedas concentrarte en lo que realmente importa: hacer crecer tu negocio!</p>
+        <div class="modal-body_buttons">
+          <button type="button" class="btn-bussines btn-secondary " (click)="closeModal('modal4'); redirectToCrearEmpresa()">Crea tu
+              empresa</button>
+          <a href="#serviceplans" class="btn-plans btn-secondary" (click)="closeModal('modal4')">Ver planes</a>
+        </div>
+        <div class="modalfooter">
+          <button type="button" class="btn-more_services" (click)="closeModal('modal4')">Ver más servicios</button>
+        </div>
+      </div>
+      <img src="../../../assets/images/modals/modal4.svg" alt="" class="img-modal">
+    </div>
+  </div>
+</div>
+
+<!-- Modal 5 -->
+<div id="modal5" class="modal">
+  <div class="modal-content modal-header modal-dialog modal-constitucion modal-lg ">
+    <button class="btn-close" (click)="closeModal('modal5')"></button>
+    <div class="modal-text">
+      <div class="modal-body modal-text-constitucion">
+        <h6 class="modal-title" id="exampleModalToggleLabel">Servicios Administrativos</h6>
+        <h1 class="modal-body_slogan">¿Quieres liberarte de la carga de las tareas administrativas y enfocarte en hacer
+          crecer tu negocio?</h1>
+        <h3>La gestión administrativa puede ser abrumadora y consumir
+          mucho tiempo.</h3>
+        <p>Confía en GestiPyme para manejar tus tareas administrativas de manera profesional y eficiente.
+          Nos esforzamos por ofrecer un servicio excepcional y personalizado que se adapte a las
+          necesidades específicas de tu empresa. ¡Deja que nosotros nos encarguemos de las tareas
+          administrativas para que puedas enfocarte en impulsar el crecimiento y el éxito de tu negocio!</p>
+        <div class="modal-body_buttons">
+          <button type="button" class="btn-bussines btn-secondary " (click)="closeModal('modal5'); redirectToCrearEmpresa()">Crea tu
+                empresa</button>
+          <a href="#serviceplans" class="btn-plans btn-secondary" (click)="closeModal('modal5')">Ver planes</a>
+        </div>
+        <div class="modalfooter">
+          <button type="button" class="btn-more_services" (click)="closeModal('modal5')">Ver más servicios</button>
+        </div>
+      </div>
+      <img src="../../../assets/images/modals/modal5.svg" alt="" class="img-modal">
+    </div>
+  </div>
+</div>
+
+<!-- Modal 6 -->
+<div id="modal6" class="modal">
+  <div class="modal-content modal-header modal-dialog modal-constitucion modal-lg ">
+    <button class="btn-close" (click)="closeModal('modal6')"></button>
+    <div class="modal-text">
+      <div class="modal-body modal-text-constitucion">
+        <h6 class="modal-title" id="exampleModalToggleLabel">Asesoramiento</h6>
+        <h1 class="modal-body_slogan">¿Quieres simplificar la gestión de tu empresa y aumentar la eficiencia de
+          tus operaciones?</h1>
+        <h3>Podrás centralizar todas tus operaciones
+          enun solo lugar.</h3>
+        <p class="modal-body_paragraph">Nuestra plataforma es fácil de usar y está diseñada pensando en tu
+          comodidad. Con una interfaz intuitiva y funciones personalizables,
+          podrás adaptar la plataforma a las necesidades específicas de tu empresa y aumentar la
+          productividad de tu equipo.</p>
+        <div class="modal-body_buttons">
+
+          <button type="button" class="btn-bussines btn-secondary " (click)="closeModal('modal6'); redirectToCrearEmpresa()">Crea tu
+                  empresa</button>
+          <a href="#serviceplans" class="btn-plans btn-secondary" (click)="closeModal('modal6')">Ver planes</a>
+        </div>
+        <div class="modalfooter">
+          <button type="button" class="btn-more_services" (click)="closeModal('modal6')">Ver más servicios</button>
+        </div>
+      </div>
+      <img src="../../../assets/images/modals/modal6.svg" alt="" class="img-modal">
+    </div>
+  </div>
+</div>

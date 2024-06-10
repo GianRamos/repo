@@ -1,0 +1,73 @@
+<section class="container-fluid p-0 m-0">
+    <div class="container-logo">
+        <img class="container-logo__img costurera" src="../../../../../assets/images/login/costurera.svg" alt="">
+        <img class="container-logo__img caja" src="../../../../../assets/images/login/cajas.svg" alt="">
+        <img class="container-logo__img azul" src="../../../../../assets/images/login/mujer azul.svg" alt="">
+
+        <div class="new-login">
+            <p class="new">Ya eres miembro?</p>
+            <a class="button-new-login" href="iniciar-sesión">Iniciar sesión</a>
+        </div>
+    </div>
+    <div class="container-register">
+        <div class="register-box">
+            <h3>Crea una cuenta</h3>
+            <h5>Somos tu mejor aliado para hacer crecer tu negocio</h5>
+            <form class="container-form">
+                <div class='register'>
+                    <div class="group-one">
+                        <div class="ruc">
+                            <label for="ruc">RUC</label>
+                        <input class="input" type="text" id="ruc" name="ruc"
+                            placeholder="RUC">
+                        </div>
+                        <div class="puesto">
+                            <label for="puesto">Puesto</label>
+                            <select id="puesto" name="puesto">
+                                <option value="" disabled selected hidden>Puesto</option>
+                                <option value="perro">Administración</option>
+                                <option value="gato">Contabilidad</option>
+                                <option value="pajaro">Gerente</option>
+                                <option value="pez">Practicante</option>
+                            </select>
+                        </div>    
+                    </div>
+                    <div class="nombre">
+                        <label for="nombre">Nombre completo</label>
+                        <input class="input" type="text" id="nombre" name="nombre"
+                            placeholder="Nombre completo">
+                    </div>
+                    
+                    <div class="group-two">
+                        <div class="mail">
+                            <label for="email">Correo electrónico</label>
+                            <input class="input-button login-email__input login-email__input" type="text" id="email" name="email"
+                            placeholder="Correo electrónico">
+                        </div>
+                        <div class="celular">
+                            <label for="celular">Celular</label>
+                        <input class="input-button login-email__input login-email__input" type="text" id="celular" name="celular"
+                            placeholder="Celular">
+                        </div>
+                        
+                    </div>
+                    <div class="password">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="input-button" id="password" name="password" placeholder="Contraseña">
+                    </div>
+                    <div class="password">
+                        <label for="confirm-password">Validar contraseña</label>
+                        <input type="password" class="input-button" id="confirm-password" name="confirm-password"
+                            placeholder="Validar contraseña">
+                    </div>          
+                </div>
+                <div class="d-flex justify-content-start">
+                    <button class="btn w-50 button-register" type="button" (click)="registerUser()">Registrarse</button>
+                </div>
+            </form>
+              <p class="login">¿Ya tienes una cuenta? <a routerLink="/iniciar-sesión">Iniciar sesión</a></p>
+        </div>
+    </div>
+    <div class="background-box"></div>
+</section>
+

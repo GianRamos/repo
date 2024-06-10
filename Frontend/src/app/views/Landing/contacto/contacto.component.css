@@ -1,0 +1,106 @@
+.g5-product {
+  width: 100%;
+}
+.cf {
+  zoom: 1;
+}
+
+.cf:after,
+.cf:before {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.b6 {
+  padding: 70px 0 100px 0;
+}
+.swal2-title {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  color: #154C75;
+}
+
+@media screen and (max-width: 767px) {
+  .b6 {
+      padding-bottom: 70px;
+  }
+}
+
+.b6-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 960px) {
+  .b6-content {
+      flex-direction: column;
+  }
+}
+
+.b6-image {
+  width: calc(650% * 100 / 1200);
+  margin: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .b6-image {
+      width: 100%;
+      margin-bottom: 40px;
+  }
+}
+
+.b6-image img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.b6-info {
+  width: calc(486% * 100 / 1200);
+}
+
+@media screen and (max-width: 960px) {
+  .b6-info {
+      width: 100%;
+  }
+}
+
+.b6-title {
+  display: block;
+  line-height: 46px;
+  color: #181818;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 38px;
+  margin: 0 0 45px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .b6-title {
+      line-height: 1.3;
+      font-size: 30px;
+      margin-bottom: 30px;
+  }
+}
+
+.b6-description {
+  display: block;
+  line-height: 26px;
+  color: #181818;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+}
+
+.b6-description p {
+  margin: 0;
+}

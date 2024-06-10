@@ -1,0 +1,2733 @@
+/* Estilos para el contenedor principal */
+
+.container-create-company {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: calc(100% - 80px);
+  overflow: hidden;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/*fondos*/
+.container-selection {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #154C75 40%, transparent);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+/* Estilos para el stepper */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+
+  z-index: 5;
+  background-color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 0 0 22px 22px;
+  height: 2.5rem;
+}
+
+.stepper__step {
+  width: 20px;
+  height: 20px;
+  background-color: #1B376F;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.active {
+  background-color: #1AA1E1;
+  color: white;
+  top: -0.4rem;
+  position: relative;
+}
+
+.completed {
+  background-color: gray;
+  color: white;
+  top: -0.4rem;
+  position: relative;
+}
+
+/* Estilos para la selección de tipo de empresa */
+/* STEP 1*/
+.company-selection {
+  background-color: #F8F8F9;
+  padding: 2rem;
+  display: flex;
+  width: 52.5rem;
+  height: 34rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 2rem;
+  margin-top:2rem;
+}
+
+.company-selection__title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #154C75;
+}
+
+.company-selection__title__strong {
+  font-size: 1.8rem;
+  color: #154C75;
+}
+
+.company-selection__options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  height: 100%;
+}
+
+.company-selection__option {
+  margin-bottom: 5px;
+  display: flex;
+  padding: 0.5rem;
+  color: #154C75;
+  background-color: #FFFFFF;
+  border-radius: 20PX;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.company-selection__option input {
+  margin-left: 0.5rem;
+}
+.company-selection__container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: flex-start;
+}
+
+.company-selection__label {
+  font-weight: 800;
+}
+
+.company-selection__description {
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 12.5px;
+  line-height: normal;
+  text-align: justify;
+}
+
+.company-selection__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+.step1-options {
+  position: relative;
+}
+.step1-options select {
+  width: 40%;
+  margin-top: 1rem;
+  margin-bottom: 16px;
+  position: relative;
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 1px solid #081D6C;
+  border-radius: 15px;
+  outline: none;
+  padding: 0.6rem;
+}
+.step1-options label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color:#154C75;
+  font-size: 14px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.step1-options select.has-value + label {
+  top: 22%;
+  left: 10px;
+  font-size: 11px;
+  padding: 0 5px;
+  background: #F8F8F9;
+  border-radius: 15px;
+}
+
+
+/* Estilos para los botones */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn--secondary {
+  background-color: #FFFFFF ;
+  border: 1px solid #0F72A1;
+  border-radius: 25px;
+  color: #0F72A1;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn--primary {
+  background-color: #0F72A1;
+  border: 1px solid #FFFFFF;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.company-selection__optionsCapital {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+/*----STEP 1----*/
+.header-step1 {
+  display: flex;
+  gap: 0.7rem;
+}
+.header-step1 h2 {
+  width: 70%;
+}
+.header-step1 button {
+  color: #f8f8f9;
+  background-color: #154C75;
+  font-size: 13PX;
+  font-weight: 400;
+  width: 29%;
+  text-decoration: underline;
+  margin: 0;
+  line-height: 2;
+  height: 1.7rem;
+  padding: 0 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+/* STEP 2*/
+.header-step2 {
+  display: flex;
+  gap: 0.7rem;
+}
+.header-step2 h2 {
+  width: 70%;
+}
+.header-step2 button {
+  color: #FFFFFF;
+  background-color: #154C75;
+  font-size: 11PX;
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 0;
+  line-height: 2;
+  height: 1.5rem;
+  padding: 0 1rem;
+  border-radius: 8px;
+  border: none;
+}
+.company-selection__capital {
+  color: #154C75;
+  padding: 0.2rem;
+}
+
+.options-capital {
+  width: 100%;
+  height: 30%;
+}
+
+.money-contribution__input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #081D6C;
+  padding: 0.7rem;
+  font-size: 16px;
+}
+.money-contribution__paymentamount{
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 0.8rem;
+}
+
+.money-contribution__warning {
+  background-color: #D9D9D9;
+  color: #1B376F;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 0.7rem;
+  display: grid;
+  grid-template-columns: 0.2fr 2fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.money-contribution__warning-icon {
+  background-image: url('../../../../assets/images/createCompany/warning.svg');
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.mix-contribution__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.mix-contribution {
+  background-color: #D9D9D9;
+  border-radius: 25px;
+  padding: 1.5rem 1.3rem;
+  margin-top: 1rem;
+}
+.mix-contribution__info-text {
+  font-size: 12px;
+}
+
+.rango-capital-social {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  text-decoration: underline;
+}
+.money-contribution__p {
+  font-size: 12.5px;
+}
+
+ /*SETP 3*/
+
+.header-step3 {
+  display: flex;
+  gap: 0.7rem;
+}
+.header-step3 h2 {
+  width: 60%;
+  font-size: 1.3rem;
+  line-height: normal;
+}
+.header-step3 button {
+  color: #154C75;
+  font-size: 13px;
+  font-weight: 800;
+  width: 52%;
+  text-decoration: underline;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  text-align: end;
+}
+.section__description {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.input-group-company {
+  width: 100%;
+}
+
+.input-group__item {
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  position: relative;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 0.3rem 0.3rem 0;
+}
+
+.input--big, .input--small {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #081D6C;
+  padding: 0.5rem;
+  font-size: 14px;
+
+}
+.input--small {
+  width: 4rem;
+}
+
+.company-selection__name__Company {
+  display: flex;
+  gap: 0.7rem;
+  color: #154C75;
+}
+.container__left-column{
+  width: 200%;
+}
+
+.section--activities-selection__group {
+  display: flex;
+  gap: 1rem;
+}
+
+.section__title {
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.textarea {
+  width: 75%;
+  border: 1px solid #081D6C;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.description-feedback {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem;
+  padding-top: 0.9rem;
+  width: 50%;
+  height: 90%;
+  overflow: hidden;
+}
+
+.advice-item {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  align-items: center;
+  justify-items: end;
+}
+
+.advice-item--approved, .advice-item--rejected {
+  padding-left: 0.35rem;
+}
+
+.check {
+  background-image: url('../../../../assets/images/createCompany/check.svg');
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.no-check {
+  background-image: url('../../../../assets/images/createCompany/no.svg');
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.advice-text {
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0;
+}
+.advice-detail {
+  font-size: 12px;
+}
+
+.container__right-column {
+  border: 1px solid #AAA7A7;
+  border-radius: 16px;
+  padding: 0.5rem;
+}
+
+.notification {
+  padding: 0.4rem 0.5rem;
+}
+
+.notification__title {
+  display: flex;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: -5px;
+}
+
+.notification-warning {
+  background-image: url('../../../../assets/images/createCompany/warning.svg');
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.notification__list {
+  font-size: 11px;
+  padding: 0 0.9rem;
+}
+
+.restricted-activities {
+  background: linear-gradient(to right, #154C75 35%, #278EDB);
+  color:#FFFFFF;
+  font-weight: 600;
+  padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+  border-radius: 12px;
+}
+
+.restricted-activities__title {
+  font-size: 12px;
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  line-height: 1.1rem;
+}
+.restricted-activities__list {
+  padding: 0 0 0 1rem;
+  width: 100%;
+  margin: 0;
+}
+.restricted-activities__item {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.step3-razon-social {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 13px;
+}
+
+/*-------STEP 4*--------*/
+.box-message {
+  position: relative;
+}
+.box-message_notaria {
+  background: linear-gradient(to right, #154C75 35%, #278EDB);
+  border-radius: 20px;
+  height: 7rem;
+  color:#FFFFFF;
+  padding: 1.5rem;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 16px;
+}
+.box-message_domicilio {
+  background: linear-gradient(to right, #154C75 35%, #278EDB);
+    border-radius: 20px;
+    color: #FFFFFF;
+    padding: 1.5rem;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    text-align: center;
+}
+.secondLine {
+  margin-top: -0.5rem;
+}
+.image-stepfour {
+  width: 100%;
+  position: relative;
+  top: 7rem;
+}
+
+.step--four--img {
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  left: 2rem;
+}
+
+/*STEP 5*/
+.company-selection-step5 {
+  display: flex;
+  flex-direction: column;
+}
+.name-lastname, .documents-information, .contact-information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.left-column, .right-column,
+.name, .document-type,
+.lastname, .document-number {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-column, .right-column {
+  display: flex;
+  position: relative;
+  gap: 1.5rem;
+}
+
+.name input, .document-type select, .mobile input, .mail input, .lastname input, .document-number input{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #081D6C;
+  padding: 0.5rem;
+  font-size: 14px;
+}
+.name label, .document-type label, .mobile label, .mail label, .lastname label, .document-number label {
+  color: #6C757D;
+  font-weight: 400;
+}
+.terms {
+  position: relative;
+  bottom: -50px;
+  display: flex;
+}
+.terms input{
+  border-radius: 5px;
+  border: 1px solid #081D6C;
+  padding: 0.5rem;
+  font-size: 14px;
+}
+.terms label {
+  color: #154C75;
+  font-weight: 400;
+  font-size: 13px;
+  margin-left: 0.2rem;
+
+}
+
+.box-gestyasesores {
+  background: linear-gradient(to right, #154C75 35%, #278EDB);
+  border-radius: 20px;
+  height: 10rem;
+  color: #FFFFFF;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.mobile input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Oculta el checkbox original */
+.custom-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.terms label {
+  position: relative;
+  padding-left: 30px;
+}
+
+.terms label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #154C75;
+  background-color: #F8F8F9;
+  border-radius: 3px;
+}
+
+/* Marca de verificación */
+.terms label::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  width: 6px;
+  height: 12px;
+  border: solid transparent;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border-color: white;
+}
+
+.custom-checkbox:checked + label::before {
+  background-color: #154C75; 
+  border-color: #154C75;
+}
+
+.custom-checkbox:checked + label::after {
+  opacity: 1;
+}
+
+.terms a {
+  color: #154C75;
+  font-weight: 500;
+}
+
+/* STEP 6*/
+.payment {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.payment-box {
+  height: 7.5rem;
+}
+.company-selection__price {
+  font-weight: 800;
+  font-size: 20px;
+  margin: 0;
+  margin-top: 0.8rem;
+}
+.company-selection__subtext {
+  color:#154C75;
+  line-height: 0.7;
+}
+.full-payment-company button {
+  font-weight: 600;
+  color:#154C75;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+.step6-title {
+  color:#154C75;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.payment_credit-img {
+  display: flex;
+  gap: 0.5rem;
+}
+.step6-payment-box {
+  height: 9.5rem;
+}
+.verification-instructions {
+  font-size: 11.6px;
+  line-height: normal;
+  text-align: justify;
+  padding: 0 0.5rem 0 0;
+}
+.img-click {
+  padding: 0 0.2rem 0 0.2rem;
+  height: 2rem;
+    width: 8rem;
+}
+.icon-text-container {
+  margin-bottom: 0.5rem;
+}
+.step6-subtext {
+  margin-top: 1rem;
+  line-height: normal;
+  margin-bottom: 0.5rem;
+}
+
+.container-step6 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: #154C75;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  gap: 1rem;
+  justify-items: start;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+.container-date-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1.5rem;
+  width: 100%;
+  height: -webkit-fill-available;
+  justify-content: center;
+}
+.date-item {
+  display: flex;
+  gap: 0.5rem;
+}
+.current-date {
+  display: inline-block;
+  border: none;
+  background: none;
+  color: inherit;
+  font-weight: 600;
+  width: 100%;
+}
+.final-text-step6 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+.final-text-step6 p {
+  margin: 0;
+  padding: 0 1rem;
+
+  align-items: flex-end;
+  color: #154C75;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.final-text-step6 strong {
+  margin: 0 5px;
+}
+.current-day {
+  position: relative;
+  justify-content: center;
+  width: 60%;
+}
+
+/*------------------MODALES---------------------*/
+.button-close {
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  color: #FFFFFF;
+  padding: 0.5rem;
+}
+
+.modal-step1 {
+  width: 100%;
+}
+.container-modal-step1 {
+  padding: 2rem;
+  display: flex;
+  width: 52.5rem;
+  height: 34rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 2rem;
+  position: relative;
+  top: 8.5rem;
+  background-image: -webkit-linear-gradient(top, #154C75 10%, #1AA1E1 50%, #154C75 90%);
+  overflow: hidden;
+}
+.container-typecompany-modal {
+  display: flex;
+  flex-direction: column;
+}
+.header-options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.title-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid #F8F8F9;
+  border-radius: 8px;
+  padding: 0.2rem 1.5rem 0.2rem 1.5rem;
+  font-size: 14px;
+  color: #FFFFFF;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  height: 2.5rem;
+  width: 5rem;
+}
+.sac-directory {
+  width: 100%;
+  padding: 0.2rem 0 0.2rem 0;
+}
+.header-modal{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.logo-modal {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+.logo-modal p {
+  margin: 0;
+}
+
+.table-step1 {
+  display: grid;
+  grid-template-columns: repeat(5, 4fr);
+  gap: 1rem;
+}
+
+.table-step1 p {
+  display: flex;
+  padding: 0.7rem;
+  color: #154C75;
+  background-color: #FFFFFF;
+  border-radius: 10PX;
+  font-size: 12px;
+  line-height: 1.2;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.table-step1_box {
+  height: 3rem;
+  font-weight: 800;
+}
+.table-step1_boxinfo {
+  font-weight: 600;
+}
+
+/* STEP 2 */
+.logo-modal2 img {
+  width: 90px;
+}
+.logo-modal2 p {
+  margin: 0;
+  line-height: 0.6;
+  color: #FFFFFF;
+}
+.logo-modal2 {
+  margin-bottom: 1.5rem;
+}
+
+.container-modal-step2 {
+  background-color: #F8F8F9;
+  border: 5px solid #FFFFFF;
+  padding: 2rem;
+  display: flex;
+  width: 50rem;
+  height: 36rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  position: relative;
+  top: 5rem;
+  background: linear-gradient(to right, #154C75 45%, #278EDB);
+  overflow: hidden;
+}
+
+.container-details-table {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  display: flex;
+  justify-content: center;
+  padding: 0rem 1rem 1rem;
+}
+.table-step2 {
+  width: 90%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  color: #154C75;
+  font-weight: 600;
+}
+tr:nth-child(odd) {
+  background-color: none;
+}
+
+tr:nth-child(even) {
+    background-color: #D9D9D9;
+}
+
+.table-column-capital, .table-column-price {
+  font-size: 16px;
+}
+
+/* MODAL STEP 4*/
+.container-modal-step4 {
+  background-color: #F8F8F9;
+  padding: 2rem;
+  display: flex;
+  width: 52.5rem;
+  height: 34rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 2rem;
+  position: absolute;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.modal-step4 h2{
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  color: #154C75;
+}
+
+.select-province_options, .select-district_options {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  background: none;
+  padding: 0.5rem;
+}
+
+.message-select-Notaria {
+  background: linear-gradient(to top, #154C75 35%, #278EDB);
+  border-radius: 20px;
+  color: #FFFFFF;
+  padding: 1rem;
+  justify-content: flex-end;
+  font-size: 16px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20rem;
+}
+.message-select-Notaria p {
+  position: relative;
+  width: 90%;
+  font-weight: 600;
+}
+.message-select-Notaria img {
+  width: 100%;
+}
+
+.adress input {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  background: none;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.list-notarias-box {
+  margin-top: 1.5rem;
+  color: #1B376F;
+}
+.list-notarias-p {
+  font-weight: 600;
+  font-size: 13px;
+  width: 40%;
+  margin: 0;
+}
+.list-Notarias {
+  list-style-type: none;
+  margin-top: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 20PX;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  width: 90%;
+}
+.modal-map-notarias{
+  margin-top: 0.5rem;
+  background-color: #154C75;
+  color:#FFFFFF;
+  width: 40%;
+  font-size: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  position: relative;
+  left: 13rem;
+}
+.modal-map-notarias p {
+  margin: 0;
+}
+.modal-map-notarias img {
+  margin-left: 0.2rem;
+}
+
+.modal-map-district {
+  margin-top: 0.5rem;
+  background-color: #154C75;
+  color:#FFFFFF;
+  width: 40%;
+  font-size: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+.modal-map-district p {
+  margin: 0;
+}
+.modal-map-district img {
+  margin-left: 0.2rem;
+}
+
+
+/* MODAL STEP 3 */
+.container-modal-step3 {
+  background-color: #F8F8F9;
+  padding: 2rem;
+  display: flex;
+  width: 52.5rem;
+  height: 34rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 2rem;
+  position: relative;
+  top: 8.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+.modal-step3 {
+  height: 70%;
+}
+.header-modal3 {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  position: relative;
+  top: -10px;
+}
+.title-modal-step3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -2.8rem;
+  color: #154C75;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+.modal-step3 h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #154C75;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.step3-draganddrop {
+  height: 80%;
+}
+
+.upload-doc {
+  width: 100%;
+  height: 80%;
+}
+.step3-upload-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed black;
+  border-radius: 8px;
+  background-color: #D9D9D9;
+  padding: 1rem;
+  width: 100%;
+  gap: 1rem;
+}
+
+.btn-upload-doc {
+  text-align: center;
+  background-color: #0F72A1;
+  border: 1px solid #FFFFFF;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  width: 10%;
+  position: relative;
+  left: 45%;
+  z-index: 10;
+}
+.img-modal-step3 {
+  width: 35%;
+  position: relative;
+  z-index: 8;
+  bottom: 12rem;
+}
+.error-message p {
+  color: #BA2D1D;
+  font-weight: 600;
+    margin-top: 10px;
+}
+
+.container-modal-step6 {
+  background-color: #F8F8F9;
+  padding: 2rem;
+  display: flex;
+  width: 52.5rem;
+  height: 34rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 2rem;
+  position: relative;
+  top: 8.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+.header-modal6 {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  position: relative;
+  top: -10px;
+}
+.button-close-payment {
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  color: #FFFFFF;
+  padding: 0.5rem;
+  position: relative;
+  top: -0.5rem;
+  right: -0.5rem;
+}
+
+.title-payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -2.8rem;
+  color: #154C75;
+  gap: 0.4rem;
+}
+.pago {
+  font-size: 30px;
+  font-weight: 800;
+}
+.payment-details {
+  color: #154C75;
+  position: relative;
+  top: -30px;
+}
+.payment-step h3 {
+  font-weight: 400;
+  font-size: 18px;
+}
+.payment-option {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-evenly;
+}
+.bcp-bcp, .otherbanks {
+  margin-bottom: 15px;
+  display: flex;
+  padding: 1rem;
+  color: #154C75;
+  background-color: #F8F8F9;
+  border-radius: 20PX;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  width: 50%;
+}
+.account-number {
+  display: flex;
+  background-color: #D9D9D9;
+  padding: 0.5rem;
+  width: 50%;
+  justify-content: flex-end;
+  position: relative;
+  left: 180px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cci-number {
+  display: flex;
+  background-color: #D9D9D9;
+  padding: 0.5rem;
+  width: 58%;
+  justify-content: flex-end;
+  position: relative;
+  left: 150px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.copy-button {
+  border: none;
+  background-color: none;
+}
+.bcp-bcp h4, .otherbanks h4 {
+  margin: 0;
+  font-weight: 600;
+}
+.bcp-bcp p, .otherbanks p{
+  font-weight: 600;
+  font-size: 13px;
+  margin: 0;
+}
+.upload-section-content {
+  display: grid;
+  border: 2px dashed black;
+  border-radius: 8px;
+  grid-template-columns: 1fr 2fr;
+  background-color: #D9D9D9;
+  padding: 1rem;
+  height: 8.5rem;
+  width: 100%;
+}
+.upload-section {
+  display: flex;
+  width: 50%;
+  justify-content: flex-start;
+}
+
+#fileInput {
+  display: none;
+}
+.upload-icon {
+  display: inline-flex;
+  justify-content: center;
+}
+.upload-icon img {
+  width: 60px;
+}
+.upload-section-text {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+.upload-section-text p {
+  font-weight: 600;
+  margin: 0;
+}
+
+.btn-sendpayment {
+  text-align: center;
+  background-color: #0F72A1;
+  border: 1px solid #FFFFFF;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  width: 20%;
+  position: relative;
+  left: 80%;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.file-info p {
+  margin-right: 10px;
+}
+
+.file-info button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.file-info button img {
+  width: 20px;
+  height: 20px;
+}
+
+/*PAYMENT SENT*/
+.container-modal-paymentsent {
+  display: flex;
+  width: 50rem;
+  height: 36rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  position: relative;
+  top: 5rem;
+  background: linear-gradient(to right, #154C75 45%, #278EDB);
+  overflow: hidden;
+  padding: 0.7rem;
+}
+.container-payment-sent {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  position: relative;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+}
+.paymentesent-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #154C75;
+}
+.paymentesent-header img {
+  width: 50%;
+}
+.paymentesent-header h2 {
+  font-weight: 800;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.icon-text-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: 16px;
+  color: #1B376F;
+}
+.icon-container {
+  display: flex;
+  gap: 1rem;
+}
+.small-text {
+  color: #154C75;
+  font-size: 12px;
+}
+.btn-payment-sent {
+  text-align: center;
+  background-color: #0F72A1;
+  border: 1px solid #FFFFFF;
+  border-radius: 25px;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* MODAL REVISA INFORMACIÓN*/
+.check-information {
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  position: relative;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #1B376F;
+}
+
+.container-check-information {
+  background-color: #F8F8F9;
+  display: flex;
+  width: 52.5rem;
+  height: 34rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 2rem;
+  position: relative;
+  top: 8.5rem;
+  background-image: linear-gradient(to right, #154C75 50%, #1AA1E1);
+  overflow: hidden;
+  padding: 0.7rem;
+}
+.check-information__label, .check-information__cost {
+  font-weight: 800;
+}
+
+.check-information__info {
+  font-size: 14px;
+}
+
+.container-registered-data {
+  width: 90%;
+  position: relative;
+  left: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.check-information__field {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.check-information__input, .check-information__select {
+  width: 100%;
+  border-radius: 5px;
+}
+.check-information__button {
+  text-align: center;
+  background-color: #0F72A1;
+  border: 1px solid #FFFFFF;
+  border-radius: 25px;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  font-weight: 800;
+  font-size: 16px;
+  width: 100%;
+}
+.check-information__select {
+  width: 30.5%;
+}
+.check-information__input--small {
+  width: 30%;
+}
+#modalidad-firma, #tipo-empresa {
+  width: 50%;
+}
+.check-information__total-cost {
+  display: flex;
+}
+.check-information__checkbox {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 13px;
+}
+.checkbox-text-underline {
+  text-decoration: underline;
+}
+
+.check-information__body input, select {
+  padding: 0.3rem;
+}
+
+.check-information__footer {
+  margin-top: 1.7rem;
+}
+.whatsapp-button {
+  position: fixed;
+  z-index: 1120;
+  display: flex;
+  left: 528px;
+  gap: 0.5rem;
+  top: 628px;
+}
+
+.whatsapp-button p {
+  font-weight: 400;
+  color: #154C75;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 0;
+  position: relative;
+  left: 1.4rem;
+  z-index: -1;
+}
+
+.whatsapp-button a {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: #00BB2D;
+  border-radius: 50%;
+  border: 3px solid #FFFFFF;
+  text-align: center;
+  line-height: 60px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.whatsapp-button img {
+  background-color: #00BB2D;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.underline {
+  text-decoration: underline;
+}
+
+.buttons-container-validate {
+  display: flex;
+  gap: 1rem;
+}
+.back-button-validate {
+  background-color: #FFFFFF ;
+  border: 1px solid #0F72A1;
+  border-radius: 25px;
+  color: #0F72A1;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.finish-button-validate {
+  background-color: #0F72A1;
+  border: 1px solid #FFFFFF;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-modal-validate {
+  left: 70px;
+  top: 45px;
+  font-size: 12px;
+}
+
+/*segundos modales de notaria y domicilio*/
+.notaria-modal, .domicilio-modal {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.notaria-modal-box, .domicilio-modal-box {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.list-Notarias-II {
+  width: 100%;
+}
+.second-form-address {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid #D9D9D9;
+}
+.name-notaria {
+  font-weight: 800;
+}
+
+.modal6 {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.img-logo-modal {
+width: 30%;
+display: flex;
+border-radius: 25px;
+background: #f7f7f7;
+padding: 1rem;
+}
+
+.list-Notarias-name {
+display: flex;
+flex-direction: column;
+}
+
+.box-list {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.img-modal-relleno {
+width: 25%;
+position: absolute;
+top: 20rem;
+}
+
+#modal2 {
+display: none;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 9999;
+}
+
+
+/*MODAL4*/
+.list-price-address {
+color: #FFFFFF;
+background-color: #154C75;
+font-size: 12PX;
+font-weight: 600;
+text-decoration: underline;
+margin: 0;
+line-height: 2;
+height: 1.5rem;
+padding: 0 1rem;
+border-radius: 8px;
+border: none;
+}
+.container-list-price-address{
+background-color: #F8F8F9;
+  padding: 2rem;
+  display: flex;
+  width: 52.5rem;
+  height: 34rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 2rem;
+  position: relative;
+  top: 8.5rem;
+  background-image: -webkit-linear-gradient(top, #154C75 10%, #1AA1E1 50%, #154C75 90%);
+  overflow: hidden;
+}
+.header-list-address {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+  position: relative;
+  top: -10px;
+}
+.button-list-address {
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  color: #FFFFFF;
+  padding: 0.5rem;
+  position: relative;
+  top: -0.5rem;
+  right: -0.5rem;
+}
+.title-list-price-address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -2.8rem;
+  color: #FFFFFF;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 20px;
+}
+.container-table-list-price {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  display: flex;
+  justify-content: center;
+  padding: 0rem 1rem 1rem;
+  margin: 0;
+  top: -1rem;
+  position: relative;
+}
+.table-column-address {
+width: 100%;
+}
+
+.list-price-address-box {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: flex-end;
+}
+.adress-do {
+width: 100%;
+}
+
+/*----M6---*/
+.container-m6 {
+  display: flex;
+  width: 50rem;
+  height: 36rem;
+  flex-direction: column;
+  border-radius: 36px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  position: relative;
+  top: 5rem;
+  background: linear-gradient(to right, #154C75 45%, #278EDB);
+  overflow: hidden;
+  padding: 0.7rem;
+}
+.container-m6-section {
+background-color: #FFFFFF;
+  border-radius: 30px;
+  position: relative;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.title-m6 {
+margin-top: 1rem;
+}
+.title-m6 h2 {
+font-weight: 700;
+font-size: 30px;
+color: #1B376F;
+font-family: "Plus Jakarta Sans", sans-serif;
+}
+.details-container-m6 {
+width: 85%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+font-size: 16px;
+color: #1B376F;
+margin-top: 1.6rem;
+height: 60%;
+justify-content: center;
+}
+.details-container-m6 p {
+font-weight: 600;
+}
+.description-m6 ul {
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+}
+.btn-m6 {
+text-align: center;
+background-color: #0F72A1;
+border: 1px solid #FFFFFF;
+border-radius: 25px;
+color: #FFFFFF;
+padding: 10px 20px;
+margin-top: 10px;
+cursor: pointer;
+font-family: "Plus Jakarta Sans", sans-serif;
+box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+width: 30%;
+font-weight: 800;
+font-size: 16px;
+position: relative;
+left: 9.5rem;
+top: 2.5rem;
+}
+
+.text-step6 {
+  line-height: normal;
+}
+
+
+/*-----------MOBILE--------------*/
+@media screen and (max-width: 376px) {
+  .container-create-company[_ngcontent-ng-c2295534166] {
+      height: 140vh;
+  }
+  .container-modal-step4 {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: 126vh !important;
+    margin-top: 2rem;
+  }
+}
+@media screen and (max-width: 414px) {
+  .stepper {
+    width: 70%;
+  }
+  .container-selection {
+    background-image: none !important;
+    background: #154C75;
+  }
+.container-create-company {
+  height: 110vh;
+}
+.company-selection {
+  margin-left: 1.25rem;
+  width: 90%;
+  height: 90%;
+  position: relative;
+}
+.header-step1 h2{
+  font-size: 1rem;
+  line-height: normal;
+}
+.header-step1 button {
+  font-size: 0.6rem;
+  width: 50%;
+  height: fit-content;
+}
+.company-selection__options {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.company-selection__option {
+  font-size: 12px;
+  margin: 0;
+  line-height: normal;
+  height: 8rem;
+}
+
+.container-modal-step1{
+  margin-left: 1.25rem;
+  width: 90%;
+  height: 100vh;
+  margin-top: 0.4rem;
+}
+
+.header-options {
+flex-direction: column; 
+gap: 0.5rem;
+}
+
+.title-options {
+width: 100%; 
+}
+
+.table-step1 {
+flex-direction: column;
+gap: 1rem; 
+}
+
+.table-step1 p {
+padding: 1rem; 
+}
+
+.logo-modal {
+  flex-direction: column;
+  align-items: self-start;
+}
+
+.mobile-step1 {
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.mobile-card-info {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  color: #154C75;
+  background-color: #FFFFFF;
+  border-radius: 10PX;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 0.5rem;
+}
+
+.step1-options select {
+  width: 100%;
+}
+
+/*---------step 2-----------*/
+.header-step2 h2{
+  font-size: 1rem;
+  line-height: normal;
+}
+.mix-contribution {
+  display: none;
+}
+.company-selection__optionsCapital {
+  display: flex;
+  flex-direction: column;
+}
+.money-contribution__p {
+  font-size: 13px;
+}
+.container-modal-step2 {
+  width: 89.5%;
+  height: 80%;
+  left: 0.8rem;
+  top: 7rem;
+}
+.container-details-table {
+  width: 110%;
+  padding: 0 0 0.5rem 0;
+}
+.step2-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.rango-capital-social {
+  text-align: left;
+}
+.box-step2-mobile {
+  height: 6.5rem;
+}
+.money-contribution__paymentamount {
+  margin-top: 1.2rem;
+}
+.money-contribution__warning {
+  margin-top: 1.2rem;
+    margin-bottom: 1rem;
+}
+/*--step 3--*/
+.company-selection__name__Company {
+  margin-top: 1rem;
+}
+.box-step3-mobile {
+  height: 6.5rem;
+}
+.container__right-column {
+  display: none;
+}
+.section--activities-selection {
+  margin-top: 1rem;
+}
+.section--activities-selection h3 {
+  line-height: normal;
+}
+.input-group-company {
+  gap: 0.3rem;
+    display: flex;
+    flex-direction: column;
+}
+.section--activities-selection__group {
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.textarea {
+  height: 10rem;
+  width: 100%;
+}
+.description-feedback {
+  width: 100%;
+}
+.advice-item {
+  align-items: center;
+  justify-items: center;
+}
+.check, .no-check {
+  left: 0.5rem;
+  position: relative;
+}
+
+.container-modal-step3 {
+  margin-left: 1.25rem;
+  width: 90%;
+  height: 100vh;
+  margin-top: 0.4rem;
+}
+.title-modal-step3 {
+  top: 0.5rem;
+}
+.btn-upload-doc {
+  width: auto;
+  left: 41%;
+}
+/*---step 4---*/
+.modal-step4 h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.img-step4 {
+  display: none;
+}
+.image-stepfour {
+  display: none;
+}
+.options-step4-mobile {
+  display: flex;
+  margin-bottom: 0.8rem;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.box-message_notaria, .box-message_domicilio {
+  font-size: 0.9rem;
+  line-height: normal;
+  text-align: center;
+}
+.box-message_notaria p, .box-message_domicilio p {
+  margin-top: 0.5rem;
+}
+.box-message_domicilio {
+  font-size: 0.9rem;
+  line-height: normal;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  padding-top: 0.8rem;
+}
+.secondLine {
+  margin-top: -0.5rem !important;
+}
+.box-message_domicilio p span, .box-message_notaria p span {
+  font-size: 1.1rem !important;
+}
+.container-modal-step4 {
+  margin-left: 1.25rem;
+  width: 90%;
+  height: 100vh;
+  margin-top: 1.75rem;
+}
+.img-modal-relleno{
+  display: none;
+}
+.container-list-price-address {
+  margin-left: 1.25rem;
+  width: 90%;
+  height: fit-content;
+
+}
+.container-table-list-price {
+  flex-direction: column;
+}
+.distrito, .precio {
+  display: none;
+}
+.box-list {
+  flex-direction: column;
+}
+.img-logo-modal {
+  width: 100%; 
+}
+.list-price-address-box {
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.list-price-address {
+  font-size: 14px;
+}
+/*---step 5---*/
+.title-step5 {
+  font-size: 1.2rem;
+  line-height: normal;
+}
+.name-lastname, .documents-information, .contact-information {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.terms {
+  top: 1rem;
+}
+.box-gestyasesores {
+  position: relative;
+}
+.left-column {
+  gap: 0.5rem;
+}
+
+.right-column {
+  display: none;
+}
+
+/*---step 6---*/
+.payment {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-m6 {
+  margin-left: 1.25rem;
+  width: 90%;
+  height: fit-content;
+  margin-top: 1.75rem;
+}
+.btn-m6 {
+  left: 0;
+  width: auto;
+  top: auto;
+}
+.container-modal-step6 {
+  margin-left: 1.25rem;
+  width: 90%;
+  height: 100vh;
+  margin-top: 1.75rem;
+}
+.payment-option {
+  flex-direction: column;
+  width: 100%;
+}
+.bcp-bcp, .otherbanks {
+  width: 100%;
+}
+.account-number {
+  left: 5rem;
+  width: 70%;
+}
+.cci-number {
+  left: 4.2rem;
+  width: 75%;
+}
+.upload-section {
+  width: 100%;
+}
+.btn-sendpayment {
+  width: fit-content;
+  left: 5rem;
+}
+.container-modal-paymentsent {
+  margin-left: 1.25rem;
+  width: 90%;
+  height: fit-content;
+  margin-top: 5rem;
+}
+.t-step6-mobile {
+  text-align: center;
+}
+.container-step6 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.text-step6 {
+  line-height: normal;
+  padding-top: 0.8rem;
+}
+.final-text-step6 {
+  margin-top: 2.5rem;
+}
+.final-text-step6 p {
+  margin: 0;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.final-text-step6 strong {
+  margin: 0 5px;
+}
+.buttons-step6 {
+  display: flex;
+  justify-content: center;
+} 
+.date-item {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.codigo {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  text-align: center;
+}
+.current-day {
+  position: relative;
+    margin-left: 5rem;
+}
+.container-date-number {
+  align-items: center
+}
+.adicional {
+  display: flex !important;
+  flex-direction: column !important;
+  height: fit-content !important;
+}
+.final-text-step6 {
+  margin-top: 0 !important;
+}
+}
+
+/*-----------MOBILE--------------*/
+@media screen and (min-width: 414px) and (max-width: 431px) {
+  .stepper {
+    width: 70%;
+  }
+  .container-selection {
+    background-image: none !important;
+    background: #154C75;
+  }
+  .container-create-company {
+    height: 110vh;
+  }
+  .company-selection {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: 90%;
+    position: relative;
+  }
+  .header-step1 h2 {
+    font-size: 1.3rem;
+    line-height: normal;
+  }
+  .header-step1 button {
+    font-size: 0.6rem;
+    width: 50%;
+    height: fit-content;
+  }
+  .company-selection__options {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  .company-selection__option {
+    font-size: 12px;
+    margin: 0;
+    line-height: normal;
+    height: 8rem;
+  }
+  .container-modal-step1 {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: 100vh;
+    margin-top: 0.4rem;
+  }
+  .header-options {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .title-options {
+    width: 100%;
+  }
+  .table-step1 {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .table-step1 p {
+    padding: 1rem;
+  }
+  .logo-modal {
+    flex-direction: column;
+    align-items: self-start;
+  }
+  .mobile-step1 {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .mobile-card-info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    color: #154C75;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 0.5rem;
+  }
+  .step1-options select {
+    width: 100%;
+  }
+  /*---------step 2-----------*/
+  .header-step2 h2 {
+    font-size: 1.3rem;
+    line-height: normal;
+  }
+  .mix-contribution {
+    display: none;
+  }
+  .company-selection__optionsCapital {
+    display: flex;
+    flex-direction: column;
+  }
+  .money-contribution__p {
+    font-size: 13px;
+  }
+  .container-modal-step2 {
+    width: 89.5%;
+    height: 80%;
+    left: 0.8rem;
+    top: 7rem;
+  }
+  .container-details-table {
+    width: 110%;
+    padding: 0 0 0.5rem 0;
+  }
+  .step2-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .rango-capital-social {
+    text-align: left;
+  }
+  .box-step2-mobile {
+    height: 7.5rem;
+  }
+  .money-contribution__paymentamount {
+    margin-top: 1.2rem;
+  }
+  .money-contribution__paymentamount p {
+    font-size: 15px;
+    margin-top: 1.5rem;
+  }
+  .money-contribution__warning {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  /*--step 3--*/
+  .company-selection__name__Company {
+    margin-top: 1rem;
+  }
+  .box-step3-mobile {
+    height: 6.5rem;
+  }
+  .container__right-column {
+    display: none;
+  }
+  .section__description {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  .section--activities-selection {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  .section--activities-selection h3 {
+    line-height: normal;
+  }
+  .input-group-company {
+    gap: 0.3rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .section--activities-selection__group {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .textarea {
+    height: 13rem;
+    width: 100%;
+  }
+  .description-feedback {
+    width: 100%;
+  }
+  .advice-item {
+    align-items: center;
+    justify-items: center;
+  }
+  .check, .no-check {
+    left: 0.5rem;
+    position: relative;
+  }
+  .container-modal-step3 {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: 100vh;
+    margin-top: 0.4rem;
+  }
+  .title-modal-step3 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+  .btn-upload-doc {
+    width: 50%;
+    left: 26%;
+  }
+  /*---step 4---*/
+  .modal-step4 h2 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .img-step4 {
+    display: none;
+  }
+  .image-stepfour {
+    display: none;
+  }
+  .options-step4-mobile {
+    display: flex;
+    margin-bottom: 0.8rem;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+  .box-message_notaria, .box-message_domicilio {
+    font-size: 0.9rem;
+    line-height: normal;
+    text-align: center;
+  }
+  .box-message_notaria p, .box-message_domicilio p {
+    margin-top: 0.5rem;
+  }
+  .box-message_domicilio {
+    font-size: 0.9rem;
+    line-height: normal;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    padding-top: 0.8rem;
+  }
+  .secondLine {
+    margin-top: -0.5rem !important;
+  }
+  .box-message_domicilio p span, .box-message_notaria p span {
+    font-size: 1.1rem !important;
+  }
+  .container-modal-step4 {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: 100vh;
+    margin-top: 1.75rem;
+  }
+  .img-modal-relleno {
+    display: none;
+  }
+  .container-list-price-address {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: fit-content;
+  }
+  .container-table-list-price {
+    flex-direction: column;
+  }
+  .distrito, .precio {
+    display: none;
+  }
+  .box-list {
+    flex-direction: column;
+  }
+  .img-logo-modal {
+    width: 100%;
+  }
+  .list-price-address-box {
+    align-items: center;
+    margin: 0.5rem 0;
+  }
+  .list-price-address {
+    font-size: 14px;
+  }
+  /*---step 5---*/
+  .title-step5 {
+    font-size: 1.2rem;
+    line-height: normal;
+  }
+  .name-lastname, .documents-information, .contact-information {
+    display: flex;
+    flex-direction: column;
+  }
+  .terms {
+    bottom: 10px;
+  }
+  .box-gestyasesores {
+    position: relative;
+  }
+  .right-column {
+    display: none;
+  }
+  /*---step 6---*/
+  .payment {
+    display: flex;
+    flex-direction: column;
+  }
+  .container-m6 {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: fit-content;
+    margin-top: 1.75rem;
+  }
+  .btn-m6 {
+    left: 0;
+    width: auto;
+    top: auto;
+  }
+  .container-modal-step6 {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: 100vh;
+    margin-top: 1.75rem;
+  }
+  .payment-option {
+    flex-direction: column;
+    width: 100%;
+  }
+  .bcp-bcp, .otherbanks {
+    width: 100%;
+  }
+  .account-number {
+    left: 5rem;
+    width: 70%;
+  }
+  .cci-number {
+    left: 4.2rem;
+    width: 75%;
+  }
+  .upload-section {
+    width: 100%;
+  }
+  .btn-sendpayment {
+    width: fit-content;
+    left: 5rem;
+  }
+  .container-modal-paymentsent {
+    margin-left: 1.25rem;
+    width: 90%;
+    height: fit-content;
+    margin-top: 5rem;
+  }
+  .t-step6-mobile {
+    text-align: center;
+  }
+  .container-step6 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: 2rem;
+  }
+  .text-step6 {
+    line-height: normal;
+    padding-top: 1.3rem;
+    font-size: 1.1rem;
+  }
+  .final-text-step6 {
+    margin-top: 3rem;
+  }
+  .final-text-step6 p {
+    margin: 0;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  .final-text-step6 strong {
+    margin: 0 5px;
+  }
+  .buttons-step6 {
+    display: flex;
+    justify-content: center;
+  }
+  .date-item {
+    font-size: 1rem;
+  }
+  .codigo {
+    display: flex;
+    flex-direction: column;
+  }
+  .adicional {
+    display: flex !important;
+    flex-direction: column !important;
+    height: fit-content !important;
+  }
+  .final-text-step6 {
+    margin-top: 0;
+  }
+}
+
+
+@media (min-width: 431px) and (max-width: 1024px) {
+.container-selection {
+  background-image: none !important;
+  background: #154C75;
+}
+
+.company-selection {
+  margin-left: 1.5rem;
+  width: 95%;
+}
+
+.container-modal-step1 {
+  width: 48.7rem;
+  margin-left: 1.5rem;
+  top: 23.4rem;
+}
+.container-modal-step2 {
+  top: 15rem;
+}
+
+.company-selection-step3 {
+  height: fit-content;
+}
+.container-modal-step3 {
+  width: 48.7rem;
+  margin-left: 1.5rem;
+  top: 21.5rem;
+  height: 38rem;
+}
+.btn-upload-doc {
+  top: 12rem;
+  left: 43rem;
+}
+.container-modal-step4 {
+  width: 48.7rem;
+  margin-left: 1.5rem;
+  top: 16.4rem;
+}
+.container-list-price-address {
+  width: 48.7rem;
+  margin-left: 1.5rem;
+  top: 23.4rem;
+}
+.company-selection__subtext {
+  line-height: normal;
+}
+.container-m6, .container-modal-paymentsent {
+  top: 15rem;
+}
+.company-selection-step6 {
+  height: fit-content;
+}
+
+.container-modal-step6 {
+  width: 48.7rem;
+  margin-left: 1.5rem;
+  top: 21.6rem;
+  height: 37.5rem;
+}
+.account-number {
+  left: 10.5rem;
+}
+.cci-number {
+  left: 8.8rem;
+}
+.container-check-information {
+  width: 48.7rem;
+  margin-left: 1.5rem;
+  top: 21.6rem;
+  height: 37.48rem;
+}
+.whatsapp-button {
+  top: 55rem;
+  left: 30rem;
+}
+}
+
+.adicional {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1.5rem;
+}
+.total-amount-final {
+  align-items: center !important;
+}

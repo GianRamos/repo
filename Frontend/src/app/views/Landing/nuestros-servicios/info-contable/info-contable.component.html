@@ -1,0 +1,81 @@
+<div class="cnt-wrapper">
+  <div class="wrapper">
+      <section class="b20">
+          <div class="b20-content wancho">
+              <div class="b20-title"><a href="listado-servicios-2.html">Nuestros Servicios</a></div>
+              <h2 class="b20-subtitle">Servicio de Contabilidad</h2>
+              <figure class="b20-image">
+                  <img src="../../../../../assets/images/nuestros-servicios/contabilidad.svg">
+              </figure>
+          </div>
+      </section>
+
+      <section class="b21">
+          <div class="b21-content wancho">
+              <div class="b21-left">
+                  <div class="b21-title">El servicio contable de GestiPyme proporciona una gestión contable exhaustiva y especializada, diseñada para pequeñas y medianas empresas que buscan cumplir con las regulaciones tributarias y mejorar su eficiencia operativa. Este servicio incluye la revisión documental, la presentación de declaraciones juradas mensuales, y la asesoría en varios aspectos contables y fiscales.</div>
+              </div>
+              <div class="b21-right">
+                  <div class="b21-subtitle">Requisitos del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Documentación Necesaria:</span> Los clientes deben proporcionar todos los comprobantes de pago, documentos legales y cualquier otra información relevante para la gestión contable.</li>
+                          <li><span class="bolder-text">Requisitos Específicos:</span> Dependiendo del régimen tributario, se requieren diferentes documentos y cumplimientos, tales como el Registro de Compras y Ventas Electrónico para empresas bajo ciertos umbrales de ingreso.</li>
+                      </ul>
+                  </div>
+                  <div class="b21-subtitle">Funcionalidades del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Gestión Documental Mensual:</span> Revisión de los comprobantes de pago para asegurar el cumplimiento con las leyes tributarias peruanas.</li>
+                          <li><span class="bolder-text">Presentación de Declaraciones:</span> Incluye IGV y PLAME, adaptándose a las necesidades específicas de cada empresa.</li>
+                          <li><span class="bolder-text">Asesoría en Detracciones y Tributos:</span> Ayuda en la creación y gestión de cuentas de detracciones, así como en el pago de tributos.</li>
+                          <li><span class="bolder-text">Soporte en Fiscalizaciones:</span> Asistencia durante las fiscalizaciones de SUNAT y SUNAFIL, cubriendo hasta la primera etapa del proceso.</li>
+                      </ul>
+                  </div>
+                  <div class="b21-note">
+                      <p>IMPORTANTE: *Las declaraciones juradas anuales tienen un costos adicional equivalente a el costo de un mes de servicio, se garantiza la seguridad de la información a través de sistemas protegidos y procedimientos que resguardan la confidencialidad de los datos. Ofrecemos capacitación en el uso de herramientas contables digitales y soporte continuo para resolver dudas y optimizar la gestión contable.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </div>
+</div>
+
+<!-- Contenedor del menú responsive -->
+<div class="menu-sidebar" data-menu="left-in">
+  <div class="menu-sidebar-cnt"></div>
+</div>
+<div class="divider">
+
+</div>
+
+<app-businessbanner></app-businessbanner>
+<app-footer></app-footer>
+
+<script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/validationform/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="../static/js/main.js" type="text/javascript"></script>
+<!-- JSADD START -->
+
+<script type="text/javascript">
+  $(function(){
+      // FOOTER RESPONSIVE - ACORDEÓN
+      if($(window).innerWidth() < 1025){
+          $('.footerOpenToggle').on('click', function(event){
+              if ($(this).hasClass('active')) {
+                  $(this).removeClass('active').parent().find('.footer_toggle_contain').stop().slideUp();
+              } else {
+                  $('.footer_title').removeClass('active');
+                  $('.footer_toggle_contain').stop().slideUp();
+                  $(this).addClass('active').parent().find('.footer_toggle_contain').stop().slideToggle();
+              }
+          });
+      }
+  });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+      // Otro código JavaScript
+  });
+</script>

@@ -1,0 +1,126 @@
+<!-- Primer contenedor de trámite -->
+<div class="container contenedor_data_comprobante mt-3">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="title mb-0">Nuevo trámite</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="tipo_servicios" class="form-label">Tipo de Servicios</label>
+            <select id="select_tipo_servicios_1" class="form-select"  [(ngModel)]="selectedOption" (change)="onSelect($event)" required>
+              <option  [ngValue]="null" disabled>Selecciona un tipo de Servicio</option>
+                <option *ngFor="let option of options" [value]="option">{{option}}</option>
+            </select>
+          </div>
+          <div class="col-md-4" >
+            <label for="name" class="form-label">Servicios Específicos</label>
+            <select id="select_tipo_servicios_2" class="form-select" [(ngModel)]="selectedSubOption" required>
+              <option [ngValue]="null" disabled selected>Selecciona un Servicio</option>
+              <ng-container *ngIf="selectedOption">
+              <option  *ngFor="let subOption of subOptions[selectedOption]" [value]="subOption">{{subOption}}</option>
+              </ng-container>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="Fecha_ingreso" class="form-label">Fecha de Ingreso</label>
+            <input type="date" class="form-control" required>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="form-floating mt-2">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 115px"></textarea>
+              <label for="floatingTextarea2">Observaciones</label>
+            </div>
+          </div>
+          <div class="col-md-6 upload-section  mt-2">
+            <div class="row align-items-center">
+              <div class="col-md-2 text-center">
+                <div class="upload-icon" *ngIf="!fileSelectedPay">
+                  <img src="../../../../assets/images/createCompany/upload.svg" alt="Upload icon">
+                </div>
+                <div class="upload-icon" *ngIf="fileSelectedPay">
+                  <img src="../../../../assets/images/createCompany/check.svg" alt="Checkmark icon">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <label for="fileInput" class="upload-section-content">
+                  <input type="file" id="fileInput" accept="image/jpeg, image/png, application/pdf">
+                  <div class="upload-section-text">
+                    <div *ngIf="!fileSelectedPay">
+                      <span class="text-center">Sube un archivo jpg, jpeg, png, pdf</span>
+                    </div>
+                    <div *ngIf="fileSelectedPay" class="file-info">
+                      <p>{{ fileSelectedPay.name }}</p>
+                      <button (click)="removeFile()">
+                        <img src="../../../../assets/images/createCompany/delete.svg" alt="Delete icon">
+                      </button>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-3">
+            <!-- <label for="document-type" class="form-label">Medio de pago</label>
+            <select id="document-type" class="form-select" required>
+              <option value="Efectivo">Efectivo</option>
+              <option value="Tarjeta">Tarjeta</option>
+            </select> -->
+          </div>
+          <div class="col-md-3"></div>
+          <div class="col-md-6 mt-3">
+            <span class="drag_drop_result">Ningún archivo subido</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Segundo contenedor de datos del cliente -->
+  <div class="container mt-3 contenedor_data_comprobante">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="title mb-0">Datos del Cliente</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="nombre_cliente" class="form-label">Nombre del cliente</label>
+            <input type="text" class="form-control" placeholder="Lucas de la Torre" required>
+          </div>
+          <div class="col-md-4">
+            <label for="num_celular" class="form-label">Nº Celular</label>
+            <input type="text" class="form-control" placeholder=" 999 999 999" required>
+          </div>
+          <div class="col-md-4">
+            <label for="cliente_email" class="form-label ">Email</label>
+            <input type="email" class="form-control" placeholder="micorreo@gmail.com" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="cliente_domicilio" class="form-label mt-2">Domicilio</label>
+            <input type="text" class="form-control" placeholder="mi domicilio..." required>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón de la pestaña -->
+  <div class="mt-4 button_tab d-flex align-items-center justify-content-start">
+    <div class="col-md-2 ms-3 d-flex alig-items-center">
+      <button type="button" class="btn btn-primary border border-white" data-bs-toggle="button" autocomplete="off">
+
+        GENERAR
+        <img src="../../../../assets/images/icons/fileNObackground.svg" alt="Icono Generar" class="me-2">
+    </button>
+    </div>
+    <div class="col-md-2 ms-3 d-flex alig-items-center">
+      <button type="button" class="btn btn-primary border border-white" data-bs-toggle="button" autocomplete="off">
+
+        CANCELAR
+        <img src="../../../../assets/images/icons/fileNObackground.svg" alt="Icono Generar" class="me-2">
+    </button>
+    </div>
+  </div>

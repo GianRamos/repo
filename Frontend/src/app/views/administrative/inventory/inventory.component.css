@@ -1,0 +1,336 @@
+.title__tabla {
+  color: #1B376F!important;
+  font-size: 13px!important;
+  font-weight: bold!important;
+  font-family: "Plus Jakarta Sans", sans-serif!important;
+}
+
+.contenedor_filtro {
+  background-color: #154C75;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+  padding: 1.3rem 2rem;
+}
+
+.form-label {
+  margin-bottom: .1rem;
+  color: #F8F8F9;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.ancho-label {
+  width: 107px;
+}
+
+.btn {
+  color: #081836;
+  background-color: #8BCAFC;
+  font-weight: 500;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-radius: 15px;
+}
+
+.tab-container {
+  width: 100%;
+}
+
+.custom-tab-group {
+  width: 100%;
+}
+.tab-content {
+  padding: 10px;
+}
+
+.mat-tab-group.mat-primary .mat-tab-label.mat-tab-label-active {
+  background-color: blue;
+}
+
+.mat-tab-group.mat-primary .mat-tab-label.mat-tab-label-active .mat-tab-label-content {
+  color: black;
+}
+
+.container_table {
+  background-color: #fff;
+
+}
+
+.custom-table {
+  width: 100%;
+  height: 26rem;
+  overflow: auto;
+}
+
+th {
+  background-color: #EAEAEA !important;
+}
+
+td {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  color: #1B376F;
+  background-color: #f8f8f9;
+}
+
+.title_table {
+  color: #1B376F;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.texto-centrado {
+  text-align: center;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.anchoFecha {
+  width: 15%;
+}
+
+.anchoSerie {
+  width: 12%;
+}
+
+.anchoNum {
+  width: 12%;
+}
+
+.anchoTotal {
+  width: 13%;
+}
+
+.column_width {
+  width: 25%;
+}
+
+.acciones__width {
+  width: 23%;
+}
+
+.mat-tab-label {
+  color: #1B376F;
+}
+
+.selected-tab {
+  color: blue !important;
+  width: 50%!important;
+}
+
+.selected-tab .mat-tab-label-content {
+  color: blue !important;
+}
+
+.icon-btn {
+  margin: 0 4px;
+}
+
+.edit-btn {
+  color: #FB8C00;
+}
+
+.delete-btn {
+  color: #E53935;
+}
+
+.logoWhatsapp {
+  position: absolute;
+  bottom: 630px;
+  right: 0px;
+  z-index: 885;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 45px;
+}
+
+.iconLupa {
+  color: #08183699;
+}
+
+.column_width {
+  width: 18%;
+}
+
+.acciones__width {
+  width: 30%;
+}
+
+.anchoSerie {
+  width: 8%;
+}
+
+.anchoFecha, .anchoNum, .anchoTotal {
+  width: 15%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px; /* Ajusta este valor según tu diseño */
+}
+
+.btn-agregar-item {
+  background-color: #3CE895;
+  color: #081836;
+  margin-right: 10px;
+  font-weight: 500;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-radius: 10px;
+}
+
+.btn-imprimir {
+  background-color: #d9d9d9;
+  color: #081836;
+  margin-right: 10px;
+  font-weight: 500;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-radius: 10px;
+}
+
+.btn-descargar {
+  background-color: #8BCAFC;
+  color: #081836;
+  margin-right: 10px;
+  font-weight: 500;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-radius: 10px;
+}
+
+.mat-mdc-tab-labels
+{
+width: 50%!important;
+}
+
+
+.background_table{
+background-color: #F8F8F9;
+}
+/* .icon{
+width: 30px!important;
+} */
+
+/* Estilo para el texto del botón */
+button.mat-raised-button {
+  color: #333; /* Color del texto más oscuro */
+}
+
+/* Estilo para el ícono al lado derecho */
+.icon-right {
+  margin-left: 5px;
+}
+
+/* Estilo para hacer el ícono más grande */
+.icon-large {
+  font-size: 19px;
+  color: #122854;
+}
+
+
+/* Clase para botones más pequeños */
+.small-button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0 8px;
+}
+
+/* Color de fondo para el botón de editar */
+.edit-btn {
+  background-color: #FFEBA2;
+  border-radius: 7px;
+  border:none;
+}
+
+/* Color de fondo para el botón de eliminar */
+.delete-btn {
+  background-color: rgba(239, 83, 80, 0.7);
+  border-radius: 7px;
+  border: none;
+}
+
+/* Estilo para el ícono dentro del botón */
+.icon {
+  padding-top: 2px;
+  font-size: 20px;
+  color: #122854;
+}
+::ng-deep .mat-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 25px!important; /* Ajusta este valor según tus necesidades */
+}
+.mat-mdc-paginator-page-size-select {
+  width: 57px !important;
+}
+
+.mat-mdc-option {
+  font-size: 20px !important;
+  min-height: 30px !important;
+}
+
+.low-stock td{
+  background-color: #FFBABA!important;
+  color: #0D1F44;
+}
+/* CLASE PARA LOS TABS */
+
+::ng-deep .mat-mdc-tab-ripple {
+  border-radius: 15px 15px 0 0;
+  padding: 50px;
+  background: #F8F8F9;
+}
+::ng-deep .mat-mdc-tab.mdc-tab--active .mat-mdc-tab-ripple {
+  background: #97C7EB;
+}
+
+::ng-deep .mat-mdc-tab-group {
+  --mdc-tab-indicator-active-indicator-color: #1B376F;
+  --mat-tab-header-active-label-text-color: #1B376F;
+  --mat-tab-header-active-ripple-color: #1B376F;
+  --mat-tab-header-inactive-ripple-color: #1B376F;
+  --mat-tab-header-active-focus-label-text-color: #1B376F;
+  --mat-tab-header-active-hover-label-text-color: #1B376F;
+  --mat-tab-header-active-focus-indicator-color: #1B376F;
+  --mat-tab-header-active-hover-indicator-color: #1B376F;
+}
+
+
+::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+  font-weight: bold;
+  font-size: 15px;
+}
+::ng-deep .mat-mdc-tab.mdc-tab .mdc-tab__text-label{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .hide_section {
+    display: none;
+  }
+
+  #sectionToPrint, #sectionToPrint * {
+    visibility: visible;
+  }
+
+  #sectionToPrint {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}

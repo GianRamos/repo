@@ -1,0 +1,159 @@
+
+<div class="background_grilla_3 ">
+    <div class="row  ">
+        <!-- Primer contenedor (3 grillas) -->
+        <div class="col-md-3 contenedor3 d-flex flex-column align-items-center">
+            <div class="row contenedor_dashboard align-items-center mt-4">
+                <div class="col-md-3 ps-3">
+                    <div class="ellipse-icon">
+                        <img src="../../../../assets/images/icons/ingresos.svg" alt="Imagen de ingresos" class="icon icon1">
+                    </div>
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <p class="fs-6">Ingresos</p>
+                    <span class="fw-bold fs-5 extra_bold_text">S/. 20,000</span>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center align-items-center" >
+                    <img src="../../../../assets/images/icons/CLOSE.svg" alt="Icono para seleccionar otra sección">
+                </div>
+
+
+            </div>
+            <div class="row contenedor_dashboard align-items-center mt-4">
+                <div class="col-md-3 ps-3">
+                    <div class="ellipse-icon">
+                        <img src="../../../../assets/images/icons/efectivo.svg" alt="Imagen de ingresos" class="icon icon2">
+                    </div>
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <p class="fs-6">Efectivo</p>
+                    <span class="fw-bold fs-5 extra_bold_text">S/. 20,000</span>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center align-items-center">
+                    <img src="../../../../assets/images/icons/CLOSE.svg" alt="Icono para seleccionar otra sección">
+                </div>
+
+
+            </div>
+
+            <div class="row contenedor_dashboard align-items-center mt-4">
+                <div class="col-md-3 ps-3">
+                    <div class="ellipse-icon">
+                        <img src="../../../../assets/images/icons/credit.png" alt="Imagen de ingresos" class="icon icon3">
+                    </div>
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <p class="fs-6">Tarjeta</p>
+                    <span class="fw-bold fs-5 extra_bold_text">S/. 20,000</span>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center align-items-center">
+                    <img src="../../../../assets/images/icons/CLOSE.svg" alt="Icono para seleccionar otra sección">
+                </div>
+
+
+            </div>
+            <div class="row contenedor_dashboard align-items-center mt-4">
+                <div class="col-md-3 ps-3">
+                    <div class="ellipse-icon">
+                        <img src="../../../../assets/images/icons/transferencia_cash.svg" alt="Imagen de ingresos" class="icon icon4">
+                    </div>
+
+                </div>
+                <div class="col-md-6 text-center">
+                    <p class="fs-6">Transferencias</p>
+                    <span class="fw-bold fs-5 extra_bold_text">S/. 20,000</span>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center align-items-center">
+                    <img src="../../../../assets/images/icons/CLOSE.svg" alt="Icono para seleccionar otra sección">
+                </div>
+
+
+            </div>
+            <div class="row pt-5 mt-5 whatsaap-button" style="position: fixed; bottom: 0; display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+              <span>¿Tienes alguna duda? <strong><a href="https://wa.me/51918795733?text=¡Hola!,%20¡deseo%20información%20para%20la%20gestión%20de%20mi%20negocio" target="_blank" class="underline">Escríbenos</a></strong>
+                <a href="https://wa.me/51918795733?text=¡Hola!,%20¡deseo%20información%20para%20la%20gestión%20de%20mi%20negocio" target="_blank">
+                  <img src="../../../assets/images/icons/WhatsAppLOGO.svg" alt="WhatsApp" style="height: 50px;" class="whatsaap-button">
+                </a>
+
+              </span>
+
+            </div>
+
+        </div>
+
+        <!-- Segundo contenedor (9 grillas) -->
+        <div class="col-md-9 contenedor9">
+            <div>
+                <div class="row">
+                    <div class="col-6 d-flex align-items-end">
+                        <h2 class="list_items_text text-star mb-0">Informe Transaccional</h2>
+                    </div>
+                    <div class="col-3 mt-2 mb-1" >
+                        <select id="filtro" class="form-select " required>
+                            <option value="Esta semana">Esta semana</option>
+                            <option value="El mes pasado">El mes pasado</option>
+                        </select>
+                    </div>
+                    <div class="col-3 d-flex justify-content-end mt-2 mb-1">
+                        <button type="button" class="btn btn-primary border border-white" data-bs-toggle="button" autocomplete="off">Descargar .csv</button>
+                    </div>
+                </div>
+                <!-- INICIO TABLA -->
+                <div class="custom-table" tabindex="0">
+                    <table mat-table [dataSource]="dataSource" class="mat-table">
+
+                        <!-- Fecha de Emisión Column -->
+                        <ng-container matColumnDef="fecha">
+                            <th mat-header-cell *matHeaderCellDef class="text-center title_table"> Fecha </th>
+                            <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold"> {{ element.fecha | date }} </td>
+                        </ng-container>
+
+                        <!-- Estado Column -->
+                        <ng-container matColumnDef="tipo">
+                            <th mat-header-cell *matHeaderCellDef class="text-center title_table"> Tipo </th>
+                            <td mat-cell *matCellDef="let element" class="texto-centrado" >
+                              <span class="{{getEstadoColor(element.tipo)}}">{{element.tipo}}</span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Cliente Column -->
+                        <ng-container matColumnDef="cliente">
+                            <th mat-header-cell *matHeaderCellDef class="text-center title_table anchoCliente"> Cliente </th>
+                            <td mat-cell *matCellDef="let element" class="texto-centrado"> {{ element.cliente }} </td>
+                        </ng-container>
+
+                        <!-- Monto Column -->
+                        <ng-container matColumnDef="monto">
+                            <th mat-header-cell *matHeaderCellDef class=" text-center title_table anchoMonto">  Monto</th>
+                            <td mat-cell *matCellDef="let element" class="texto-centrado"> S/. {{ element.monto}} </td>
+                        </ng-container>
+
+                        <!-- Medio de pago Column -->
+                        <ng-container matColumnDef="medioDePago">
+                            <th mat-header-cell *matHeaderCellDef class="text-center title_table"> Medio de Pago</th>
+                            <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold"> {{ element.medioDePago }} </td>
+                        </ng-container>
+
+                        <!-- Trámite Column -->
+                        <ng-container matColumnDef="tramite">
+                            <th mat-header-cell *matHeaderCellDef class="text-center title_table"> Trámite </th>
+                            <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold"> {{ element.tramite }} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+                </div>
+
+    <!-- FIN TABLA -->
+
+            </div>
+
+        </div>
+    </div>
+</div>

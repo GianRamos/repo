@@ -1,0 +1,81 @@
+<div class="cnt-wrapper">
+  <div class="wrapper">
+      <section class="b20">
+          <div class="b20-content wancho">
+              <div class="b20-title"><a href="listado-servicios-2.html">Nuestros Servicios</a></div>
+              <h2 class="b20-subtitle">Servicio de Asesorías</h2>
+              <figure class="b20-image">
+                  <img src="../../../../../assets/images/nuestros-servicios/asesoria.svg">
+              </figure>
+          </div>
+      </section>
+
+      <section class="b21">
+          <div class="b21-content wancho">
+              <div class="b21-left">
+                  <div class="b21-title">El servicio de asesorías de GestiPyme ofrece consultoría especializada en una amplia gama de áreas de negocio, incluyendo estrategias de mercado, optimización operativa, cumplimiento legal y más. Este servicio está diseñado para proporcionar orientación experta y adaptada a las necesidades específicas de cada cliente en diversos sectores industriales.</div>
+              </div>
+              <div class="b21-right">
+                  <div class="b21-subtitle">Requisitos del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Perfil del Negocio:</span> Los clientes deben proporcionar una descripción detallada de su empresa, incluyendo el sector de actividad, tamaño del negocio, y problemas específicos que buscan resolver.</li>
+                          <li><span class="bolder-text">Objetivos de la Asesoría:</span> Definición clara de los objetivos que el cliente desea alcanzar a través de la asesoría.</li>
+                      </ul>
+                  </div>
+                  <div class="b21-subtitle">Funcionalidades del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Asesoría Personalizada:</span> Sesiones individuales con expertos en los campos relevantes para tratar temas específicos o problemas operativos, estratégicos o fiscales.</li>
+                          <li><span class="bolder-text">Análisis de Mercado:</span> Evaluación de las condiciones del mercado y recomendaciones sobre posicionamiento y expansión.</li>
+                          <li><span class="bolder-text">Optimización Operativa:</span> Consejos prácticos para mejorar la eficiencia de las operaciones diarias y reducir costos.</li>
+                          <li><span class="bolder-text">Cumplimiento Legal:</span> Orientación sobre regulaciones y normativas aplicables para asegurar que la empresa cumpla con todas las leyes locales e internacionales pertinentes.</li>
+                      </ul>
+                  </div>
+                  <div class="b21-note">
+                      <p>IMPORTANTE: * Las funcionalidades del servicio pueden variar según la asesoría solicitada</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </div>
+</div>
+
+<!-- Contenedor del menú responsive -->
+<div class="menu-sidebar" data-menu="left-in">
+  <div class="menu-sidebar-cnt"></div>
+</div>
+<div class="divider">
+
+</div>
+
+<app-businessbanner></app-businessbanner>
+<app-footer></app-footer>
+
+<script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/validationform/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="../static/js/main.js" type="text/javascript"></script>
+<!-- JSADD START -->
+
+<script type="text/javascript">
+  $(function(){
+      // FOOTER RESPONSIVE - ACORDEÓN
+      if($(window).innerWidth() < 1025){
+          $('.footerOpenToggle').on('click', function(event){
+              if ($(this).hasClass('active')) {
+                  $(this).removeClass('active').parent().find('.footer_toggle_contain').stop().slideUp();
+              } else {
+                  $('.footer_title').removeClass('active');
+                  $('.footer_toggle_contain').stop().slideUp();
+                  $(this).addClass('active').parent().find('.footer_toggle_contain').stop().slideToggle();
+              }
+          });
+      }
+  });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+      // Otro código JavaScript
+  });
+</script>

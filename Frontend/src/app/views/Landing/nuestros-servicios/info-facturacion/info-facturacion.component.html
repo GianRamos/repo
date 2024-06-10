@@ -1,0 +1,82 @@
+<div class="cnt-wrapper">
+  <div class="wrapper">
+      <section class="b20">
+          <div class="b20-content wancho">
+              <div class="b20-title"><a href="listado-servicios-2.html">Nuestros Servicios</a></div>
+              <h2 class="b20-subtitle">Servicio de Facturación</h2>
+              <figure class="b20-image">
+                  <img src="../../../../../assets/images/nuestros-servicios/Facturación.svg">
+              </figure>
+          </div>
+      </section>
+
+      <section class="b21">
+          <div class="b21-content wancho">
+              <div class="b21-left">
+                  <div class="b21-title">El servicio de facturación electrónica permite a las empresas gestionar y emitir comprobantes electrónicos de manera eficiente y segura. Este sistema automatizado cumple con las normativas establecidas por la SUNAT, garantizando la validez legal de todos los documentos generados.</div>
+              </div>
+              <div class="b21-right">
+                  <!-- <div class="b21-subtitle">Requisitos del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Perfil del Negocio:</span> Los clientes deben proporcionar una descripción detallada de su empresa, incluyendo el sector de actividad, tamaño del negocio, y problemas específicos que buscan resolver.</li>
+                          <li><span class="bolder-text">Objetivos de la Asesoría:</span> Definición clara de los objetivos que el cliente desea alcanzar a través de la asesoría.</li>
+                      </ul>
+                  </div> -->
+                  <div class="b21-subtitle">Funcionalidades del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Emisión de Documentos Electrónicos:</span> Incluye facturas, boletas de venta, notas de crédito y débito, entre otros.</li>
+                          <li><span class="bolder-text">Generación de XML y PDF:</span> Los documentos se generan en formatos XML para la SUNAT y PDF para el cliente.</li>
+                          <li><span class="bolder-text">Envío y Recepción Automática:</span> Los documentos son enviados automáticamente a la SUNAT y se gestionan las respuestas de aceptación o rechazo.</li>
+                      </ul>
+                  </div>
+                  <div class="b21-subtitle">Compromisos de Seguridad y Disponibilidad:</div>
+
+                  <div class="b21-note">
+                      <p>IMPORTANTE: * Seguridad SSL DE 256 BITS(Protege la informacion entre los clientes y la empresa), ISO27001 (Asegura la privacidad y proteccion de datos) y disponiblidad del servicio del 99.9% (acceso continuo y eficiente del sistema)</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </div>
+</div>
+
+<!-- Contenedor del menú responsive -->
+<div class="menu-sidebar" data-menu="left-in">
+  <div class="menu-sidebar-cnt"></div>
+</div>
+<div class="divider">
+
+</div>
+
+<app-businessbanner></app-businessbanner>
+<app-footer></app-footer>
+
+<script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/validationform/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="../static/js/main.js" type="text/javascript"></script>
+<!-- JSADD START -->
+
+<script type="text/javascript">
+  $(function(){
+      // FOOTER RESPONSIVE - ACORDEÓN
+      if($(window).innerWidth() < 1025){
+          $('.footerOpenToggle').on('click', function(event){
+              if ($(this).hasClass('active')) {
+                  $(this).removeClass('active').parent().find('.footer_toggle_contain').stop().slideUp();
+              } else {
+                  $('.footer_title').removeClass('active');
+                  $('.footer_toggle_contain').stop().slideUp();
+                  $(this).addClass('active').parent().find('.footer_toggle_contain').stop().slideToggle();
+              }
+          });
+      }
+  });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+      // Otro código JavaScript
+  });
+</script>

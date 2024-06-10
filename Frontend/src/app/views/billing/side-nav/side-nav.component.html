@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidenav">
+            <mat-nav-list>
+                <!-- Aquí va el contenido del sidenav -->
+                <a mat-list-item routerLink="./trámites-en-línea" (click)="toggleSidenav(); toggleTramites()">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="ms-2">Trámites en Línea</span>
+                        <mat-icon class="icon">arrow_drop_down</mat-icon>
+                    </div>
+                </a>
+                <!-- Submenú Trámites en Línea -->
+                <mat-nav-list class="submenu" *ngIf="isTramitesOpen">
+                    <a mat-list-item routerLink="./estado-tramite">
+                        <div class="d-flex align-items-center">
+                            <span class="ms-3 submenu">Estado de trámite</span>
+                        </div>
+                    </a>
+                </mat-nav-list>
+                
+                <a mat-list-item routerLink="/facturación" (click)="toggleFacturacion()">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <!-- <mat-icon class="ms-2 icon">receipt</mat-icon> -->
+                        <span class="ms-2">Facturación</span>
+                        <mat-icon class="icon">arrow_drop_down</mat-icon>
+                    </div>
+                </a>
+                <!-- Menú interno -->
+                <mat-nav-list class="submenu" *ngIf="isFacturacionOpen">
+                    <a mat-list-item routerLink="./guía-remisión">
+                        <div class="d-flex align-items-center">
+                            <span class="ms-3 submenu">Guía de remisión</span>
+                        </div>
+                    </a>
+                    <a mat-list-item [routerLink]="['./generar-comprobante']">
+                        <div class="d-flex align-items-center">
+                            <span class="ms-3 submenu">Comprobante</span>
+                        </div>
+                    </a>
+                    <a mat-list-item [routerLink]="['./editar-comprobante']">
+                        <div class="d-flex align-items-center">
+                            <span class="ms-3 submenu">Editar Comprobante</span>
+                        </div>
+                    </a>
+                    <a mat-list-item [routerLink]="['./reporte-comprobantes']">
+                        <div class="d-flex align-items-center">
+                            <span class="ms-3 submenu">Reporte</span>
+                        </div>
+                    </a>
+                </mat-nav-list>
+
+                <a mat-list-item routerLink="./links-de-pago">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <!-- <mat-icon>medication</mat-icon> -->
+                        <span class="ms-2">Links de pago</span>
+                        <mat-icon class="icon">arrow_drop_down</mat-icon>
+                    </div>
+                </a>
+                <a mat-list-item routerLink="/facturación">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <!-- <mat-icon>account_circle</mat-icon> -->
+                        <span class="ms-2">Servicio contable</span>
+                        <mat-icon class="icon">arrow_drop_down</mat-icon>
+                    </div>
+                </a>
+
+                <a mat-list-item routerLink="/administración" (click)="toggleMenu()">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <!-- <mat-icon>logout</mat-icon> -->
+                        <span class="ms-2">Administrativo</span>
+                        <mat-icon class="icon">arrow_drop_down</mat-icon>
+                    </div>
+                </a>
+                <!-- Menú interno -->
+                <mat-nav-list class="submenu" *ngIf="isAdministrativeOpen">
+                  <a mat-list-item routerLink="/administración/gestión-de-inventario">
+                      <div class="d-flex align-items-center">
+                          <span class="ms-3 submenu">Gestión de Inventario</span>
+                      </div>
+                  </a>
+                  <a mat-list-item routerLink="/administración/gestión-de-personal">
+                      <div class="d-flex align-items-center">
+                          <span class="ms-3 submenu">Gestión de Personal</span>
+                      </div>
+                  </a>
+                </mat-nav-list>
+
+                <div class="logout-container p-2">
+                    <a mat-list-item routerLink="/">
+                        <div class="d-flex align-items-center">
+                            <mat-icon class="mb-2"><img src="../../../../assets/images/icons/logout.svg"
+                                    alt="Img Cerrar Sesión"></mat-icon>
+                            <span class="ms-2 text-center">Cerrar Sesión</span>
+                        </div>
+                    </a>
+
+                    <div class="separator">
+
+                    </div>
+                    <p class="copyright text-center">Copyright ©GestiPyme 2024 </p>
+                </div>
+
+
+            </mat-nav-list>
+        </div>
+        <div class="col-md-10 sidenav_background">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

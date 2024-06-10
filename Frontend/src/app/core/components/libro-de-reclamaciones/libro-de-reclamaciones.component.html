@@ -1,0 +1,266 @@
+<div class="wrapper">
+
+  <section class="b47">
+    <div class="wancho">
+      <div class="b47-libro-top">
+        <h3 class="b47-title-libro">Libro de Reclamaciones</h3>
+        <div class="b47-description-libro">
+          <p>Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, esta institución cuenta con
+            un libro de reclamaciones a su disposición</p>
+        </div>
+      </div>
+      <div class="b47-libro-down">
+        <div class="b47-libro-form">
+          <form id="formulario-reclamos" method="post" [formGroup]="formularioReclamos" (ngSubmit)="enviarReclamo()">
+            <div class="b47-date">
+              <div class="b47-date-item date">
+                <p>
+                  Fecha:
+                </p>
+                <span><input type="text" class="b47-current-date" readonly [value]="obtenerFechaActual()" #dateInput formControlName="fecha" name="fecha"></span>
+              </div>
+              <div class="b47-date-item codigo">
+                <p>
+                  Nº {{ formularioReclamos.get('codigo')?.value || '000 000001-201X' }}
+                </p>
+                <span>Este número se actualizará cuando termine de registrarse</span>
+              </div>
+            </div>
+            <div class="b47-list-box">
+              <div class="b47-libro-box">
+                <!-- <h4 class="b47-subtitle-libro">Antes de empezar, indícanos el lugar en el que se dieron los sucesos del
+                  reclamo:</h4> -->
+                <div class="g5-select g5-item-input">
+                  <!-- <select id="form-sedes" name="name-sede" class="form-input validate[required]">
+                    <option value=""></option>
+                    <option value="Establecimiento-1">Establecimiento-1</option>
+                    <option value="Establecimiento-2">Establecimiento-2</option>
+                  </select> -->
+                  <!-- <label class="input-label" for="form-sedes"><span>Establecimiento</span><i
+                      class="icon-arrow-down"></i></label> -->
+                </div>
+                <!-- <div class="b47-nota"> -->
+                  <!-- <p>Nota: Si la queja o reclamo se relaciona con un proyecto entregado, consignar a la oficina
+                    principal.</p> -->
+                <!-- </div> -->
+              </div>
+              <div class="b47-libro-box">
+                <h5 class="b47-title-box">1. Identificación del consumidor reclamante</h5>
+                <div class="g5-input-two">
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_nombre" name="nombre"
+                      class="validKeypress form-input validate[required] " formControlName="nombre">
+                    <label class="input-label" for="form_nombre"><span>Nombres*</span></label>
+                  </div>
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_apellido" name="apellido"
+                      class="validKeypress form-input validate[required] " formControlName="apellido">
+                    <label class="input-label" for="form_apellido"><span>Apellidos*</span></label>
+                  </div>
+                </div>
+                <div class="g5-input-two">
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_email" name="email"
+                      class="validate[required,custom[email]] form-input" formControlName="email">
+                    <label for="form_email"><span>Correo electrónico*</span></label>
+                  </div>
+                  <div class="g5-input g5-item-input">
+                    <input type="text" maxlength="9" id="form_phone" name="telefono"
+                      class="form-input soloNumber validKeypress validate[required,custom[onlyNumberSp],minSize[9],maxSize[9]]" formControlName="telefono">
+                    <label class="input-label" for="form_phone"><span>Teléfono/celular*</span></label>
+                  </div>
+                </div>
+                <div class="g5-input-two">
+                  <div class="g5-select g5-item-input">
+                    <select id="form-documento" name="tipoDocumento" class="form-input validate[required]" formControlName="tipoDocumento">
+                      <option value=""></option>
+                      <option value="DNI">DNI</option>
+                      <option value="Pasaporte">Pasaporte</option>
+                      <option value="C.E.">C.E.</option>
+                      <option value="R.U.C.">R.U.C.</option>
+                    </select>
+                    <label class="input-label" for="form-documento"><span>Tipo de documento</span><i
+                        class="icon-arrow-down"></i></label>
+                  </div>
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_numero" name="numeroDocumento"
+                      class="form-input soloNumber validKeypress validate[required,custom[onlyNumberSp]]" formControlName="numeroDocumento">
+                    <label class="input-label" for="form_numero"><span>Nº de documento*</span></label>
+                  </div>
+                </div>
+                <div class="g5-input-two">
+                  <div class="g5-select g5-item-input">
+                    <select id="form-departamento" name="departamento" class="form-input validate[required]"  formControlName="departamento"  (change)="updateProvincias($event)" >
+                      <option value=""></option>
+                      <option *ngFor="let departamento of departamentos" [value]="departamento">{{departamento}}</option>
+                    </select>
+
+                    <label class="input-label" for="form-departamento"><span>Departamento</span><i
+                        class="icon-arrow-down"></i></label>
+                  </div>
+                  <div class="g5-select g5-item-input">
+                    <select [disabled]="miVariableBooleana" id="form-provincia" name="provincia"
+                      class="form-input validate[required]" formControlName="provincia" (change)="updateDistritos($event)">
+                      <option value=""></option>
+                      <option *ngFor="let provincia of provincias" [value]="provincia">{{provincia}}</option>
+                    </select>
+                    <label class="input-label" for="form-provincia"><span>Provincia</span><i
+                        class="icon-arrow-down"></i></label>
+                  </div>
+                </div>
+                <div class="g5-input-two">
+                  <div class="g5-select g5-item-input">
+                    <select  id="form-distrito" name="distrito" class="form-input validate[required]" formControlName="distrito">
+                      <option value=""></option>
+                      <option *ngFor="let distrito of distritos" [value]="distrito">{{distrito}}</option>
+                    </select>
+                    <label class="input-label" for="form-distrito"><span>Distrito</span><i
+                        class="icon-arrow-down"></i></label>
+                  </div>
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_direccion" name="direccion"
+                      class="validKeypress form-input validate[required] " formControlName="direccion">
+                    <label class="input-label" for="form_direccion"><span>Dirección*</span></label>
+                  </div>
+                </div>
+                <div class="g5-input-two">
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_nombre-tutor" name="nombreTutor" class="validKeypress form-input " formControlName="nombreTutor">
+                    <label class="input-label" for="form_nombre-tutor"><span>Nombre del Tutor</span></label>
+                  </div>
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_apellido-tutor" name="apellidoTutor" class="validKeypress form-input" formControlName="apellidoTutor">
+                    <label class="input-label" for="form_apellido-tutor"><span>Apellidos del Tutor</span></label>
+                  </div>
+                </div>
+                <div class="g5-input-two">
+                  <div class="g5-select g5-item-input">
+                    <select id="form-documento-tutor" name="tipoDocumentoTutor" class="form-input" formControlName="tipoDocumentoTutor">
+                      <option value=""></option>
+                      <option value="DNI">DNI</option>
+                      <option value="Pasaporte">Pasaporte</option>
+                      <option value="C.E.">C.E.</option>
+                      <option value="R.U.C.">R.U.C.</option>
+                    </select>
+                    <label class="input-label" for="form-documento-tutor"><span>Tipo de documento</span><i
+                        class="icon-arrow-down"></i></label>
+                  </div>
+                  <div class="g5-input g5-item-input">
+                    <input type="text" id="form_numero-tutor" name="numeroDocumentoTutor" class="form-input soloNumber" formControlName="numeroDocumentoTutor">
+                    <label class="input-label" for="form_numero-tutor"><span>N° de documento</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="b47-libro-box">
+                <h5 class="b47-title-box">2. Identificación del bien contratado</h5>
+                <div class="b47-list-radios">
+                  <div class="g5-input-radio">
+                    <!-- <input type="radio" value="Producto" name="identificacion-bien-contratado"
+                      id="form_detalle-proyecto" formControlName=""> -->
+                    <!-- <label for="form_detalle-proyecto">Producto</label> -->
+                  </div>
+                  <div class="g5-input-radio">
+                    <!-- <input type="radio" value="Servicio" name="identificacion-bien-contratado"
+                      id="form_detalle-servicio"> -->
+                    <!-- <label for="form_detalle-servicio">Servicio</label> -->
+                  </div>
+                </div>
+                <div class="g5-item-input g5-textarea">
+                  <textarea id="form_description" name="descripcionBienContratado"
+                    class="form-input validate[required]" formControlName="descripcionBienContratado"></textarea>
+                  <label class="input-label" for="form_description"><span>Descripción*</span></label>
+                </div>
+              </div>
+              <div class="b47-libro-box">
+                <h5 class="b47-title-box">3. Detalle de la Reclamación y Pedido del Consumidor</h5>
+                <div class="b47-list-radios">
+                  <div class="g5-input-radio">
+                    <input  name="tipoReclamacion" value="Reclamo" type="radio" id="form_detalle-reclamo" formControlName="tipoReclamacion">
+                    <label for="form_detalle-reclamo">Reclamo</label>
+                  </div>
+                  <div class="g5-input-radio">
+                    <input name="tipoReclamacion" value="Queja" type="radio" id="form_detalle-queja" formControlName="tipoReclamacion">
+                    <label for="form_detalle-queja">Queja</label>
+                  </div>
+                </div>
+                <div class="b47-box-reclamo" >
+                  <p><strong>*Reclamo:</strong> Disconformidad relacionada a los proyectos o servicios<br><strong>***
+                      Queja:</strong> Disconformidad no relacionada a los proyectos o servicios; o, malestar o
+                    descontento respecto a la atención al público.</p>
+                </div>
+                <div class="g5-item-input g5-textarea">
+                  <textarea id="form_detalle" name="detalleReclamacion" required="required"
+                    class="form-input validate[required]" formControlName="detalleReclamacion"></textarea>
+                  <label class="input-label " for="form_detalle"><span>Detalle*</span></label>
+                </div>
+                <div class="g5-item-input g5-textarea">
+                  <textarea id="form_pedido" name="pedidoReclamacion" required="required"
+                    class="form-input validate[required]" formControlName="pedidoReclamacion"></textarea>
+                  <label class="input-label" for="form_pedido" ><span>Pedido*</span></label>
+                </div>
+                <div class="g5-select g5-input-file p-3">
+                  <input id="file-input" type="file"
+                  class="validate[custom[validateMIME[jpg|jpeg|png]]"
+                    data-errormessage-custom-error="Debe adjuntar archivo (imágenes JPG, PNG, JPEG)"
+                    name="file" (change)="onFileChange($event)" formControlName="file" ngDefaultControl>
+                  <label class="input-label no-effect" for="file-input">
+                    <i class="g5-icoinput icon-adjunta"></i>
+                    <div class="g5-text-input" data-text="Adjuntar Archivo">
+                      Adjuntar archivo
+                    </div>
+                    <div class="g5-inpufile-text">Adjuntar archivo (PDF, PPTX, WORD o imágenes JPG, PNG)</div>
+                  </label>
+                  <div class="d-flex justify-content-center"><span *ngIf="isFileLoaded" class="text-center fw-bold fs-6" style="color: #1B376F;"> <strong class="pe-2">Archivo cargado: </strong> {{  fileToUpload?.name }}</span></div>
+
+                </div>
+              </div>
+              <div class="b47-libro-box observacion">
+                <h5 class="b47-title-box">4. Observaciones y acciones adoptadas por el proveedor</h5>
+                <div class="b47-libro-observacion">
+                  <p>Descripción: “Al ser un reclamo virtual, su caso será derivado al área de atención al cliente, a
+                    fin de dar respuesta dentro del plazo legalmente establecido.</p>
+                </div>
+              </div>
+              <div class="b47-libro-box">
+                <h5 class="b47-title-box">5. Autorizo notificación del resultado del reclamo al correo consignado</h5>
+                <div class="b47-list-radios">
+                  <div class="g5-input-radio">
+                    <input name="autorizoNotificacionResultado" value="si" type="radio" id="form_detalle-si" formControlName="autorizoNotificacionResultado">
+                    <label for="form_detalle-si">Si</label>
+                  </div>
+                  <div class="g5-input-radio">
+                    <input name="autorizoNotificacionResultado" value="no" type="radio" id="form_detalle-no" formControlName="autorizoNotificacionResultado">
+                    <label for="form_detalle-no">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="g5-required">(*) Campos obligatorios</span>
+            <div class="b47-libro-formulacion">
+              <p>* La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito
+                previo para interponer una denuncia ante el INDECOPI.</p>
+              <p>* El proveedor deberá dar respuesta al reclamo en un plazo no mayor a treinta (30) días calendario,
+                pudiendo ampliar el plazo hasta por treinta (30) días más, previa comunicación al consumidor.</p>
+            </div>
+            <div class="g5-terminos">
+              <input type="checkbox" id="form_privacity" class="validate[required]" name="privacidad" formControlName="privacidad">
+              <label for="form_privacity" class="g5-terminos_nota">
+                <span class="g5-terminos_icon"></span>
+                <div class="g5-terminos_text">
+                  <p>He leído y acepto las <a routerLink="/politica-de-privacidad">Políticas de
+                      Privacidad</a> de Gestipyme</p>
+                </div>
+              </label>
+            </div>
+            <div class="b47-btn">
+              <button type="submit" class="g-btn-bg bg_blue b47-send">Enviar</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+<app-footer></app-footer>

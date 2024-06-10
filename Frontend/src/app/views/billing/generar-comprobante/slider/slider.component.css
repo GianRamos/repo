@@ -1,0 +1,15 @@
+
+
+  .example-section {
+    margin-top: 5px;
+    display: flex;
+    align-content: center;
+    align-items: end;
+    justify-content: center;
+    height: 30px;
+  }
+  .label_slider{
+  color: #1B376F;
+  font-weight: 500;
+  }
+

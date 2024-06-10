@@ -1,0 +1,409 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.estado-tramite-container {
+    width: 100%;
+    height: calc(100% - 80px);
+  }
+
+  .estado-tramite-container h2 {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    color: #1B376F;
+  }
+  .estado-tramite-container h2 strong {
+    font-size: 24px;
+  }
+  
+  .table-tramite-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .flex-container {
+    display: flex;
+  }
+  
+  .table-tramite-container {
+    flex-grow: 1;
+    transition: width 0.3s ease;
+  }
+
+  .tabs-and-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  .table-container {
+    width: 100%;
+    background: #F8F8F9;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
+  .custom-tab .mat-tab-label {
+    color: #1B376F;
+  }
+
+  .search-input {
+    height: 36px;
+    border-radius: 12px;
+    padding: 0 10px;
+    border: none;
+  }
+
+  .search-container {
+    position: relative;
+  }
+  
+  .input-with-icon {
+    position: relative;
+  }
+  .search-input {
+    padding-left: 2.5rem;
+  }
+  .search-input:focus {
+    outline-color: #7E7E7E;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #7E7E7E;
+  }
+
+  .mat-elevation-z8 {
+    background: #F8F8F9;
+    width: 50%;
+    
+  }
+  .header-column {
+    background: #EAEAEA !important;
+  }
+
+  .custom-table .custom-header,
+  .custom-table .custom-cell {
+      color: #1B376F;
+  }
+  .custom-table, .custom-header {
+    font-weight: 800;
+  }
+  .client-cell {
+    font-weight: 600;
+  }
+
+  .estado {
+    padding: 0.5em 1em;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .estado-pendiente {
+    background-color: #FFC5C5;
+    color: #1B376F;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 120px;
+    height: 36px;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .estado-en-proceso {
+    background-color: #FFEBA2;
+    color: #1B376F;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 120px;
+    height: 36px;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .estado-atendido {
+    background-color: rgba(76, 175, 80, 0.4);
+    color: #1B376F;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 120px;
+    height: 36px;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  
+/* Estilo tab*/
+  ::ng-deep .mat-mdc-tab-ripple {
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    background: #F8F8F9;
+  }
+  ::ng-deep .mat-mdc-tab.mdc-tab--active .mat-mdc-tab-ripple {
+    background: #97C7EB;
+  }
+  
+  ::ng-deep .mdc-tab__text-label {
+    font-weight: bold;
+  }
+  ::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    font-weight: bold;
+  }
+
+  ::ng-deep .mat-mdc-tab-group {
+    --mdc-tab-indicator-active-indicator-color: #0F6A9A;
+    --mat-tab-header-active-label-text-color: #1B376F;
+    --mat-tab-header-active-ripple-color: #1B376F;
+    --mat-tab-header-inactive-ripple-color: #1B376F;
+    --mat-tab-header-active-focus-label-text-color: #1B376F;
+    --mat-tab-header-active-hover-label-text-color: #1B376F;
+    --mat-tab-header-active-focus-indicator-color: #0F6A9A;
+    --mat-tab-header-active-hover-indicator-color: #0F6A9A;
+  }
+  ::ng-deep .mat-mdc-tab-header {
+    --mdc-tab-indicator-active-indicator-height: 3px !important;  
+  }
+
+  /*----DETALLE DE SOLICITUD----*/
+  .detail-panel {
+    width: 40%;
+    transition: width 0.3s ease;
+    margin: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .detail-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .box-detail {
+    background: #F8F8F9;
+    border-radius: 20px;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .box-detail__header {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    overflow: hidden;
+    padding: 0 0.5rem;
+  }
+  .name-request h3 {
+    margin: 0;
+    font-weight: 500;
+    color: #1B376F;
+    line-height: normal;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  .name-request p {
+    font-size: 12px;
+    line-height: normal;
+    margin: 0;
+    color: #1B376F;
+  }
+  .request-status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .request-status p {
+    margin: 0;
+  }
+  .request-status p span {
+    width: fit-content;
+    padding: 0.5rem;
+  }
+  .request-details-container {
+    margin-top: 0.8rem;
+    color: #1B376F;
+    padding: 0 0.5rem;
+  }
+  .title-request-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .title-request-details h3 {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  .request-details {
+    margin: 0;
+  }
+  .request-details p{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  .request-details p strong {
+    font-weight: 600;
+  }
+
+  .button-container {
+    display: grid;
+    grid-template-columns: 58% 42%;
+    grid-gap: 0.5rem;
+    margin-top: 0.8rem;
+    padding: 0 0.5rem 0 0;
+  }
+  
+  .button-container button {
+    height: 2.5rem;
+  }
+  
+  .button-container button:nth-child(3) {
+    grid-column: span 2; /* El tercer botón ocupará dos columnas */
+  }
+
+  .cancel-button {
+    border-radius: 8px;
+    background: #BA2D1D; /*0F72A1, 1B376F*/
+    color: #F8F8F9;
+    font-size: 11px;
+  }
+  .review-button {
+    border-radius: 8px;
+    background: #1B376F;
+    color: #F8F8F9;
+    font-size: 11px;
+  }
+  .request-button {
+    border-radius: 8px;
+    background: #0F72A1;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+  } 
+  .request-button a {
+    text-decoration: none;
+    color: #F8F8F9;
+  }
+
+  .view-btn {
+    background-color: #97C7EB;
+    border: none;
+    margin: 0.5rem;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    min-width: 24px;
+    min-height: 24px;
+  }
+  .icon-btn {
+    color: #122854;
+    border-radius: 5px;
+  }
+
+  /*MODAL*/
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 80%;
+    max-width: none !important;
+    color: #1B376F;
+  }
+
+  .title {
+    font-size: 14px;
+    color: #1B376F;
+  }
+  .form-label {
+    margin: 0;
+  }
+  .modal-header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  
+  .modal-title {
+    text-align: center;
+  }
+  
+  .modal-buttons {
+    text-align: center;
+    margin-top: 0.7rem;
+  }
+
+  .btn-primary {
+    border-radius: 8px;
+    background: #0F72A1;
+    color: #F8F8F9;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .upload-section {
+    border: 3px dashed rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #D9D9D9;
+}
+
+  .upload-section-content {
+      border-radius: 8px;
+      padding: 1rem;
+      height: 6.5rem;
+      width: 100%;
+  }
+
+  .upload-section-text {
+      width: 100%;
+      font-size: 14px;
+  }
+  .upload-section-text p {
+      font-weight: 600;
+      margin: 0;
+  }
+  
+  
+
+
+
+  
+
+  

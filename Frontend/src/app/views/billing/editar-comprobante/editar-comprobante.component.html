@@ -1,0 +1,169 @@
+<div class="container mt-1">
+  <div class="row">
+    <!-- Primer contenedor (11 grillas) -->
+    <div class="col-md-11 mt-1">
+      <div class=" contenedor_filtro shadow ">
+        <div class="row">
+          <!-- Primer fila -->
+          <div class="col-md-3 d-flex">
+            <label for="solicitante" class="form-label  mt-2 ">Solicitante:</label>
+            <select id="id_solicitante" class="form-select  ms-2" required>
+              <option value="Home">Home</option>
+              <option value="Home_1">Home_1</option>
+            </select>
+          </div>
+
+          <div class="col-md-3 d-flex">
+            <label for="Estado" class="form-label mt-2">Estado:</label>
+            <select id="Estado" class="form-select ms-2" required>
+              <option value="Home">Home</option>
+              <option value="Home_1">Home_1</option>
+            </select>
+          </div>
+
+          <div class="col-md-4 d-flex align-items-end">
+            <label for="Empresa" class="form-label mb-2">Empresa:</label>
+            <input type="Empresa_input" class="form-control ms-2" placeholder="Home" required>
+          </div>
+
+          <div class="col-md-2 d-flex align-items-end">
+
+            <button type="button" class="btn btn-primary border border-white w-100 fw-bold" data-bs-toggle="button"
+              autocomplete="off">
+
+              Buscar
+              <img src="../../../../assets/images/icons/lupa.svg" class="iconLupa" alt="Icono de lupa">
+            </button>
+          </div>
+        </div>
+
+        <!-- Segunda fila -->
+        <div class="row mt-3">
+          <div class="col-md-4 d-flex align-items-end">
+            <label for="Concepto" class="form-label mb-2">Concepto:</label>
+            <input type="Concepto_input" class="form-control ms-2" placeholder="Venta de ..." required>
+          </div>
+
+          <div class="col-md-2 d-flex">
+            <label for="Monto" class="form-label mt-3">Monto:</label>
+            <input type="Monto_input" class="form-control ms-2 mt-2" placeholder="S/. " required>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-center">
+            <label for="Num_comprobante" class="form-label mb-0 anchoLabel">Nº de comprobante:</label>
+            <input type="Num_comprobante_input" class="form-control w-75 ms-2" placeholder="00000000" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <a href="https://wa.me/51918795733?text=%C2%A1Hola!,%20%C2%A1deseo%20informaci%C3%B3n%20para%20la%20gesti%C3%B3n%20de%20mi%20negocio"
+        target="_blank">
+        <img class="logoWhatsapp" src="../../../../assets/images/icons/WhatsAppLOGO.svg" alt="Logo WhatsAppLOGO">
+      </a>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row mt-2 ">
+        <div class="col-md-8 d-flex align-items-end">
+          <h2 class="title mb-0 title__tabla">Tabla de comprobantes emitidos</h2>
+        </div>
+        <div class="col-md-2 mb-1">
+          <select id="filtro" class="form-select shadow" required>
+            <option value="Esta semana">Esta semana</option>
+            <option value="El último mes">Ultimo mes</option>
+          </select>
+        </div>
+        <div class="col-md-2 d-flex justify-content-end mb-1">
+          <button type="button" class="btn btn-primary border border-white" data-bs-toggle="button" autocomplete="off">
+            Descargar .csv
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- TABLA -->
+
+    <div class="container container_table pt-2">
+      <div class="custom-table shadow" tabindex="0">
+        <div class="col-md-12">
+          <table mat-table [dataSource]="dataSource">
+
+            <!-- Fecha de Emisión Column -->
+            <ng-container matColumnDef="Fecha de Emisión">
+              <th mat-header-cell *matHeaderCellDef class="text-center title_table anchoFecha"> Fecha de Emisión </th>
+              <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold">{{ element.fechaEmision | date }} </td>
+            </ng-container>
+
+            <!-- Estado Column -->
+            <ng-container matColumnDef="Estado">
+              <th mat-header-cell *matHeaderCellDef class="text-center title_table"> Estado </th>
+              <td mat-cell *matCellDef="let element" class="texto-centrado ">
+                <span class="{{getEstadoColor(element.Estado)}}">{{element.Estado}}</span>
+              </td>
+            </ng-container>
+
+            <!-- Serie Column -->
+            <ng-container matColumnDef="Serie">
+              <th mat-header-cell *matHeaderCellDef class="text-center title_table anchoSerie"> Serie </th>
+              <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold"> {{ element.Serie }} </td>
+            </ng-container>
+
+            <!-- Nº Comprobante Column -->
+            <ng-container matColumnDef="Nº Comprobante">
+              <th mat-header-cell *matHeaderCellDef class="text-center title_table anchoNum"> Nº Comprobante </th>
+              <td mat-cell *matCellDef="let element" class="texto-centrado"> {{ element.numeroComprobante }} </td>
+            </ng-container>
+
+            <!-- Cliente Column -->
+            <ng-container matColumnDef="Cliente">
+              <th mat-header-cell *matHeaderCellDef class="text-center title_table column_width"> Cliente </th>
+              <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold"> {{ element.Cliente }} </td>
+            </ng-container>
+
+            <!-- Importe total Column -->
+            <ng-container matColumnDef="Importe total">
+              <th mat-header-cell *matHeaderCellDef class="text-center title_table anchoTotal"> Importe Total </th>
+              <td mat-cell *matCellDef="let element" class="texto-centrado"> {{ element.importeTotal }} </td>
+            </ng-container>
+
+            <!-- Acciones Column -->
+            <ng-container matColumnDef="Acciones">
+              <th mat-header-cell *matHeaderCellDef class="text-center title_table acciones__width"> Acciones </th>
+              <td mat-cell *matCellDef="let element" class="text-center align-items-center">
+                  <button mat-icon-button class="icon-btn see-btn  ml-2" (click)="ver(element)">
+                    <mat-icon class="icon">visibility</mat-icon> <!-- Ícono de Ver -->
+                  </button>
+                  <button mat-icon-button class="icon-btn print-btn" (click)="imprimir(element)">
+                    <mat-icon class="icon">print</mat-icon> <!-- Ícono de Imprimir -->
+                  </button>
+                  <button mat-icon-button class="icon-btn edit-btn " (click)="editar(element)">
+                    <mat-icon class="icon">edit</mat-icon> <!-- Ícono de Editar -->
+                  </button>
+                  <button mat-icon-button class="icon-btn delete-btn me-0" (click)="eliminar(element)">
+                    <mat-icon class="icon">delete_forever</mat-icon> <!-- Ícono de Eliminar -->
+                  </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5,10, 15, 20]" showFirstLastButtons
+            aria-label="Select page de periodic elements">
+          </mat-paginator>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

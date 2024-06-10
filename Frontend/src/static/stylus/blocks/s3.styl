@@ -1,0 +1,160 @@
+.b3
+	padding 60px 0 50px 0
+
+.b3-content
+	overflow hidden
+
+.b3-head
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	justify-content space-between
+	align-items center
+
+.b3-title
+	display block
+	line-height 1.1
+	color c-0
+	font-family t-0
+	font-weight 600
+	font-size 46px
+	margin 0
+	@media screen and (max-width 767px)
+		width calc(100% - 100px)
+		font-size 30px
+
+.b3-controls
+	display flex
+	flex-direction row
+	flex-wrap wrap
+
+.b3-arrow
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 30px
+	height 30px
+	color c-1
+	font-size 14px
+	cursor pointer
+	border 1px solid c-1
+	border-radius 50%
+	opacity 0.5
+	box-sizing border-box
+	margin 0 10px 0 0
+	@media screen and (min-width 1025px)
+		transition all .25s ease
+		&:hover
+			opacity 1
+
+	&:last-child
+		margin-right 0
+
+.b3-slider
+	width calc(100% + 8px)
+	margin-left -4px
+
+.b3-item
+	box-sizing border-box
+	padding 50px 4px 45px 4px
+
+.b3-card
+	display block
+	width 100%
+	min-height 470px
+	overflow hidden
+	background-color c-11
+	border-radius 10px
+	position relative
+	box-sizing border-box
+	margin 0
+	@media screen and (min-width 1025px)
+		max-width 294px
+		transition all .25s ease
+		&:hover
+			background-color c-0
+			.b3-info
+				background-color c-17
+			.b3-name
+				color c-3
+			.b3-charge
+				color c-2
+			.b3-left
+				color c-18
+			.b3-right
+				color c-3
+
+.b3-image
+	width 100%
+	box-sizing border-box
+	padding 13px 3px 0 3px
+	margin 0
+	img
+		img-res()
+
+.b3-info
+	background-color c-12
+	transition all .25s ease
+	padding 0 25px 14px 12px
+
+.b3-up
+	padding 14px 0 14px 0
+
+.b3-name
+	display block
+	line-height 1
+	color c-0
+	font-family t-0
+	font-weight 500
+	font-size 16px
+	transition all .25s ease
+	margin 0 0 10px 0
+
+.b3-charge
+	display block
+	line-height 1
+	color c-0
+	font-family t-0
+	font-weight 700
+	font-size 12px
+	text-transform uppercase
+	transition all .25s ease
+	margin 0
+
+.b3-box
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	justify-content space-between
+	align-items center
+	border-top 1px solid c-15
+	padding 9px 0
+
+.b3-left
+	display block
+	width 67px
+	line-height 1
+	color c-13
+	font-family t-0
+	font-weight 500
+	font-size 12px
+	transition all .25s ease
+	margin 0
+
+.b3-right
+	display block
+	width calc(100% - 67px)
+	line-height 1
+	color c-14
+	font-family t-0
+	font-weight 400
+	font-size 12px
+	word-wrap break-word
+	transition all .25s ease
+	margin 0
+	p
+		margin 0
+
+.b3-button
+	text-align center

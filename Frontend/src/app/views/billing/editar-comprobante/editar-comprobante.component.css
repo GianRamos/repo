@@ -1,0 +1,158 @@
+.contenedor_filtro{
+background-color: #154C75;
+border-radius: 20px;
+box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+padding: 1.3rem 2rem;
+}
+
+.form-label {
+    margin-bottom: .1rem;
+    color: #F8F8F9;
+    font-size: 13px;
+    font-weight:600;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.anchoLabel{
+  width: 140px;
+}
+
+/* btn search */
+.btn{
+    color: #081836;
+    background-color: #8BCAFC;
+    font-weight:500;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    border-radius: 15px;
+}
+
+  .title__tabla{
+    color: #1B376F;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  .ACTIVO, .ANULADO, .RECHAZADO {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 120px;
+    height: 36px;
+    overflow: hidden;
+  }
+
+  .ACTIVO {
+    background-color: rgba(76, 175, 80, 0.4);
+  }
+
+  .ANULADO {
+    background-color: rgba(255, 205, 210, 0.5);
+  }
+
+  .RECHAZADO {
+    background-color: #E5737399;
+  }
+
+/* ESTILO PARA LOS ÍCONOS */
+.icon {
+  padding-top: 2px;
+  font-size: 20px;
+  color: #122854;
+}
+.delete-btn {
+  background-color: rgba(239, 83, 80, 0.7);
+  border-radius: 5px;
+  border: none;
+}
+.edit-btn {
+  background-color:#FFEBA2;
+  border: none;
+}
+.print-btn {
+  background-color:#d9d9d9;
+  border: none;
+}
+.see-btn {
+  background-color: #97C7EB;
+  border: none;
+}
+
+.icon-btn {
+  color: #122854;
+  border-radius: 5px;
+  margin-right: 30px;
+  margin: 0 8px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.icon-button:hover {
+  opacity: 0.8;
+}
+
+.title_table{
+  color: #1B376F;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: pink;
+}
+
+.texto-centrado {
+  text-align: center;
+  color: #1B376F;
+  font-weight: 500;
+}
+.logoWhatsapp{
+  position: absolute;
+  bottom: 630px;
+  right: 0px;
+  z-index: 885;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 45px;
+}
+.iconLupa{
+  color: #08183699;
+}
+.column_width{
+width: 18%;
+}
+.acciones__width{
+  width: 30%;
+}
+
+.anchoSerie{
+  width: 8%;
+}
+
+.anchoFecha, .anchoNum, .anchoTotal{
+  width: 15%;
+}
+/* TABLA */
+/* table de angular material */
+.custom-table {
+  width: 100%;
+  height: 29.8rem;
+  overflow: auto;
+  }
+th{
+  background-color: #EAEAEA!important;
+}
+
+td {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #1c213024;
+}
+
+
+.container_table{
+background-color: #fff;
+}

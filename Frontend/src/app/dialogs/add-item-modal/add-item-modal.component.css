@@ -1,0 +1,28 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-center {
+  flex: 1;
+  text-align: center;
+}
+
+/* .close-button {
+  margin-right: -12px;
+} */
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.form-field:last-child {
+  margin-right: 0;
+}

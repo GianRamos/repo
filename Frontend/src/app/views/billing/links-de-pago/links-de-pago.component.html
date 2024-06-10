@@ -1,0 +1,67 @@
+<div class="historial-links-container">
+    <h2><strong>Historial</strong> de Links</h2>
+    <!--<div class="search-container">
+        <div class="input-with-icon">
+          <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" class="search-input">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+    </div>-->
+    <div class="flex-container">
+      <div class="table-links-container">
+        <!-- Tabs y buscador -->
+        <div class="tabs-and-search">
+          <!-- Tabs para filtrar la tabla -->
+          <mat-tab-group (selectedTabChange)="cambiarEstado($event.tab.textLabel)" class="custom-tab-group">
+            <mat-tab *ngFor="let estado of estados" [label]="estado" class="custom-tab"></mat-tab>
+          </mat-tab-group>
+        </div>
+    
+        <div class="table-container">
+          <!-- Tabla -->
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+            <!-- Aquí van las columnas de la tabla -->
+            <ng-container matColumnDef="numero">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> N° </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.numero}} </td>
+            </ng-container>
+            <ng-container matColumnDef="cliente">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Cliente </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.cliente}} </td>
+            </ng-container>
+            <ng-container matColumnDef="comprobante">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> N° Comprobante </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.comprobante}} </td>
+            </ng-container>
+            <ng-container matColumnDef="descripcion">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Descripción </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.descripcion}} </td>
+            </ng-container>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> ID </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="importe">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Importe Estimado </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.importe}} </td>
+            </ng-container>
+            <ng-container matColumnDef="estado">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Estado </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.estado}} </td>
+            </ng-container>
+            <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Fecha </th>
+              <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.fecha}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>   
+      </div>
+    </div>
+</div>
+  

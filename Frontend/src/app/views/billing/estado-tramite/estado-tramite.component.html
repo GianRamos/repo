@@ -1,0 +1,247 @@
+<div class="estado-tramite-container">
+  <h2><strong>Solicitudes</strong> de Trámite</h2>
+  <div class="flex-container">
+    <div class="table-tramite-container">
+      <!-- Tabs y buscador -->
+      <div class="tabs-and-search">
+        <!-- Tabs para filtrar la tabla -->
+        <mat-tab-group (selectedTabChange)="cambiarEstado($event.tab.textLabel)" class="custom-tab-group">
+          <mat-tab *ngFor="let estado of estados" [label]="estado" class="custom-tab"></mat-tab>
+        </mat-tab-group>
+        <div class="search-container">
+          <div class="input-with-icon">
+            <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" class="search-input">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+  
+      <div class="table-container">
+        <!-- Tabla -->
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+          <ng-container matColumnDef="numero">
+            <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> N° </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.numero}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="producto">
+            <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Producto </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.producto}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Estado </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell">
+              <span class="estado" [ngClass]="getEstadoColor(element.estado)"> {{element.estado}} </span>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Fecha </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.fecha}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="cliente">
+            <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Cliente </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell client-cell"> {{element.cliente}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="medioDePago">
+            <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Medio de Pago </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell"> {{element.medioDePago}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="verDetalle">
+            <th mat-header-cell *matHeaderCellDef class="header-column custom-header"> Ver Detalle </th>
+            <td mat-cell *matCellDef="let element" class="custom-cell">
+              <button mat-icon-button (click)="verDetalle(element)" class="icon-btn view-btn">
+                  <mat-icon>visibility</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>   
+    </div> 
+
+    <!-- Cuadro de detalles -->
+    <div class="detail-panel" *ngIf="selectedSolicitud">
+      <div class="box-detail">
+        <div class="detail-header">
+          <button (click)="cerrarDetalle()" class="btn-close close-button">
+          </button>
+        </div>
+        
+        <div class="box-detail__header">
+          <div class="name-request">
+            <h3>{{selectedSolicitud.cliente}}</h3>
+            <p>Solicitud de {{selectedSolicitud.producto}}</p>
+          </div>
+          <div class="request-status">
+            <p><span [ngClass]="getEstadoColor(selectedSolicitud.estado)">{{selectedSolicitud.estado}}</span></p>
+          </div>
+        </div>
+        <div class="request-details-container">
+          <div class="title-request-details">
+            <h3>Detalles de la solicitud</h3>
+            <button mat-icon-button class="icon-btn edit-btn small-button" (click)="openEditModal()">
+              <mat-icon class="icon">edit</mat-icon>
+            </button>
+          </div>
+          <div class="request-details">
+            <p><strong>Fecha de ingreso:</strong> {{selectedSolicitud.fecha}}</p>
+            <p><strong>Trámite:</strong> {{selectedSolicitud.producto}}</p>
+            <p><strong>Fecha tentativa:</strong> 21 May 2024</p>
+            <p><strong>Validación F1:</strong> OBSERVADO</p>
+            <p><strong>Estado de pago:</strong> PAGADO</p>
+            <p><strong>Código de proforma:</strong> PENDIENTE</p>
+            <p><strong>Costo:</strong> --</p>
+          </div>
+        </div>    
+      </div>
+      <div class="button-container">
+        <div class="solicitar-informacion request-button">
+          <a href="https://wa.me/51918795733?text=%C2%A1Hola!,%20%C2%A1deseo%20informaci%C3%B3n%20para%20la%20gesti%C3%B3n%20de%20mi%20negocio" target="_blank">
+            SOLICITAR INFORMACIÓN
+          </a>
+          <img src="../../../assets/images/icons/whatsapp.svg" alt="WhatsApp">
+        </div>
+        
+        <button mat-button class="review-button" [routerLink]="['/facturación/trámites-en-línea']">REVISAR SOLICITUD</button>
+        <button mat-button class="cancel-button">CANCELAR SOLICITUD</button>
+      </div>
+    </div>
+
+  </div> 
+
+</div>
+
+<!-- modal  -->
+<div class="modal-overlay" *ngIf="editModalVisible">
+  <div class="modal-container">
+    <div class="modal-header">
+      <button class="btn-close" (click)="closeEditModal()"></button>
+    </div>
+    <h2 mat-dialog-title class="modal-title">Editar Solicitud</h2>
+    <form>
+      <div class="container contenedor_data_comprobante mt-3">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="title mb-0">Nuevo trámite</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="tipo_servicios" class="form-label">Tipo de Servicios</label>
+                <select id="select_tipo_servicios_1" class="form-select"  required>
+                  <option  [ngValue]="null" disabled>Selecciona un tipo de Servicio</option>
+                    <option></option>
+                </select>
+              </div>
+              <div class="col-md-4" >
+                <label for="name" class="form-label">Servicios Específicos</label>
+                <select id="select_tipo_servicios_2" class="form-select" required>
+                  <option [ngValue]="null" disabled selected>Selecciona un Servicio</option>
+                  <ng-container>
+                  <option></option>
+                  </ng-container>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="Fecha_ingreso" class="form-label">Fecha de Ingreso</label>
+                <input type="date" class="form-control" required>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <div class="form-floating mt-2">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 115px"></textarea>
+                  <label for="floatingTextarea2">Observaciones</label>
+                </div>
+              </div>
+              <div class="col-md-6 upload-section  mt-2">
+                <div class="row align-items-center">
+                  <div class="col-md-2 text-center">
+                    <div class="upload-icon"  *ngIf="!fileSelected">
+                      <img src="../../../../assets/images/createCompany/upload.svg" alt="Upload icon">
+                    </div>
+                    <div class="upload-icon" *ngIf="fileSelected">
+                      <img src="../../../../assets/images/createCompany/check.svg" alt="Checkmark icon">
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <label for="fileInput" class="upload-section-content">
+                      <input type="file" id="fileInput" accept="image/jpeg, image/png, application/pdf">
+                      <div class="upload-section-text">
+                        <div *ngIf="!fileSelected">
+                          <span class="text-center">Sube un archivo jpg, jpeg, png, pdf</span>
+                        </div>
+                        <div *ngIf="fileSelected" class="file-info">
+                          <p>{{ fileSelected.name }}</p>
+                          <button (click)="removeFile()">
+                            <img src="../../../../assets/images/createCompany/delete.svg" alt="Delete icon">
+                          </button>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-3">
+                <!-- <label for="document-type" class="form-label">Medio de pago</label>
+                <select id="document-type" class="form-select" required>
+                  <option value="Efectivo">Efectivo</option>
+                  <option value="Tarjeta">Tarjeta</option>
+                </select> -->
+              </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-6 mt-3">
+                <span class="drag_drop_result">Ningún archivo subido</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Segundo contenedor de datos del cliente -->
+      <div class="container mt-1 contenedor_data_comprobante">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="title mb-0">Datos del Cliente</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="nombre_cliente" class="form-label">Nombre del cliente</label>
+                <input type="text" class="form-control" placeholder="Lucas de la Torre" required>
+              </div>
+              <div class="col-md-4">
+                <label for="num_celular" class="form-label">Nº Celular</label>
+                <input type="text" class="form-control" placeholder=" 999 999 999" required>
+              </div>
+              <div class="col-md-4">
+                <label for="cliente_email" class="form-label ">Email</label>
+                <input type="email" class="form-control" placeholder="micorreo@gmail.com" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="cliente_domicilio" class="form-label mt-2">Domicilio</label>
+                <input type="text" class="form-control" placeholder="mi domicilio..." required>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button type="button" class="btn btn-primary" (click)="saveChanges()">Guardar Cambios</button>
+      <!--<button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cerrar</button>-->
+      </div>   
+    </form>
+  </div>
+</div>
+

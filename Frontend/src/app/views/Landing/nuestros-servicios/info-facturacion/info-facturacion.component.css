@@ -1,0 +1,11 @@
+.bolder-text
+{
+  font-weight: bold;
+  color: #1B376F;
+}
+.divider {
+  height: 5px;
+  width: 80%;
+  background: linear-gradient(to left, #154C75, #278EDB);
+  margin: 0 auto;
+}

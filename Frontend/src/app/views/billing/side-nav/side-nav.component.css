@@ -1,0 +1,60 @@
+span{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    color: #f8f8f9;
+    font-weight: 500;
+}
+.submenu{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    color: #f8f8f9;
+    font-weight: 600;
+}
+
+.sidenav{
+    background-color: #154c75;
+}
+.sidenav_background{
+    background-color: #EAEAEA;
+    height: 90vh;
+    /* height: 89.4vh;
+    width: 79rem; */
+}
+
+/* Estilo para subrayar texto al pasar el cursor */
+.mat-list-item:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para los íconos */
+.icon {
+    margin-right: 8px;
+    color: #f8f8f9;
+}
+
+.logout-container {
+    position: fixed;
+    bottom:7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logout-button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .separator {
+    margin: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid white;
+  }
+
+  .copyright {
+    color: white;
+    font-size: 14px;
+  }
+

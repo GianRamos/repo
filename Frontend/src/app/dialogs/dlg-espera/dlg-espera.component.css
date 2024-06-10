@@ -1,0 +1,5 @@
+.mat-spinner {
+    position: absolute;
+    z-index: 1051;
+    /* z-index del modal de Bootstrap + 1 */
+}

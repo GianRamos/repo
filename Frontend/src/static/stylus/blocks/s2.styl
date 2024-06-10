@@ -1,0 +1,111 @@
+.b2
+	background-color c-3
+	border-radius 20px 0 0 0
+	position relative
+	z-index 2
+	padding 96px 0 60px 0
+	margin-top -20px
+
+.b2-content
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	justify-content space-between
+	align-items flex-start
+	@media screen and (max-width 960px)
+		flex-direction column-reverse
+		justify-content inherit
+		align-items inherit
+		position relative
+		padding-bottom 100px
+
+.b2-left
+	width calc(580% * 100 / 1200)
+	position relative
+	@media screen and (max-width 1024px)
+		width 48%
+	@media screen and (max-width 960px)
+		max-width 402px
+		width 100%
+		margin 0 auto
+
+	&:after
+		content ""
+		width 220px
+		height 130px
+		background-color c-1
+		border-radius 20px
+		position absolute
+		bottom 30px
+		left 71px
+		@media screen and (max-width 960px)
+			display none
+
+.b2-right
+	width calc(490% * 100 / 1200)
+	padding 22px 0 0 0
+	@media screen and (max-width 1024px)
+		width 48%
+		padding-top 0
+	@media screen and (max-width 960px)
+		width 100%
+		margin-bottom 40px
+
+.b2-image-small
+	width calc(283% * 100 / 580)
+	position absolute
+	top 35px
+	left 0
+	z-index 3
+	@media screen and (max-width 960px)
+		display none
+
+	img
+		img-res()
+
+.b2-image-large
+	width calc(402% * 100 / 580)
+	position relative
+	z-index 2
+	margin 0 0 0 auto
+	@media screen and (max-width 960px)
+		width 100%
+	
+	img
+		img-res()
+	
+.b2-title
+	display block
+	line-height 54px
+	color c-0
+	font-family t-0
+	font-weight 600
+	font-size 46px
+	margin 0 0 30px 0
+	@media screen and (max-width 767px)
+		line-height 1.1
+		font-size 30px
+		margin-bottom 20px
+
+.b2-description
+	display block
+	line-height 24px
+	color c-0
+	font-family t-0
+	font-weight 400
+	font-size 16px
+	margin 0
+	@media screen and (max-width 767px)
+		font-size 14px
+
+	p
+		margin 0
+
+.b2-button
+	margin-top 30px
+	@media screen and (max-width 960px)
+		width 100%
+		text-align center
+		position absolute
+		bottom 0
+		left 0

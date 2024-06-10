@@ -1,0 +1,1329 @@
+<form [formGroup]="stepForm" class="container-create-company">
+    <!-- Stepper -->
+    <div class="stepper">
+        <div class="stepper__step" *ngFor="let step of stepsStatus; let i = index"
+            [ngClass]="{'active': step, 'completed': !step}">{{ i + 1 }}</div>
+    </div>
+
+    <!-- 1 PASO -->
+    <div *ngIf="currentStep === 1" formGroupName="step1" class="container-selection"
+        [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection">
+            <div class="header-step1">
+                <h2 class="company-selection__title">Selecciona el tipo de <strong
+                        class="company-selection__title-strong">empresa a constituir</strong></h2>
+                <button (click)="openModal('modal1')">¿No sabes cuál te conviene?
+                    <img src="../../../../assets/images/createCompany/question.svg" alt="" width="15px">
+                </button>
+            </div>
+            <div class="company-selection__options">
+                <label class="company-selection__option">
+                    <input type="radio" id="eirl" formControlName="company" value="eirl">
+                    <div class="company-selection__container">
+                        <label for="eirl" class="company-selection__label">EIRL</label>
+                        <p class="company-selection__description">Sólo tú serás socio, dueño y Gerente General. Debes
+                            tener un capital definido y ser el único aportante.</p>
+                    </div>
+                </label>
+                <label class="company-selection__option">
+                    <input type="radio" id="srl" formControlName="company" value="srl">
+                    <div class="company-selection__container">
+                        <label for="srl" class="company-selection__label">SRL</label>
+                        <p class="company-selection__description">Empresa con responsabilidad limitada al capital
+                            aportado, adecuada para pequeñas y medianas empresas.</p>
+                    </div>
+                </label>
+                <label class="company-selection__option">
+                    <input type="radio" id="sac" formControlName="company" value="sac">
+                    <div class="company-selection__container">
+                        <label for="sac" class="company-selection__label">SAC</label>
+                        <p class="company-selection__description">
+                            Empresa con responsabilidad limitada al capital aportado, ideal para emprendedores y
+                            pequeños empresarios.</p>
+                    </div>
+                </label>
+                <label class="company-selection__option">
+                    <input type="radio" id="sac-dir" formControlName="company" value="sac-dir">
+                    <div class="company-selection__container">
+                        <label for="sac-dir" class="company-selection__label">SAC con Directorio</label>
+                        <p class="company-selection__description">
+                            Empresa grande con estructura de gestión definida, facilita la toma de decisiones y
+                            proporciona mayor formalidad.</p>
+                    </div>
+                </label>
+            </div>
+
+            <div class="step1-options"
+                *ngIf="stepForm.get('step1.company')?.value === 'srl' || stepForm.get('step1.company')?.value === 'sac' || stepForm.get('step1.company')?.value === 'sac-dir'">
+                <select id="opciones-step1" formControlName="optionstep1" class="step1-select #opcionesStep1"
+                    (change)="updateSelectClass($event)">
+                    <option value=""></option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4 (+S/25)</option>
+                    <option value="5">5 (+S/50)</option>
+                    <option value="6">6 (+S/75)</option>
+                    <option value="7">7 (+S/100)</option>
+                    <option value="8">8 (+S/125)</option>
+                    <option value="9">9 (+S/150)</option>
+                    <option value="10">10 (+S/175)</option>
+                    <option value="11">11 (+S/200)</option>
+                    <option value="12">12 (+S/225)</option>
+                    <option value="13">13 (+S/250)</option>
+                    <option value="14">14 (+S/275)</option>
+                    <option value="15">15 (+S/300)</option>
+                    <option value="16">16 (+S/325)</option>
+                    <option value="17">17 (+S/350)</option>
+                    <option value="18">18 (+S/375)</option>
+                    <option value="19">19 (+S/400)</option>
+                    <option value="20">20 (+S/425)</option>
+                </select>
+                <label for="opciones"><span>Elige el número de socios</span></label>
+            </div>
+
+            <div class="company-selection__buttons">
+                <button class="btn btn--primary" (click)="nextStep()"
+                    [disabled]="!stepForm.get('step1')?.valid">Continuar</button>
+            </div>
+        </div>
+    </div>
+    <!-- 2 PASO -->
+    <div *ngIf="currentStep === 2" formGroupName="step2" class="container-selection"
+        [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection">
+            <div class="header-step2">
+                <h2 class="company-selection__title">Selecciona el tipo de <strong
+                        class="company-selection__title-strong">aporte de capital</strong></h2>
+                <button (click)="openModal('modal2')">Rangos de <strong>Capital Social
+                    </strong>
+                    <img src="../../../../assets/images/createCompany/question.svg" alt="" width="15px">
+                </button>
+            </div>
+            <div class="company-selection__optionsCapital">
+                <!-- Panel para aporte de dinero -->
+                <div class="company-selection__capital">
+                    <label class="company-selection__option options-capital">
+                        <input type="radio" id="money" name="capitalType" value="money" formControlName="capitalType">
+                        <div class="company-selection__container">
+                            <label for="money" class="company-selection__label">APORTE DE DINERO</label>
+                            <p class="company-selection__description">Mínimo puedes crear con <br><strong>S/.
+                                    100</strong></p>
+                        </div>
+                    </label>
+                    <div class="money-contribution__paymentamount">
+                        <p class="money-contribution__p">Introduce el monto de tu aporte para constituir tu empresa.</p>
+                        <input type="text" formControlName="amount" class="money-contribution__input"
+                            placeholder="S/ 00">
+                    </div>
+                    <div class="money-contribution__warning">
+                        <i class="money-contribution__warning-icon"></i>
+                        <div class="money-contribution__warning-text">
+                            <p class="money-contribution__warning-text">A partir de
+                                <strong>10,001 soles</strong> en adelante de capital social,
+                                <strong>se aplicará un recargo ADICIONAL.</strong>
+                            </p>
+                            <p class="money-contribution__warning-text">Para obtener más información, consulta los
+                                <button class="rango-capital-social" (click)="openModal('modal2')">Rangos de capital
+                                    social disponibles</button>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel para aporte mixto -->
+                <div class="company-selection__capital">
+                    <label class="company-selection__option options-capital">
+                        <input type="radio" id="mix" name="capitalType" value="mix" formControlName="capitalType">
+                        <!--(change)="aporteMixto = true"-->
+                        <div class="company-selection__container">
+                            <label for="mix" class="company-selection__label">APORTE MIXTO </label>
+                            <p class="company-selection__description">(Dinero + Bienes)</p>
+                        </div>
+                    </label>
+
+                    <div class="mix-contribution pt-3">
+                        <div class="mix-contribution__info">
+                            <ul class="mix-contribution__info-list">
+                                <li class="mix-contribution__info-item">Recuerda que el
+                                    <strong>capital social</strong> de tu empresa es la
+                                    <strong>suma del dinero </strong>que aportarán todos los socios.
+                                </li>
+                                <li class="mix-contribution__info-item">Si tu
+                                    <strong>aporte es mixto</strong>, el capital social total es la suma del dinero + el
+                                    valor de los bienes.
+                                </li>
+                                <li class="mix-contribution__info-item">El
+                                    <strong>capital social</strong> no está incluido en el costo total del servicio.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="company-selection__buttons">
+                <button class="company-selection__button btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="company-selection__button btn btn--primary" (click)="nextStep()"
+                    [disabled]="!stepForm.get('step2')?.valid">Continuar</button>
+            </div>
+        </div>
+    </div>
+    <!-- 2 PASO VER. MOBILE-->
+    <div *ngIf="currentStep === 2 && isMobile" formGroupName="step2" class="container-selection"
+        [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection">
+            <div class="header-step2">
+                <h2 class="company-selection__title">Selecciona el tipo de <strong
+                        class="company-selection__title-strong">aporte de capital</strong></h2>
+                <button (click)="openModal('modal2')">Rangos de <strong>Capital Social </strong> <img
+                        src="../../../../assets/images/createCompany/question.svg" alt="" width="15px"></button>
+            </div>
+            <div class="company-selection__optionsCapital">
+                <div class="company-selection__capital">
+                    <div class="step2-options">
+                        <label class="company-selection__option options-capital box-step2-mobile">
+                            <input type="radio" id="money" name="capitalType" value="money"
+                                formControlName="capitalType">
+                            <div class="company-selection__container">
+                                <label for="money" class="company-selection__label">APORTE DE DINERO</label>
+                                <p class="company-selection__description">Mínimo puedes crear con <br><strong>S/.
+                                        100</strong></p>
+                            </div>
+                        </label>
+                        <label class="company-selection__option options-capital box-step2-mobile">
+                            <input type="radio" id="mix" name="capitalType" value="mix" formControlName="capitalType">
+                            <div class="company-selection__container">
+                                <label for="mix" class="company-selection__label">APORTE MIXTO </label>
+                                <p class="company-selection__description">(Dinero + Bienes)</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="money-contribution__paymentamount">
+                        <p class="money-contribution__p">Introduce el monto de tu aporte para constituir tu empresa.</p>
+                        <input type="text" formControlName="amount" class="money-contribution__input"
+                            placeholder="S/ 00">
+                    </div>
+                    <div class="money-contribution__warning">
+                        <i class="money-contribution__warning-icon"></i>
+                        <div class="money-contribution__warning-text">
+                            <p class="money-contribution__warning-text">A partir de <strong>10,001 soles</strong> en
+                                adelante de capital social, <strong>se aplicará un recargo ADICIONAL.</strong></p>
+                            <p class="money-contribution__warning-text">Para obtener más información, consulta los
+                                <button class="rango-capital-social" (click)="openModal('modal2')">Rangos de capital
+                                    social disponibles</button>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-selection__buttons">
+                <button class="company-selection__button btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="company-selection__button btn btn--primary" (click)="nextStep()"
+                    [disabled]="!stepForm.get('step2')?.valid">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 PASO -->
+    <div *ngIf="currentStep === 3" formGroupName="step3" class="container-selection"
+        [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection company-selection-step3">
+            <div class="header-step3">
+                <h2 class="company-selection__title">Escoge el <strong class="company-selection__title-strong">nombre
+                        para tu Empresa</strong></h2>
+                <button class="step3-razon-social" (click)="openModal('modal-Razon-social')">¿Tu EMPRESA tiene el nombre
+                    de la razón social reservada?</button>
+            </div>
+            <div class="company-selection__name__Company">
+                <!-- lado izquierdo -->
+                <div class="container__left-column">
+                    <div class="section--name-selection">
+                        <p class="section__description">Proporciona 3 nombres según prioridad y
+                            <strong>opcionalmente</strong> una abreviatura de 3 letras para tu empresa.
+                        </p>
+                        <div class="input-group-company">
+                            <div class="input-group__item" formGroupName="name1">
+                                <input type="text" formControlName="name" class="input input--big"
+                                    placeholder="Mi primer Negocio">
+                                <input type="text" formControlName="abbreviation" class="input input--small"
+                                    placeholder="FPA">
+                            </div>
+                            <div class="input-group__item" formGroupName="name2">
+                                <input type="text" formControlName="name" class="input input--big"
+                                    placeholder="Mi primer Negocio">
+                                <input type="text" formControlName="abbreviation" class="input input--small"
+                                    placeholder="Puc">
+                            </div>
+                            <div class="input-group__item" formGroupName="name3">
+                                <input type="text" formControlName="name" class="input input--big"
+                                    placeholder="Mi primer Negocio">
+                                <input type="text" formControlName="abbreviation" class="input input--small"
+                                    placeholder="LAO">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section--activities-selection">
+                        <h3 class="section__title">¿Cuáles son las actividades a desarrollar por tu empresa?</h3>
+                        <div class="section--activities-selection__group">
+                            <textarea formControlName="activities" class="textarea"
+                                placeholder="Descríbelas con detalle y sé lo más específico posible..."></textarea>
+                            <div class="description-feedback">
+                                <div class="advice-item">
+                                    <i class="advice-icon check"></i>
+                                    <div class="advice-item--approved">
+                                        <p class="advice-text">Descripción correcta</p>
+                                        <p class="advice-detail">Venta de productos de Librería.</p>
+                                    </div>
+                                </div>
+                                <div class="advice-item">
+                                    <i class="advice-icon no-check"></i>
+                                    <div class="advice-item--rejected">
+                                        <p class="advice-text">Descripción incorrecta</p>
+                                        <p class="advice-detail">Venta mayorista de productos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- lado derecho -->
+                <div class="container__right-column">
+                    <div class="notification">
+                        <div class="notification__title">
+                            <i class="notification-warning"></i>
+                            <h3 class="notification__title">Tener en cuenta:</h3>
+                        </div>
+
+                        <ul class="notification__list">
+                            <li class="notification__item">
+                                <strong>Sé muy específico</strong> al detallar tus
+                                <strong>actividades</strong>, caso contrario retrasarás tu proceso de constitución.
+                            </li>
+                            <li class="notification__item">
+                                <strong>No hay un mínimo de rubros.</strong> Pueden ser rubros específicos o detallados.
+                            </li>
+                        </ul>
+
+                        <div class="restricted-activities">
+                            <h3 class="restricted-activities__title">Los rubros <strong>NO 🚫 permitidos</strong></h3>
+                            <ul class="restricted-activities__list">
+                                <li class="restricted-activities__item">Casinos y Casas de apuestas</li>
+                                <li class="restricted-activities__item">Casas de cambio</li>
+                                <li class="restricted-activities__item">Constructoras</li>
+                                <li class="restricted-activities__item">Inmobiliarias.</li>
+                                <li class="restricted-activities__item">Mineras</li>
+                                <li class="restricted-activities__item">Casinos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-selection__buttons">
+                <button class="company-selection__button btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="company-selection__button btn btn--primary" (click)="nextStep()"
+                    [disabled]="!stepForm.get('step3')?.valid">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4 PASO -->
+    <div *ngIf="currentStep === 4" formGroupName="step4" class="container-selection"
+        [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection">
+            <h2 class="company-selection__title">Seleccione donde desea <strong
+                    class="company-selection__title-strong">firmar la escritura</strong></h2>
+            <div class="company-selection__options options-step4-mobile">
+                <label class="company-selection__option box-step3-mobile">
+                    <input type="radio" id="notaria" formControlName="location" value="notaria"
+                        (change)="toggleMessage('notaria')">
+                    <div class="company-selection__container">
+                        <label for="notaria" class="company-selection__label">EN NOTARIA</label>
+                        <!--<p class="company-selection__description">Contamos con Notarias afiliadas en Lima</p>-->
+
+                        <!-- <p class="company-selection__description">Notaria Ramos</p>-->
+
+                    </div>
+                </label>
+                <label class="company-selection__option box-step3-mobile">
+                    <input type="radio" id="domicilio" formControlName="location" value="domicilio"
+                        (change)="toggleMessage('domicilio')">
+                    <div class="company-selection__container">
+                        <label for="domicilio" class="company-selection__label">EN TU DOMICILIO</label>
+                        <p class="company-selection__description">Tiene un costo adicional según distrito</p>
+                    </div>
+                </label>
+                <div class="img-step4">
+                    <img src="../../../assets/images/createCompany/car.svg" alt="GestyMovil" class="image-stepfour">
+                </div>
+                <div class="box-message">
+                    <div *ngIf="showFirstBox" class="box-message_notaria">
+                        <p>¿Sabías que también <strong><span style="font-size: 20px; font-weight: 600;">llegamos hasta
+                                    la puerta de tu casa? 🏠</span></strong></p>
+                    </div>
+                    <div *ngIf="showSecondBox" class="box-message_domicilio">
+                        <p><strong><span style="font-size: 20px; font-weight: 600;">HACER COLAS </span></strong>es del
+                            pasado.</p>
+                        <p class="secondLine">Con <strong><span style="font-size: 20px; font-weight: 600;">GestyMovil
+                                </span></strong>llegamos hasta tu puerta. 🏠</p>
+                    </div>
+                </div>
+            </div>
+            <!---PRIMEROS BOTONES-->
+            <div class="company-selection__buttons">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <!--<button class="btn btn--primary" [disabled]="!stepForm.get('step4')?.valid" (click)="nextStep()">Continuar</button>-->
+                <button class="btn btn--primary" [disabled]="!stepForm.get('step4')?.valid"
+                    (click)="showSubstep()">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Opciones de Notaria -->
+        <!--<div *ngIf="showNotariaOptions" formGroupName="notaria" class="container-modal-step4 modal-step4">
+            <h2 class="company-selection__title">Seleccione la NOTARIA para realizar la firma de la escritura</h2>
+            <div class="company-selection__options">
+                <div class="select-province">
+                    <select formControlName="province" class="select-province_options" (change)="provinciaSeleccionada($event)">
+                        <option *ngFor="let optionProvince of optionsProvince; let i = index" [value]="optionProvince" [disabled]="i === 0">{{ optionProvince }}</option>
+                    </select>
+                    <div *ngIf="selectedProvince !== 'Selecciona tu provincia'" class="list-notarias-box">
+                        <p class="list-notarias-p">Estas son todas las notarías cerca:</p>
+                        <div class="modal-map-notarias">
+                            <p><strong>TODAS</strong> las notarias</p>
+                            <img src="../../../../assets/images/createCompany/map.svg" alt="">
+                        </div>
+                        <ul class="list-Notarias">
+                            <li *ngFor="let notaria of notarias">
+                                <label>
+                                    <input type="radio">
+                                    {{ notaria.nombre }}
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="select-district">
+                    <select formControlName="district" class="select-district_options" (change)="distritoSeleccionado($event)">
+                        <option *ngFor="let optionDistrict of optionsDistrict; let i = index" [value]="optionDistrict" [disabled]="i === 0">{{ optionDistrict }}</option>
+                    </select>
+                    <div class="message-select-Notaria">
+                        <p *ngIf="selectedDistrict !== 'Selecciona tu distrito'" >En {{ selectedDistrict }} tiene un costo adicional de S/. {{ costoAdicional }}</p>
+                        <img src="../../../../assets/images/createCompany/car left.svg" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="company-selection__buttons">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="btn btn--primary" [disabled]="!stepForm.get('step4.notaria')?.valid" (click)="nextStep()">Continuar</button>
+            </div>
+        </div> -->
+        <!-- Segunda notaria -->
+        <div *ngIf="showNotariaOptions" formGroupName="notaria" class="container-modal-step4 modal-step4">
+
+            <h2 class="company-selection__title text-center">¿Dónde quieres firmar tus documentos?</h2>
+            <div class="company-selection__options notaria-modal">
+                <div class="select-province notaria-modal-box">
+                    <label for="formGroupExampleInput" class="form-label">Selecciona tu provincia</label>
+                    <select formControlName="province" aria-label="Default select example"
+                        class="select-province_options select-province-two" (change)="provinciaSeleccionada($event)">
+
+
+                        <option *ngFor="let optionProvince of optionsProvince; let i = index" [value]="optionProvince"
+                            [disabled]="i === 0">{{ optionProvince }}</option>
+                    </select>
+                    <div *ngIf="selectedProvince !== 'Selecciona tu provincia'"
+                        class="list-notarias-box list-Notarias-II">
+                        <ul class="list-Notarias list-Notarias-II">
+                            <li *ngFor="let notaria of notarias" class="box-list">
+                                <div class="list-Notarias-name">
+                                    <label class="name-notaria">
+                                        {{ notaria.nombre }}
+                                    </label>
+                                    <p>Dirección: {{ notaria.address }}</p>
+                                </div>
+                                <img class="img-logo-modal"
+                                    src="../../../../assets/images/createCompany/logo notaria.jpeg" alt="">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <img class="img-modal-relleno" src="../../../../assets/images/login/mujer azul.svg" alt="">
+
+
+                </div>
+            </div>
+            <!-- Botones de navegación de subpasos -->
+            <div class="company-selection__buttons">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="btn btn--primary" [disabled]="!stepForm.get('step4.notaria')?.valid"
+                    (click)="nextStep()">Continuar</button>
+            </div>
+        </div>
+        <!-- Opciones de Domicilio -->
+        <!-- <div *ngIf="showDomicilioOptions" formGroupName="domicilio" class="container-modal-step4 modal-step4">
+            <h2>Ingresa tu DOMICILIO  para realizar la firma de la escritura</h2>
+            <div class="company-selection__options option-domicilio">
+                <div class="select-province">
+                    <select formControlName="province" class="select-province_options" (change)="provinciaSeleccionada(selectedProvince)">
+                        <option *ngFor="let optionProvince of optionsProvince; let i = index" [value]="optionProvince" [disabled]="i === 0">{{ optionProvince }}</option>
+                    </select>
+                    <div class="adress">
+                        <input formControlName="address" type="text" id="address" class="form-adress" placeholder="Escribe tu dirección para la toma de firma">
+                    </div>
+                    <div class="modal-map-district">
+                        <p><strong>Ubicar</strong> en el mapa</p>
+                        <img src="../../../../assets/images/createCompany/map.svg" alt="">
+                    </div>
+                </div>
+                <div class="select-district">
+                    <select formControlName="district" class="select-district_options">
+                        <option *ngFor="let optionDistrict of optionsDistrict; let i = index" [value]="optionDistrict" [disabled]="i === 0">{{ optionDistrict }}</option>
+                    </select>
+                    <div class="message-select-Notaria">
+                        <p><strong>HACER COLAS...</strong> es cosa del pasado, con GestyMobil 👍</p>
+                        <img src="../../../../assets/images/createCompany/car left.svg" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-<div class="company-selection__buttons">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="btn btn--primary" [disabled]="!stepForm.get('step4.domicilio')?.valid" (click)="nextStep()">Continuar</button>
+            </div>-->
+        <!--</div>-->
+        <!-- Opciones de Domicilio 2 -->
+        <div *ngIf="showDomicilioOptions" formGroupName="domicilio" class="container-modal-step4 modal-step4">
+            <h2>Ingresa tu DOMICILIO para realizar la firma de la escritura</h2>
+            <div class="company-selection__options option-domicilio domicilio-modal">
+
+                <div class="list-price-address-box">
+                    <!--<select formControlName="province" class="select-province_options" (change)="provinciaSeleccionada(selectedProvince)">
+                        <option *ngFor="let optionProvince of optionsProvince; let i = index" [value]="optionProvince" [disabled]="i === 0">{{ optionProvince }}</option>
+                    </select>-->
+                    <div class="list-price-address-box">
+                        <button class="list-price-address" (click)="openModal('list-price-address')">Lista de precios
+                            por distrito</button>
+                    </div>
+                </div>
+                <div class="adress-do w-100">
+                    <input formControlName="address" type="text" id="address" class="form-adress second-form-address"
+                        placeholder="Escribe tu dirección para la toma de firma">
+                </div>
+                <!--<div class="select-district">
+                    <div class="message-select-Notaria">
+                        <p><strong>HACER COLAS...</strong> es cosa del pasado, con GestyMobil 👍</p>
+                        <img src="../../../../assets/images/createCompany/car left.svg" alt="">
+                    </div>
+                </div>-->
+
+                <div id="map"></div>
+
+            </div>
+            <!-- Botones de navegación de subpasos -->
+            <div class="company-selection__buttons">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="btn btn--primary" [disabled]="!stepForm.get('step4.domicilio')?.valid"
+                    (click)="nextStep()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5 PASO -->
+    <div *ngIf="currentStep === 5" formGroupName="step5" class="container-selection"
+        [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection">
+            <h2 class="company-selection__title title-step5">Ingrese sus <strong
+                    class="company-selection__title-strong">datos personales para contactarlo(a)</strong></h2>
+            <div class="company-selection__options company-selection-step5">
+                <div class="name-lastname">
+                    <div class="name">
+                        <label for="name">Nombres</label>
+                        <input type="text" formControlName="name" placeholder="Ingresa aquí tu Nombre" required>
+                    </div>
+                    <div class="lastname">
+                        <label for="lastname">Apellidos</label>
+                        <input type="text" formControlName="lastName" placeholder="Ingresa aquí tu Apellido" required>
+                    </div>
+                </div>
+                <div class="documents-information">
+                    <div class="document-type">
+                        <label for="document-type">Tipo de documento</label>
+                        <select id="document-type" formControlName="documentType" required>
+                            <option value="dni">DNI</option>
+                            <option value="carnet-extranjeria">Carnet de extranjería</option>
+                            <option value="CPTP">CPTP</option>
+                        </select>
+                    </div>
+                    <div class="document-number">
+                        <label for="document-number">Número de documento</label>
+                        <input type="text" id="document-number" formControlName="documentNumber"
+                            placeholder="Ingrese número de documento" required>
+                    </div>
+                </div>
+                <div class="contact-information">
+                    <div class="left-column">
+                        <div class="mobile">
+                            <label for="Celular">Nº Celular</label>
+                            <input type="number" formControlName="mobile" placeholder="Ingrese su número de celular"
+                                required>
+                        </div>
+                        <div class="mail">
+                            <label for="Email">Email</label>
+                            <input type="text" formControlName="email" placeholder="Ingrese su correo electrónico"
+                                required>
+                        </div>
+                        <div class="terms">
+                            <input type="checkbox" formControlName="terms" id="terms-checkbox" required
+                                class="custom-checkbox me-2">
+                            <label for="terms-checkbox">Estoy de acuerdo con los <a href="#">Términos, Condiciones y
+                                    Tratamiento de datos</a></label>
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="box-message">
+                            <div class="box-message_notaria box-gestyasesores">
+                                <p>Pronto será
+                                    <strong>
+                                        <span style="font-size: 20px; font-weight: 600;">contactado por uno de nuestros
+                                            GESTIasesores</span>
+                                    </strong> para continuar con su trámite <img
+                                        src="../../../../assets/images/createCompany/support_agent.png"
+                                        alt="Gestyasesores" width="50px">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="company-selection__buttons">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <!--<button class="btn btn--primary" (click)="nextStep()" [disabled]="!stepForm.get('step5')?.valid">Continuar</button> -->
+                <button class="btn btn--primary" (click)="aporteMixto ? abrirModalWhatsapp() : nextStep()"
+                    [disabled]="!stepForm.get('step5')?.valid">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6 PASO -->
+    <!--<div *ngIf="currentStep === 6" formGroupName="step6" class="container-selection" [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection company-selection-step6">
+            <h2 class="company-selection__title">Escoge la forma de <strong class="company-selection__title-strong">Pago</strong></h2>
+            <div class="company-payment">
+                <div class="payment">
+                    <div class="payment-cuota">
+                        <div class="company-selection__option payment-box">
+                            <input type="radio" id="payment" formControlName="paymentOption" value="payment">
+                            <div class="company-selection__container">
+                                <label for="payment" class="company-selection__label">1era cuota</label>
+                                <p class="company-selection__description"> Págalo <strong>hoy</strong></p>
+                                <p class="company-selection__price">S/. 99</p>
+                            </div>
+                        </div>
+                        <p class="company-selection__subtext step6-subtext">
+                            <strong>2da cuota </strong>
+                            Págalo después de aprobar la Minuta
+                            <strong> S/. {{ stepForm.get('step6.totalAmount')?.value - 99 }}</strong>
+                        </p>
+                        <p class="company-selection__subtext">COSTO TOTAL: <strong>S/. {{ stepForm.get('step6.totalAmount')?.value }}</strong></p>
+                    </div>
+                    <div class="full-payment-company">
+                        <div class="company-selection__option payment-box">
+                            <input type="radio" id="full-payment" formControlName="paymentOption" value="full-payment">
+                            <div class="company-selection__container">
+                                <label for="full-payment" class="company-selection__label">Pago total</label>
+                                <p class="company-selection__description">Págalo <strong>TODO</strong></p>
+                                <p class="company-selection__price">
+                                    S/. {{ stepForm.get('step6.totalAmount')?.value }}
+                                </p>
+                            </div>
+                        </div>
+                        <p class="company-selection__subtext step6-subtext">
+                            <strong>*Incluye IGV</strong>
+                        </p>
+                        <button (click)="openModal('m6')">¿Qué recibirás por el pago de cada Cuota?</button>
+                    </div>
+                </div>
+
+                <div class="bottom-row">
+                    <h2 class="step6-title">Selecciona tu <strong class="company-selection__title-strong">Método de pago</strong></h2>
+                    <div class="payment">
+                        <div class="company-selection__option step6-payment-box">
+                            <input type="radio" id="payment-option" formControlName="paymentMethod"  value="payment-option">
+                            <div class="company-selection__container">
+                                <label for="payment-option" class="company-selection__label">Transferencia bancaria</label>
+                                <p class="company-selection__description">Paga desde tu APP o Agente a nuestra cuenta BCP</p>
+                                <div>
+                                    <img src="../../../../assets/images/createCompany/img-cards-bank 1.svg" alt="" height="30px">
+                                    <img src="../../../../assets/images/createCompany/pagoLink 1.svg" alt="" height="30px">
+                                </div>
+                                <p class="verification-instructions" *ngIf="showVerificationInstructions">
+                                    Con este método de pago, deberás ingresar tu DNI/CE para verificar la transacción junto con tu solicitud.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="paymente-option_tarj">
+                            <div class="company-selection__option step6-payment-box">
+                                <input type="radio" id="payment-option_credit" formControlName="paymentMethod" value="payment-option_credit">
+                                <div class="company-selection__container">
+                                    <label for="payment-option" class="company-selection__label">Tarjeta de Crédito o Débito</label>
+                                    <p class="company-selection__description">Paga con las siguientes tarjetas de forma segura</p>
+                                    <div class="payment_credit-img">
+                                        <img src="../../../../assets/images/createCompany/american express.svg" alt="" height="20px">
+                                        <img src="../../../../assets/images/createCompany/mastercard.svg" alt="" height="20px">
+                                        <img src="../../../../assets/images/createCompany/visa.svg" alt="" height="20px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="company-selection__buttons">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="btn btn--primary" (click)="nextStep()" [disabled]="!stepForm.get('step6')?.valid" (click)="openModal('paymentModal')">Continuar</button>
+            </div>
+        </div>
+    </div>-->
+    <div *ngIf="currentStep === 6" formGroupName="step6" class="container-selection"
+        [style.backgroundImage]="'linear-gradient(to right, #154C75 45%, transparent), url(' + backgroundImages[currentStep - 1] + ')'">
+        <div class="company-selection company-selection-step6">
+            <h2 class="company-selection__title t-step6-mobile"><strong>¡Gracias por iniciar tu trámite con
+                    nosotros!</strong></h2>
+            <div class="container-step6">
+                <div class="container-date-number company-selection__option">
+                    <div class="date-item codigo">
+                        <span>Tu número de trámite es: </span>
+                        <p>Nº {{ transactionNumber }}</p>
+                    </div>
+                    <div class="date-item current-day">
+                        <p>Fecha:</p>
+                        <span><input type="" class="current-date" readonly [value]="current_date"></span>
+                    </div>
+                </div>
+                <div class="box-gestyasesores">
+                    <p class="text-step6">Nuestros <strong> Gestiasesores </strong> se contactarán contigo en unos
+                        momentos para completar tu trámite con éxito.
+                        <br><img src="../../../../assets/images/createCompany/support_agent.png" alt="Gestiasesores">
+                    </p>
+                </div>
+            </div>
+            <div class="company-selection__option payment-box adicional">
+                <div class="company-selection__container total-amount-final">
+                    <label for="full-payment" class="company-selection__label">El costo total de la constitucion
+                        es:</label>
+                    <p class="company-selection__price">
+                        S/. {{ stepForm.get('step6.totalAmount')?.value }}
+                    </p>
+                    <p class="company-selection__description">
+                        *incluye <strong>IGV</strong></p>
+                </div>
+                <div class="details-container">
+                    <div class="final-text-step6 ">
+                        <img class="img-click" src="../../../../assets/images/createCompany/click.svg"
+                            alt="Continuar Icon">
+                        <p>Dale click en <strong> Finalizar </strong> para ponernos en contacto contigo a través del
+                            número registrado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-selection__buttons buttons-step6">
+                <button class="btn btn--secondary" (click)="previousStep()">Regresar</button>
+                <button class="btn btn--primary" (click)="enviarPago()">Finalizar</button>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+<app-whatsapp></app-whatsapp>
+<!-------MODALES------->
+<!--STEP 1-->
+<div id="modal1" class="modal">
+    <div class="container-modal-step1 modal-step1">
+        <div class="header-modal">
+            <div class="logo-modal">
+                <img src="../../../../assets/images/modals/Vertical Logo Color Inverted (1).png" alt="Logo" width="80px"
+                    height="35px">
+                <p>te cuenta las <strong>diferencias...</strong></p>
+            </div>
+            <button class="btn-close button-close" (click)="closeModal('modal1')"></button>
+        </div>
+        <div class="container-typecompany-modal">
+            <div class="header-options">
+                <!--title-options-->
+                <div></div>
+                <h3 class="title-options"><strong>EIRL</strong></h3>
+                <h3 class="title-options"><strong>SRL</strong></h3>
+                <h3 class="title-options"><strong>SAC</strong></h3>
+                <h3 class="title-options sac-directory"><strong>SAC </strong> con Directorio</h3>
+            </div>
+            <div class="table-step1">
+                <!---linea 1-->
+                <p class="table-step1_box">Cantidad de socios</p>
+                <p class="table-step1_boxinfo">Un solo propietario</p>
+                <p class="table-step1_boxinfo">2 - 20 Socios</p>
+                <p class="table-step1_boxinfo">2 - 20 Socios, posibilidad de acciones.</p>
+                <p class="table-step1_boxinfo">Igual que SAC, pero con estructura directiva formal.</p>
+                <!---linea 2-->
+                <p class="table-step1_box">Flexibilidad en la Gestión</p>
+                <p class="table-step1_boxinfo">Gestionada y representada por el titular (Dueño) o Gerente General de ser
+                    el caso.</p>
+                <p class="table-step1_boxinfo">Es dirigida por los socios. (Flexible)</p>
+                <p class="table-step1_boxinfo">Gestión por junta generar de accionistas.</p>
+                <p class="table-step1_boxinfo">Gestión por directorio, mayor formalidad.</p>
+                <!---linea 3-->
+                <p class="table-step1_box">Capacidad de inversiones</p>
+                <p class="table-step1_boxinfo">Limitada, no emite acciones.</p>
+                <p class="table-step1_boxinfo">Limitada, no emite acciones.</p>
+                <p class="table-step1_boxinfo">Alta, puede emitir acciones.</p>
+                <p class="table-step1_boxinfo">Alta, estructura óptima para captar grandes inversiones.</p>
+                <!---linea 4-->
+                <p class="table-step1_box">Crecimiento y Escalabilidad</p>
+                <p class="table-step1_boxinfo">Bajo, ideal para negocios pequeños y estables.</p>
+                <p class="table-step1_boxinfo">Moderado, adaptable a crecimiento.</p>
+                <p class="table-step1_boxinfo">Alto, excelente para expansión.</p>
+                <p class="table-step1_boxinfo">Muy alto, ideal para grandes operaciones.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL STEP 1 VER. MOBILE-->
+<div *ngIf="isMobile" id="modalMobile" class="modal">
+    <div class="container-modal-step1 modal-step1">
+        <div class="header-modal">
+            <div class="logo-modal">
+                <img src="../../../../assets/images/modals/Vertical Logo Color Inverted (1).png" alt="Logo" width="80px"
+                    height="35px">
+                <p>te cuenta las <strong>diferencias...</strong></p>
+            </div>
+            <button class="btn-close button-close" (click)="closeModal('modalMobile')"></button>
+        </div>
+        <div class="container-typecompany-modal mobile-step1">
+            <details (click)="detailsClick('eirl')">
+                <summary class="title-options"><strong>EIRL</strong></summary>
+                <p class="mobile-card-info"><strong>Cantidad de socios: </strong>Un solo propietario</p>
+                <p class="mobile-card-info"><strong>Flexibilidad en la Gestión: </strong>Gestionada y representada por
+                    el titular (Dueño) o Gerente General de ser el caso.</p>
+                <p class="mobile-card-info"><strong>Capacidad de inversiones: </strong>Limitada, no emite acciones.</p>
+                <p class="mobile-card-info"><strong>Crecimiento y Escalabilidad: </strong>Bajo, ideal para negocios
+                    pequeños y estables.</p>
+            </details>
+            <details (click)="detailsClick('srl')">
+                <summary class="title-options"><strong>SRL</strong></summary>
+                <p class="mobile-card-info"><strong>Cantidad de socios: </strong>2 - 20 Socios</p>
+                <p class="mobile-card-info"><strong>Flexibilidad en la Gestión: </strong>Es dirigida por los socios.
+                    (Flexible)</p>
+                <p class="mobile-card-info"><strong>Capacidad de inversiones: </strong>Limitada, no emite acciones.</p>
+                <p class="mobile-card-info"><strong>Crecimiento y Escalabilidad: </strong>Moderado, adaptable a
+                    crecimiento.</p>
+            </details>
+            <details (click)="detailsClick('sac')">
+                <summary class="title-options"><strong>SAC</strong></summary>
+                <p class="mobile-card-info"><strong>Cantidad de socios: </strong>2 - 20 Socios, posibilidad de acciones.
+                </p>
+                <p class="mobile-card-info"><strong>Flexibilidad en la Gestión: </strong>Gestión por junta generar de
+                    accionistas.</p>
+                <p class="mobile-card-info"><strong>Capacidad de inversiones: </strong>Alta, puede emitir acciones..</p>
+                <p class="mobile-card-info"><strong>Crecimiento y Escalabilidad: </strong>Alto, excelente para
+                    expansión.</p>
+            </details>
+            <details (click)="detailsClick('sac-directory')">
+                <summary class="title-options"><strong>SAC con Directorio</strong></summary>
+                <p class="mobile-card-info"><strong>Cantidad de socios: </strong>Igual que SAC, pero con estructura
+                    directiva formal.</p>
+                <p class="mobile-card-info"><strong>Flexibilidad en la Gestión: </strong>Gestión por directorio, mayor
+                    formalidad.</p>
+                <p class="mobile-card-info"><strong>Capacidad de inversiones: </strong>Alta, estructura óptima para
+                    captar grandes inversiones.</p>
+                <p class="mobile-card-info"><strong>Crecimiento y Escalabilidad: </strong>Muy alto, ideal para grandes
+                    operaciones.</p>
+            </details>
+        </div>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="container-modal-step2 modal-step2 modal-content modal-header modal-dialog">
+        <button class="btn-close button-close" (click)="closeModal('modal2')"></button>
+        <div class="logo-modal logo-modal2">
+            <img src="../../../../assets/images/modals/Vertical Logo Color Inverted (1).png" alt="Logo">
+            <p>te cuenta los <strong>Rangos de Capital Social</strong>.</p>
+        </div>
+        <div class="container-details-table">
+            <table class="table-step2">
+                <tr>
+                    <th class="table-column-capital">Rango <br><strong>Capital Social</strong></th>
+                    <th class="table-column-price">Precio <strong>GESTIPYME</strong></th>
+                </tr>
+                <tr>
+                    <td>500 - 10 000</td>
+                    <td>S/. 0</td>
+                </tr>
+                <tr>
+                    <td>10 001 - 20 000</td>
+                    <td>S/. 65</td>
+                </tr>
+                <tr>
+                    <td>20 001 - 50 000</td>
+                    <td>S/. 155</td>
+                </tr>
+                <tr>
+                    <td>50 001 - 80 000</td>
+                    <td>S/. 250</td>
+                </tr>
+                <tr>
+                    <td>80 001 - 100 000</td>
+                    <td>S/. 315</td>
+                </tr>
+                <tr>
+                    <td>100 001 - 150 000</td>
+                    <td>S/. 500</td>
+                </tr>
+                <tr>
+                    <td>150 001 - 200 000</td>
+                    <td>S/. 650</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<!--STEP 3 MODAL-->
+<div id="modal-Razon-social" class="modal">
+    <div class="container-modal-step3 modal-payment">
+        <div class="header-modal3">
+            <button class="btn-close button-close-payment" (click)="closeModal('modal-Razon-social')"></button>
+        </div>
+        <h2 class="title-modal-step3">¿Tu EMPRESA tiene el nombre de la razón social reservada?</h2>
+        <div class="modal-step3">
+            <h3>Sube aquí tu documentación</h3>
+            <div class="step3-draganddrop">
+                <div class="upload-doc">
+                    <label for="fileInputDoc" class="step3-upload-section">
+                        <input type="file" id="fileInputDoc" accept="application/pdf" style="display: none"
+                            (change)="onFileSelectedForDocumentation($event)">
+                        <div class="upload-icon" *ngIf="!fileSelectedDoc">
+                            <img src="../../../../assets/images/createCompany/upload.svg" alt="">
+                        </div>
+                        <div class="upload-icon" *ngIf="fileSelectedDoc">
+                            <img src="../../../../assets/images/createCompany/check.svg" alt="">
+                        </div>
+                        <div class="upload-section-text">
+                            <div *ngIf="!fileSelectedDoc">
+                                <p>Sube tu documento</p>
+                                <span>Solo archivos pdf</span>
+                            </div>
+                            <div *ngIf="fileSelectedDoc" class="file-info">
+                                <p>{{ fileSelectedDoc.name }}</p>
+                                <button (click)="removeFileDoc()">
+                                    <img src="../../../../assets/images/createCompany/delete.svg" alt="delete">
+                                </button>
+                            </div>
+                            <div *ngIf="errorMessage" class="error-message">
+                                <p>{{ errorMessage }}</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-upload-doc" (click)="uploadFileDoc()">Subir</button>
+</div>
+
+<!--STEP 6 M6-->
+<div id="m6" class="modal modal6">
+    <div class="container-m6 modal-content modal-header modal-dialog">
+        <div class="container-m6-section">
+            <button class="btn-close button-close" (click)="closeModal('m6')"></button>
+            <div class="title-m6">
+                <h2>¿Qué incluyen las cuotas?</h2>
+            </div>
+            <div class="details-container-m6">
+                <div class="description-m6">
+                    <p>Con el pago de la 1era cuota obtendrás:</p>
+                    <ul>
+                        <li>Reserva de nombre de tu empresa.</li>
+                        <li>Elaboración y aprobación de Minuta (contrato social).</li>
+                    </ul>
+                </div>
+                <div class="description-m6">
+                    <p>Con el pago de la 2da cuota obtendrás:</p>
+                    <ul>
+                        <li>Minuta final + sello Kardex.</li>
+                        <li>Firma de documentos.</li>
+                        <li>Inscripción en SUNARP.</li>
+                        <li>Entrega de documentos legalizados.</li>
+                    </ul>
+                </div>
+
+            </div>
+            <button class="btn-m6" (click)="closeModal('m6')">Entendido</button>
+        </div>
+    </div>
+</div>
+
+<!--STEP 6 modal-->
+<div id="paymentModal" class="modal">
+    <div class="container-modal-step6 modal-payment">
+        <div class="header-modal6">
+            <button class="btn-close button-close-payment" (click)="closeModal('paymentModal')"></button>
+        </div>
+        <h2 class="title-payment"><strong class="pago">Pago </strong> por transferencia bancaria</h2>
+        <div class="payment-details">
+            <!-- Paso 1: Realiza el pago de S/99 a nuestro número de cuenta BCP -->
+            <div class="payment-step">
+                <h3>1. Realiza el <strong>pago de S/99</strong> a nuestro número de <strong>cuenta BCP a nombre de
+                        GESTIPYME SRL</strong></h3>
+                <!-- Opciones -->
+                <div class="payment-option">
+                    <!-- Opción 1: De BCP a BCP -->
+                    <div class="bcp-bcp">
+                        <h4>De BCP a BCP</h4>
+                        <p>Cuenta en Soles:</p>
+                        <div class="account-number">
+                            <span>1934200706072</span>
+                            <button class="copy-button" (click)="copyAccountNumberBCP()">
+                                <img src="../../../../assets/images/createCompany/icopy.svg" alt="copiar">
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Opción 2: OTROS BANCOS A BCP -->
+                    <div class="otherbanks">
+                        <h4>Otros bancos a BCP</h4>
+                        <p>CCI:</p>
+                        <div class="cci-number">
+                            <span>0021934200706072</span>
+                            <button class="copy-button" (click)="copyAccountNumberOtherBanks()">
+                                <img src="../../../../assets/images/createCompany/icopy.svg" alt="copiar">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Paso 2: Sube el comprobante del pago de S/99 -->
+            <div class="payment-step">
+                <h3>2. <strong>Sube el comprobante </strong>del pago de <strong>S/. 99</strong></h3>
+                <div class="upload-section">
+                    <label for="fileInput" class="upload-section-content">
+                        <input type="file" id="fileInput" formControlName="paymentFile"
+                            accept="image/jpeg, image/png, application/pdf" (change)="onFileSelected($event)">
+                        <div class="upload-icon" *ngIf="!fileSelectedPay">
+                            <img src="../../../../assets/images/createCompany/upload.svg" alt="">
+                        </div>
+                        <div class="upload-icon" *ngIf="fileSelectedPay">
+                            <img src="../../../../assets/images/createCompany/check.svg" alt="">
+                        </div>
+                        <div class="upload-section-text">
+                            <div *ngIf="!fileSelectedPay">
+                                <p>Sube tu comprobante de pago</p>
+                                <span>Solo archivos jpg, jpeg, png, pdf</span>
+                            </div>
+                            <div *ngIf="fileSelectedPay" class="file-info">
+                                <p>{{ fileSelectedPay.name }}</p>
+                                <button (click)="removeFile()">
+                                    <img src="../../../../assets/images/createCompany/delete.svg" alt="delete">
+                                </button>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <button class="btn btn-primary btn-sendpayment"
+            (click)="openModal('modal-paymentsent'); closeModal('paymentModal'); enviarPago()">Enviar pago</button>
+    </div>
+</div>
+
+<!--payment sent-->
+<div id="modal-paymentsent" class="modal modal6">
+    <div class="container-modal-paymentsent modal-step2 modal-content modal-header modal-dialog">
+        <div class="container-payment-sent">
+            <div class="paymentesent-header">
+                <img src="../../../../assets/images/createCompany/check.svg" alt="Check Icon">
+                <h2>¡Pago enviado!</h2>
+            </div>
+            <div class="details-container">
+                <div class="icon-text-container">
+                    <img class="img-click" src="../../../../assets/images/createCompany/click.svg" alt="Continuar Icon">
+                    <p>Dale click en <strong>Finalizar</strong> para <strong>terminar</strong> con el proceso</p>
+                    <!--<p>Dale click en <strong>Continuar</strong> para ver el <strong>detalle</strong> de la constitución de tu empresa.</p>-->
+                </div>
+                <div class="icon-text-container">
+                    <img src="../../../../assets/images/createCompany/mail.svg" alt="Notificación Icon">
+                    <p>Te <strong>Notificaremos</strong> por <strong>correo</strong> sobre el proceso.</p>
+                </div>
+                <p class="small-text">*Se te notificará al correo que brindaste en el formulario de tus datos.</p>
+            </div>
+            <button type="button" class=" btn finish-button-validate btn-lg" (click)="closeModal('modal-paymentsent')"
+                [routerLink]="['/']">Finalizar</button>
+
+            <!-- <button class="btn-payment-sent" (click)="openModal('data-validated'); closeModal('modal-paymentsent')">Continuar</button>-->
+            <!-- <div class="whatsapp-button whatsapp-modal-validate">
+            <p>¿Tienes alguna duda? <strong class="underline">Escríbenos</strong></p>
+            <a href="https://wa.me/918795733" target="_blank">
+              <img src="../../../assets/images/icons/whatsapp.svg" alt="WhatsApp">
+            </a>
+        </div> -->
+        </div>
+    </div>
+</div>
+
+<!--Check Information-->
+<!--<div id="check-information" class="modal">
+<div class="container-check-information">
+    <div class="check-information">
+        <div class="check-information__header">
+            <h2 class="check-information__title">Revisa y completa los datos de tu empresa</h2>
+        </div>
+        <div class="check-information__body">
+            <p class="check-information__info">Con ello, empezaremos a elaborar la <strong>Minuta (contrato social de la empresa)</strong></p>
+            <div class="check-information__data">
+                <p class="check-information__label">Datos Registrados:</p>
+                <div class="container-registered-data">
+                    <div class="check-information__field">
+                        <label for="solicitante" class="check-information__label">Solicitante:</label>
+                        <input type="text" id="solicitante" class="check-information__input">
+                    </div>
+                    <div class="check-information__field">
+                        <label for="tipo-documento" class="check-information__label">Tipo de documento y Número:</label>
+                        <select id="tipo-documento" class="check-information__select">
+                            <option value="" disabled selected>Selecciona...</option>
+                            <option value="dni">DNI</option>
+                            <option value="passport">Pasaporte</option>
+                        </select>
+                        <input type="text" id="numero-documento" class="check-information__input check-information__input--small">
+                    </div>
+                    <div class="check-information__field">
+                        <label for="modalidad-firma" class="check-information__label">Modalidad de toma de Firma:</label>
+                        <select id="modalidad-firma" class="check-information__select">
+                            <option value="" disabled selected>Firma en domicilio</option>
+                            <option value="domicilio">Firma en Domicilio</option>
+                            <option value="virtual">Firma Virtual</option>
+                        </select>
+                    </div>
+                    <div class="check-information__field">
+                        <label for="tipo-empresa" class="check-information__label">Tipo de Empresa:</label>
+                        <select id="tipo-empresa" class="check-information__select">
+                            <option value="" disabled selected>EIRL</option>
+                            <option value="eirl">EIRL</option>
+                            <option value="sa">Sociedad Anónima</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <p class="check-information__note">
+                La dirección de tu empresa será la misma que figura en tu DNI
+                <a  class="check-information__link" id="modificar-direccion" (click)="toggleDirectionInput()">¿Deseas modificar la dirección de tu empresa?</a>
+            </p>
+            <div class="check-information__new-address" *ngIf="showDirectionInput">
+                <input type="text" id="nueva-direccion" class="check-information__input check-information__input" placeholder="Ingresa la nueva dirección de tu empresa">
+            </div>
+
+            <div class="check-information__total-cost">
+                <p class="check-information__label">Costo total del servicio:</p>
+                <p class="check-information__cost">S/. 429</p>
+            </div>
+            <div class="check-information__checkbox">
+                <input type="checkbox" id="validar-datos" class="check-information__checkbox-input">
+                <label for="validar-datos" class="check-information__checkbox-label">
+                    <span class="check-information__checkbox-text">Marca la casilla para <strong class="checkbox-text-underline">Validar que todos los datos son CORRECTOS</strong></span>
+                </label>
+            </div>
+        </div>
+        <div class="check-information__footer">
+            <button class="check-information__button" (click)="closeModal('check-information')" (click)="openModal('data-validated')">Continuar</button>
+        </div>
+        <div class="whatsapp-button">
+            <p>¿Tienes alguna duda? <strong class="underline">Escríbenos</strong></p>
+            <a href="https://wa.me/918795733" target="_blank">
+              <img src="../../../assets/images/icons/whatsapp.svg" alt="WhatsApp">
+            </a>
+        </div>
+    </div>
+</div>
+</div>-->
+
+<!--Modal final-->
+<div id="data-validated" class="modal modal6">
+    <div class="container-modal-paymentsent modal-step2 modal-content modal-header modal-dialog">
+        <div class="container-payment-sent">
+            <div class="paymentesent-header">
+                <img src="../../../../assets/images/createCompany/check.svg" alt="Check Icon">
+                <h2>¡Datos VALIDADOS!</h2>
+            </div>
+            <div class="details-container">
+                <div class="icon-text-container">
+                    <img src="../../../../assets/images/createCompany/click.svg" alt="Continuar Icon">
+                    <p>Dale click en <strong>Finalizar</strong> para <strong>terminar</strong> con el proceso</p>
+                </div>
+                <div class="icon-text-container">
+                    <img src="../../../../assets/images/createCompany/mail.svg" alt="Notificación Icon">
+                    <p>Te <strong>Notificaremos</strong> por <strong>correo</strong> sobre el estado del proceso de
+                        constitución de tu empresa.</p>
+                </div>
+                <p class="small-text">*Se te notificará al correo que brindaste en el formulario de tus datos.</p>
+            </div>
+            <!-- Botones -->
+            <div class="buttons-container-validate">
+
+                <!-- <button class="back-button-validate" (click)="openModal('check-information')" (click)="closeModal('data-validated')">Regresar</button> -->
+                <button type="button" class=" btn finish-button-validate btn-lg" (click)="closeModal('data-validated')"
+                    [routerLink]="['/']">Finalizar</button>
+
+
+            </div>
+            <!-- <div class="whatsapp-button whatsapp-modal-validate">
+            <p>¿Tienes alguna duda? <strong class="underline">Escríbenos</strong></p>
+            <a href="https://wa.me/918795733" target="_blank">
+              <img src="../../../assets/images/icons/whatsapp.svg" alt="WhatsApp">
+            </a>
+        </div> -->
+        </div>
+    </div>
+</div>
+
+<!-- MODAL TABLA DE PRECIOS DOMICILIO -->
+<div id="list-price-address" class="modal">
+    <div class="container-list-price-address">
+        <div class="header-list-address">
+            <button class="btn-close button-list-address" (click)="closeModal('list-price-address')"></button>
+        </div>
+        <p class="title-list-price-address"><strong>Lista de precios por distrito</strong></p>
+        <div class="container-table-list-price">
+            <!-- Primera columna -->
+            <div class="table-column-address">
+                <table class="table-step2">
+                    <tr>
+                        <th class="table-column-capital"><strong>Distrito</strong></th>
+                        <th class="table-column-price"><strong>Precio</strong></th>
+                    </tr>
+                    <!-- Primera parte -->
+                    <tr>
+                        <td>Ate</td>
+                        <td>S/. 50</td>
+                    </tr>
+                    <tr>
+                        <td>Barranco</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>Breña</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>Centro de Lima</td>
+                        <td>S/. 35</td>
+                    </tr>
+                    <tr>
+                        <td>Chorrillos</td>
+                        <td>S/. 35</td>
+                    </tr>
+                    <tr>
+                        <td>Jesus María</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>La Molina</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>La Victoria</td>
+                        <td>S/. 35</td>
+                    </tr>
+                    <tr>
+                        <td>Lince</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>Magdalena</td>
+                        <td>S/. 30</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Segunda columna -->
+            <div class="table-column-address">
+                <table class="table-step2">
+                    <tr>
+                        <th class="table-column-capital distrito"><strong>Distrito</strong></th>
+                        <th class="table-column-price precio"><strong>Precio</strong></th>
+                    </tr>
+                    <!-- Segunda parte -->
+                    <tr>
+                        <td>Miraflores</td>
+                        <td>S/. 35</td>
+                    </tr>
+                    <tr>
+                        <td>Pueblo Libre</td>
+                        <td>S/. 35</td>
+                    </tr>
+                    <tr>
+                        <td>San Borja</td>
+                        <td>S/. 35</td>
+                    </tr>
+                    <tr>
+                        <td>San Isidro</td>
+                        <td>S/. 35</td>
+                    </tr>
+                    <tr>
+                        <td>San Juan de Miraflores</td>
+                        <td>S/. 60</td>
+                    </tr>
+                    <tr>
+                        <td>San Luis</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>San Miguel</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>Surco</td>
+                        <td>S/. 30</td>
+                    </tr>
+                    <tr>
+                        <td>Surquillo</td>
+                        <td>S/. 30</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal step 6 (si marca APORTE MIXTO)-->
+<!--<div id="mix-contribution-step6" class="modal modal6">
+    <div class="container-modal-paymentsent modal-step2 modal-content modal-header modal-dialog">
+        <div class="container-payment-sent">
+            <div class="paymentesent-header">
+                <img src="../../../../assets/images/icons/WhatsAppLOGO.svg" alt="whatsapp Icon">
+                <p>Serás asesorado por Whatsapp.</p>
+            </div>
+            <div class="details-container">
+                <div class="icon-text-container">
+                    <p>Dale click en <strong>Continuar</strong> para seguir con el calculo de pago por Whatsapp</p>
+                </div>
+            </div>
+            <div class="buttons-container-validate">
+                <button type="button"  class=" btn finish-button-validate btn-lg" (click)="closeModal('mix-contribution-step6'); openWhatsApp()" [routerLink]="['/']">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+</div>-->

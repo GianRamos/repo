@@ -1,0 +1,539 @@
+.services-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2em;
+}
+
+/* LOGO */
+.Logo-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2%;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.logo-column_img {
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  width: 120px;
+  height: 120px;
+}
+.Logo-column img {
+  object-fit: cover;
+  padding-top: 1.6em;
+  padding-left: 1em;
+  height: 82%;
+}
+
+.Logo-column_title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #154C75;
+  padding-top: 5%;
+}
+
+.Logo-column p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #154C75;
+}
+
+.contact-button {
+  background-color: #1AA1E1;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra hacia abajo */
+  margin: 5px;
+  padding: 1em;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* SERVICES */
+
+.services-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 47px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 0; /* Anular el margen izquierdo */
+  margin-right: 0; /* Anular el margen derecho */
+  grid-row-gap: 21px;
+
+}
+
+.service-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #1B376F;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  border-radius: 82px 15px 15px 82px;
+
+}
+
+.service-image img {
+  width: 146px;
+  height: 146px;
+  border-radius: 50%;
+}
+
+.service-content_box {
+  overflow: auto;
+  color: #1B376F;
+  width: 100%;
+}
+
+.service-content{
+  text-align: center;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.service-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.service-description {
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1AA1E1;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.service-description_disclaimer {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1AA1E1;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.view-more-button {
+  background: none;
+  color: #1B376F;
+  border: 1px solid;
+  border-color: #1B376F;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+/* Los modales */
+
+.modal {
+  display: none;
+  /* Ocultar el modal por defecto */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Fondo semitransparente */
+}
+
+.modal-content {
+  background-color: #1B376F;
+  color: #1B376F;
+  border-radius: 10px;
+  position: relative;
+  padding: 20px;
+  width: 90%;
+  height: 33rem;
+  /* Establece una altura fija para todos los modales */
+  max-height: 100%;
+  /* Asegura que no se exceda la altura máxima */
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-close {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 300;
+}
+
+.modal-text {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.modal-body {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  width: 75%;
+}
+
+.modal-title {
+  font-size: 15px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.modal-body_slogan {
+  font-size: 36px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  width: 110%;
+}
+
+.modal-body h3 {
+  font-size: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+}
+
+.modal-body p {
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+}
+
+.modal-body_paragraph {
+  width: 90%;
+}
+
+.modal-body_buttons {
+  display: flex;
+  width: 70%;
+  justify-content: space-evenly;
+}
+
+.btn-secondary {
+  gap: 5%;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.btn-bussines {
+  background-color: #1AA1E1;
+  border: 1px solid #FFFFFF;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-plans {
+  background-color: #F8F8F9;
+  border: 1px solid #1AA1E1;
+  color: #1AA1E1;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.modalfooter {
+  position: absolute;
+  right: 75px;
+  top: 28.5rem;
+
+}
+
+.btn-more_services {
+  color: #1B376F;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.modal-3 {
+  display: flex;
+  position: absolute;
+  top: 60%;
+  flex-direction: row-reverse;
+}
+
+.img-modal {
+  /*z-index: 100;
+  position: absolute;
+  top: 0px;
+  width: 500px;
+  height: 100%;
+  right: -120px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;*/
+
+  z-index: 100;
+  position: absolute;
+  top: 105px;
+  width: 500px;
+  height: 100%;
+  right: -120px;
+  max-width: 100%;
+  max-height: 80%;
+}
+
+.modal-constitucion {
+  overflow: unset !important;
+}
+
+.modal-text-constitucion {
+  z-index: 120;
+  background-color: transparent !important;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2em;
+}
+
+@media screen and (max-width: 414px) {
+  .services-section {
+    flex-direction: column;
+    align-items: center;
+    margin: 2em auto;
+  }
+
+  .Logo-column {
+    margin-bottom: 2em;
+    text-align: center;
+  }
+
+  .Logo-column img {
+    object-fit: cover;
+    padding-top: 1.8em;
+    padding-left: 0;
+    height: 82%;
+  }
+
+  .services-column {
+    grid-template-columns: 1fr;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    gap: 0rem;
+    margin-top: 0;
+  }
+
+  .service-box {
+    margin-bottom: 2em;
+  }
+
+  .service-image img {
+    margin: 0 auto;
+  }
+  /*---*/
+  .img-modal {
+    height: 18rem;
+    top: 15rem;
+    right: -120px
+  }
+  .modal-text-constitucion {
+    padding: 0.7rem;
+  }
+
+  .modal-body_slogan {
+    font-size: 16px;
+    font-weight: 700;
+    width: 140%;
+  }
+  .modal-body h3 {
+    font-size: 13px;
+    line-height: normal;
+    width: 130%;
+  }
+  .p1, .p2, .p3 {
+    width: 138%;
+  }
+  .modal-body_buttons {
+    font-size: 12px;
+    margin-top: 1rem;
+    gap: 0.5rem;
+    width: 80%;
+  }
+  .btn-bussines, .btn-plans {
+    height: 2.5rem;
+    margin: 0;
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: normal;
+  }
+  .modal-body p {
+    margin: 0.1rem;
+    font-size: 11px;
+    line-height: 1.5;
+   /* text-align: justify;*/
+  }
+  .modalfooter {
+    right: 35px;
+    top: 28.9rem;
+  }
+}
+
+@media screen and (min-width: 431px) and (max-width: 1024px) {
+  .services-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Logo-column {
+    width: 100%;
+    margin-bottom: 2em;
+    text-align: center;
+  }
+  .Logo-column img {
+    object-fit: cover;
+    padding-top: 1.8em;
+    padding-left: 0;
+    height: 82%;
+  }
+  .services-column {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+  .img-modal {
+    height: 18rem;
+    top: 15rem;
+    right: -180px;
+  }
+  .modal-body_slogan {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .modal-body h3 {
+    font-size: 16px;
+    line-height: normal;
+  }
+  .modal-body_buttons {
+    width: 100%;
+    left: -0.75rem;
+    position: relative;
+    font-size: 14px;
+  }
+  .modal-body p {
+    margin: 0.1rem;
+    font-size: 11px;
+   /* text-align: justify;*/
+  }
+  .modalfooter {
+    right: 35px;
+    top: 28.9rem;
+  }
+}
+
+@media screen and (min-width: 430px) and (max-width: 430.5px) {
+  .services-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 2em auto !important;
+    width: 100vw !important;
+  }
+
+  .Logo-column {
+    margin-bottom: 2em !important;
+    text-align: center !important;
+  }
+
+  .Logo-column img {
+    object-fit: cover !important;
+    padding-top: 1.8em !important;
+    padding-left: 0 !important;
+    height: 82% !important;
+  }
+
+  .services-column {
+    grid-template-columns: 1fr !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+    gap: 0rem !important;
+    margin-top: 0 !important;
+  }
+
+  .service-box {
+    margin-bottom: 2em !important;
+  }
+
+  .service-image img {
+    margin: 0 auto !important;
+  }
+  /*---*/
+  .img-modal {
+    height: 18rem !important;
+    top: 15rem !important;
+    right: -120px !important;
+  }
+  .modal-text-constitucion {
+    padding: 0.7rem !important;
+  }
+
+  .modal-body_slogan {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    width: 140% !important;
+  }
+  .modal-body h3 {
+    font-size: 13px !important;
+    line-height: normal !important;
+    width: 130% !important;
+  }
+  .p1, .p2, .p3 {
+    width: 138% !important;
+  }
+  .modal-body_buttons {
+    font-size: 12px !important;
+    margin-top: 1rem !important;
+    gap: 0.5rem !important;
+    width: 80% !important;
+  }
+  .btn-bussines, .btn-plans {
+    height: 2.5rem !important;
+    margin: 0 !important;
+    padding: 0.5rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: normal !important;
+  }
+  .modal-body p {
+    margin: 0.1rem !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+   /* text-align: justify;*/
+  }
+  .modalfooter {
+    right: 35px !important;
+    top: 28.9rem !important;
+  }
+}

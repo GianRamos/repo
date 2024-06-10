@@ -1,0 +1,34 @@
+<div class="advantages-carousel">
+
+  <div class="advantages-section-options">
+    <h3 class="advantages-section-title"><strong>¿</strong>Qué nos hace tu <strong>mejor Opción?</strong></h3>
+    <button class="advantages-section-button" *ngFor="let slide of slides; index as i" (click)="currentSlide = i"
+      [class.active]="i === currentSlide">
+      <img class="advantages-section-icon" src="{{ slide.icon }}" alt="Icono {{ i + 1 }}">
+      {{ slide.indicator }}
+      <span class="material-symbols-outlined">
+        >
+      </span>
+    </button>
+  </div>
+
+  <div class="carrusel-slides">
+    <div class="carrusel-slides-container" *ngFor="let slide of slides; index as i" class="slide"
+      [class.active]="i === currentSlide">
+      <div class="text-box">
+        <div>
+          <p>{{ slide.text }}</p>
+        </div>
+        <div>
+          <button mat-button routerLink="/registrarse" (click)="redirectToRegister()">Regístrate</button>
+        </div>
+      </div>
+      <div class="container-imgAdvantages">
+        <img [src]="slide.image" [ngClass]="{'flipped-img': i === 1 || i === 2}" class="img-Advantages" alt="Imagen {{ i + 1 }}">
+      </div>
+
+    </div>
+  </div>
+
+  
+</div>

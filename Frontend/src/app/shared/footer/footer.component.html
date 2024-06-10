@@ -1,0 +1,148 @@
+
+<footer id="footer" class="footer-container">
+  <div class="row">
+    <div class="col-md-2 logo-footer">
+      <a href="/" class="">
+        <img class="logoSlogan" src="../../../assets/images/logoVertical/Vertical Logo with Slogan Color Inverted.svg">
+      </a>
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-2">
+      <h4>Conócenos</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Nosotros</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Nuestro equipo</a></li>
+        <li class="nav-item mb-2"><a routerLink="/contacto" class="nav-link p-0">Reserva una cita</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-2">
+      <h4>Nuestros servicios</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a routerLink="/crear-empresa" class="nav-link p-0">Constitución de Empresas</a></li>
+        <li class="nav-item mb-2"><a routerLink="/nuestros-servicios/servicio-contable" class="nav-link p-0">Servicios Contable</a></li>
+        <li class="nav-item mb-2"><a routerLink="/" class="nav-link p-0">Servicios Administrativos</a></li>
+        <li class="nav-item mb-2"><a routerLink="/" class="nav-link p-0">Servicios Notariales</a></li>
+        <li class="nav-item mb-2"><a routerLink="/nuestros-servicios/asesoría" class="nav-link p-0">Gestión y Asesoría</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-2">
+        <h4>Legales</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a routerLink="/libro-de-reclamaciones" class="nav-link p-0">Libro de reclamaciones</a></li>
+          <li class="nav-item mb-2"><a  routerLink="/politica-de-privacidad" class="nav-link p-0">Política de privacidad</a></li>
+          <li class="nav-item mb-2"><a routerLink="/politica-de-cookies" class="nav-link p-0">Política de cookies</a></li>
+          <li class="nav-item mb-2"><a routerLink="/términos-y-condiciones" class="nav-link p-0">Términos y condiciones</a></li>
+          <li class="nav-item mb-2"><a routerLink="/protección-de-datos-personales" class="nav-link p-0">Protección de datos personales</a></li>
+        </ul>
+        <div class="col complains-book">
+            <a routerLink="/libro-de-reclamaciones" class="">
+              <img class="iconsFooter" src="../../../assets/images/icons/libro-de-reclamación1 1.svg">
+            </a>
+            <a  class="d-flex align-items-center mb-3 text-decoration-none">
+                <img class="iconsFooter" src="../../../assets/images/icons/compromiso 1.svg">
+              </a>
+        </div>
+      </div>
+
+    <div class="col-md-2">
+      <h4>Contáctanos</h4>
+      <ul class="nav flex-column">
+        <p class="nav-item">
+            <img src="../../../assets/images/icons/icon_geo.svg"> San Miguel - Lima</p>
+        <p class="nav-item">
+            <img src="../../../assets/images/icons/icon_telephone.svg"> 918795733</p>
+        <div class="container_icons_socialMedia">
+            <ul>
+                <li><a href="https://www.instagram.com/gestipyme.pe/" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_instagram.svg"></a></li>
+                <li><a href="https://www.tiktok.com/@gestipyme?is_from_webapp=1&sender_device=pc" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_tiktok.svg"></a></li>
+                <li><a href="https://web.facebook.com/profile.php?id=61557894734121&_rdc=1&_rdr" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_facebook.svg"></a></li>
+                <li><a href="https://www.linkedin.com/company/gestipyme-peru/about/" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_linkedin.svg"></a></li>
+                <li><a href="/" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_youtube.svg"></a></li>
+            </ul>
+
+        </div>
+      </ul>
+    </div>
+    <app-whatsapp></app-whatsapp>
+  </div>
+
+    <!-- FOOTER PARA VERSIÓN MOBILE -->
+  <div class="footer-mobile">
+    <div class="col-md-2 logo-footer">
+      <a href="/" class="">
+        <img class="logoSlogan" src="../../../assets/images/logoVertical/Vertical Logo with Slogan Color Inverted.svg">
+      </a>
+    </div>
+
+    <div class="accordion-mobile">
+      <h4 class="accordion-header" (click)="toggleAccordion('conocenos')">Conócenos</h4>
+      <div class="accordion-content" *ngIf="activeAccordion === 'conocenos'">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Nosotros</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Nuestro equipo</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Reserva una cita</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-mobile">
+      <h4 class="accordion-header" (click)="toggleAccordion('servicios')">Nuestros servicios</h4>
+      <div class="accordion-content" *ngIf="activeAccordion === 'servicios'">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Constitución de Empresas</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Servicios Contable</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Servicios Administrativos</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Servicios Notariales</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Gestión y Asesoría</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-mobile">
+      <h4 class="accordion-header" (click)="toggleAccordion('legales')">Legales</h4>
+      <div class="accordion-content" *ngIf="activeAccordion === 'legales'">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a routerLink="/libro-de-reclamaciones" class="nav-link p-0">Libro de reclamaciones</a></li>
+          <li class="nav-item mb-2"><a  routerLink="/politica-de-privacidad" class="nav-link p-0">Política de privacidad</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Política de cookies</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Términos y condiciones</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Protección de datos personales</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-mobile">
+      <h4 class="accordion-header" (click)="toggleAccordion('contacto')">Contáctanos</h4>
+      <div class="accordion-content" *ngIf="activeAccordion === 'contacto'">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">San Miguel - Lima</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0">918795733</a></li>
+          <li class="nav-item mb-2">
+            <div class="container_icons_socialMedia">
+              <ul>
+                <li><a href="https://www.instagram.com/gestipyme.pe/" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_instagram.svg"></a></li>
+                <li><a href="https://www.tiktok.com/@gestipyme?is_from_webapp=1&sender_device=pc" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_tiktok.svg"></a></li>
+                <li><a href="https://web.facebook.com/profile.php?id=61557894734121&_rdc=1&_rdr" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_facebook.svg"></a></li>
+                <li><a href="https://www.linkedin.com/company/gestipyme-peru/about/" target="_blank" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_linkedin.svg"></a></li>
+                <li><a href="/" class="d-flex align-items-center mb-3"><img src="../../../assets/images/icons/icon_youtube.svg"></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+  </footer>
+  <div class="footer-copyright">
+    Copyright  ©GestiPyme 2024
+    <app-topbutton></app-topbutton>
+  </div>

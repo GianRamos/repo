@@ -1,0 +1,227 @@
+<div class="container mt-2">
+  <h2 class="title mb-0 title_table px-3">Filtro/Búsqueda de producto</h2>
+  <div class="row">
+    <div class="col-md-11 mt-1">
+      <div class="contenedor_filtro shadow">
+        <div class="row">
+          <div class="col-md-3 d-flex">
+            <label for="Producto" class="form-label mt-2">Producto:</label>
+            <select id="Producto" class="form-select ms-2" required>
+              <option value="Home">Home</option>
+              <option value="Home_1">Home_1</option>
+            </select>
+          </div>
+          <div class="col-md-3 d-flex">
+            <label for="Categoria" class="form-label mt-2">Categoria:</label>
+            <select id="Categoria" class="form-select ms-2" required>
+              <option value="Home">Home</option>
+              <option value="Home_1">Home_1</option>
+            </select>
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+            <label for="Código" class="form-label mb-2">Código:</label>
+            <input id="Código" type="text" class="form-control ms-2" placeholder="Home" required>
+          </div>
+          <div class="col-md-2 d-flex align-items-end">
+            <button type="button" class="btn btn-primary border border-white w-100 fw-bold" data-bs-toggle="button" autocomplete="off">
+              Buscar
+              <img src="../../../../assets/images/icons/lupa.svg" class="iconLupa" alt="Icono de lupa">
+            </button>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12 d-flex align-items-end">
+            <label for="Búsqueda" class="form-label mb-2 ancho-label">Búsqueda por:</label>
+            <input id="Búsqueda" type="text" class="form-control ms-2" placeholder="Buscar" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <a href="https://wa.me/51918795733?text=%C2%A1Hola!,%20%C2%A1deseo%20informaci%C3%B3n%20para%20la%20gesti%C3%B3n%20de%20mi%20negocio" target="_blank">
+        <img class="logoWhatsapp" src="../../../../assets/images/icons/WhatsAppLOGO.svg" alt="Logo WhatsAppLOGO">
+      </a>
+    </div>
+  </div>
+
+  <div class="row align-items-center mt-3 pb-0">
+    <div class="col-md-6">
+      <mat-tab-group class="custom-tab-group" (selectedTabChange)="onTabChanged($event)" [(selectedIndex)]="selectedTabIndex" mat-stretch-tabs="false" mat-align-tabs="start">
+        <mat-tab *ngFor="let tab of asyncTabs | async; let i = index" [ngClass]="{'selected-tab': selectedTabIndex === i}">
+          <ng-template mat-tab-label>
+            {{ tab.label }}
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="col-md-6 text-end">
+      <button mat-raised-button class="btn-agregar-item shadow btn-primary border border-white" (click)="openAddItemModal()">
+        Agregar ítem
+        <mat-icon class="icon-right icon-large">add_circle</mat-icon>
+      </button>
+      <button mat-raised-button class="btn-imprimir shadow btn-primary border border-white" (click)="printTable()">
+        Imprimir
+        <mat-icon class="icon-right icon-large">print</mat-icon>
+      </button>
+      <button mat-raised-button class="btn-descargar shadow btn-primary border border-white">
+        Descargar .xlsx
+        <mat-icon class="icon-right icon-large">file_download</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="tab-content row py-1">
+    <div *ngIf="selectedTabIndex === 0 || (asyncTabs | async)?.[selectedTabIndex]?.label === 'Todos'" class="background_table mt-0">
+      <div class="container_table pt-2">
+        <div class="custom-table shadow" tabindex="0">
+          <div id="sectionToPrint">
+            <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="Código">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Código</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.codigo }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Producto">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Producto</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold">{{ element.producto }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Categoría">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Categoría</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold">{{ element.categoria }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Stock">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Stock</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.stock }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Precio unitario">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Precio unitario</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.precioUnitario }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Fecha">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Fecha</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.fecha | date }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Opciones" class="hide_section">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Opciones</th>
+                <td mat-cell *matCellDef="let element" class="text-center align-items-center">
+                  <button mat-icon-button class="icon-btn edit-btn small-button" (click)="editar(element)">
+                    <mat-icon class="icon">edit</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-btn delete-btn me-0 small-button" (click)="eliminar(element)">
+                    <mat-icon class="icon">delete_forever</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'low-stock': row.stock < 4}"></tr>
+            </table>
+          </div>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page de periodic elements"></mat-paginator>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedTabIndex === 1 || (asyncTabs | async)?.[selectedTabIndex]?.label === 'Vendidos'" class="background_table mt-0">
+      <div class="container_table pt-2">
+        <div class="custom-table shadow" tabindex="0">
+          <div id="sectionToPrint">
+            <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="Código">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Código</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.codigo }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Producto">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Producto</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold">{{ element.producto }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Categoría">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Categoría</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold">{{ element.categoria }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Stock">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Stock</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.stock }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Precio unitario">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Precio unitario</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.precioUnitario }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Fecha">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Fecha</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.fecha | date }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Opciones">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Opciones</th>
+                <td mat-cell *matCellDef="let element" class="text-center align-items-center">
+                  <button mat-icon-button class="icon-btn edit-btn small-button" (click)="editar(element)">
+                    <mat-icon class="icon">edit</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-btn delete-btn me-0 small-button" (click)="eliminar(element)">
+                    <mat-icon class="icon">delete_forever</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'low-stock': row.stock < 4}"></tr>
+            </table>
+          </div>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page de periodic elements"></mat-paginator>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedTabIndex === 2 || (asyncTabs | async)?.[selectedTabIndex]?.label === 'Sin stock'" class="background_table mt-0">
+      <div class="container_table pt-2">
+        <div class="custom-table shadow" tabindex="0">
+          <div id="sectionToPrint">
+            <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="Código">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Código</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.codigo }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Producto">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Producto</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold">{{ element.producto }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Categoría">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Categoría</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado fw-bold">{{ element.categoria }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Stock">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Stock</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.stock }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Precio unitario">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Precio unitario</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.precioUnitario }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Fecha">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Fecha</th>
+                <td mat-cell *matCellDef="let element" class="texto-centrado">{{ element.fecha | date }}</td>
+              </ng-container>
+              <ng-container matColumnDef="Opciones">
+                <th mat-header-cell *matHeaderCellDef class="text-center title__tabla">Opciones</th>
+                <td mat-cell *matCellDef="let element" class="text-center align-items-center">
+                  <button mat-icon-button class="icon-btn edit-btn small-button" (click)="editar(element)">
+                    <mat-icon class="icon">edit</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-btn delete-btn me-0 small-button" (click)="eliminar(element)">
+                    <mat-icon class="icon">delete_forever</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'low-stock': row.stock < 4}"></tr>
+            </table>
+          </div>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page de periodic elements"></mat-paginator>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

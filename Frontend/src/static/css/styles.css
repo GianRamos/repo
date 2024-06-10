@@ -1,0 +1,123 @@
+/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/* Estilos Normalize.css */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Estilos de fuentes */
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?9twpyd");
+  src: url("../fonts/icomoon.eot?9twpyd#iefix") format('embedded-opentype'),
+       url("../fonts/icomoon.ttf?9twpyd") format('truetype'),
+       url("../fonts/icomoon.woff?9twpyd") format('woff'),
+       url("../fonts/icomoon.svg?9twpyd#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Resto de estilos */
+.cf {
+  zoom: 1;
+}
+
+.cf:after, .cf:before {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.wancho {
+  width: 94%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #041e48;
+}
+
+.relative {
+  position: relative;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.envolve {
+  overflow: hidden;
+}
+
+.child-ib > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.no-style {
+  line-height: 1.4;
+}
+
+.g-text p {
+  margin-bottom: 0;
+  margin-top: -5px;
+  line-height: 1.2;
+}
+
+.g-text p:first-child {
+  margin-top: 0;
+}

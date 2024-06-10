@@ -1,0 +1,65 @@
+<!-- CONTENIDO QUE VA EN EL TOOL-BAR -->
+<mat-toolbar color="#154C75" class="headerr">
+    <a class="Logo" routerLink="/">
+      <img class="Logo" src="../../../assets/images/logoHorizontal/Horizontal Logo Color Inverted.svg">
+    </a>
+  <!-- <span class="example-spacer"></span> -->
+  <div class="flex-container">
+    <div *ngIf="isLandingPage">
+  <!-- Botón visible solo en versión mobile -->
+  <button mat-icon-button class="mobile-menu-button" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!-- Menú desplegable -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/">Inicio</button>
+    <button mat-menu-item routerLink="/quiénes-somos">¿Quiénes Somos?</button>
+    <button mat-menu-item routerLink="/nuestros-servicios">Nuestros Servicios</button>
+    <!-- <button mat-menu-item routerLink="/facturación">Facturación</button> -->
+    <button mat-menu-item routerLink="/crear-empresa">Crear empresa</button>
+    <button mat-menu-item routerLink="/contacto">Contáctanos</button>
+
+    <button mat-menu-item routerLink="/iniciar-sesión">Iniciar Sesión</button>
+    <button mat-menu-item routerLink="/registrarse">Registrarse</button>
+  </mat-menu>
+
+  <div class="desktop__menu d-flex d-none d-lg-flex"> <!--d-md-block-->
+    <a mat-button routerLink="/">Inicio</a>
+    <!-- <a mat-button routerLink="/quiénes-somos">¿Quiénes Somos?</a> -->
+    <a mat-button routerLink="/nuestros-servicios" >Nuestros Servicios</a>
+    <!-- <button mat-button [matMenuTriggerFor]="afterMenu">Nuestros Servicios</button> -->
+
+
+    <!-- <a mat-button routerLink="/facturación">Facturación</a> -->
+    <a mat-button routerLink="/crear-empresa">Crear empresa</a>
+    <a mat-button routerLink="/contacto" class="header-link">Contáctanos</a>
+
+    <a mat-button class="button_header button_login" routerLink="/iniciar-sesión">Iniciar Sesión</a>
+
+    <!-- <ng-container *ngIf="isLoggedIn">
+        <a mat-button (click)="logout()">Cerrar Sesión</a>
+    </ng-container> -->
+    <a class="button_header button_register" mat-button routerLink="/registrarse">Registrarse</a>
+  </div>
+    </div>
+  </div>
+
+<div *ngIf="!isLandingPage" class="header-container">
+  <div class="title-container">
+    <span class="title">
+      <span class="first-word">{{ title.split(' ')[0] }}</span> {{ title.substring(title.indexOf(' ') + 1) }}
+    </span>
+  </div>
+  <div class="icons-container">
+    <div class="custom-icon-container" matBadge="15" matBadgeColor="warn" matBadgeOverlap="false" [matBadgeHidden]="hidden">
+      <img src="../../../assets/images/bell.svg" alt="ícono de campana" class="custom-icon" (click)="toggleBadgeVisibility()">
+    </div>
+    <div class="avatar-container">
+      <input type="file" (change)="onFileSelected($event)" hidden #fileInput>
+      <img [src]="avatarUrl" alt="Avatar" class="user-avatar" (click)="fileInput.click()">
+    </div>
+  </div>
+</div>
+
+
+</mat-toolbar>

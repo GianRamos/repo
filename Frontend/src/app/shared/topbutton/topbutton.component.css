@@ -1,0 +1,28 @@
+#scrollToTopButton {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  border-radius: 30px;
+  box-shadow: 21px 23px 50px -32px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 21px 23px 50px -32px rgba(0,0,0,0.75);
+  -moz-box-shadow: 21px 23px 50px -32px rgba(0,0,0,0.75);
+  background-color: #1AA1E1;
+  color: #FFFFFF;
+  border: none;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+  }
+  
+  #scrollToTopButton:hover {
+    background-color: #0A6FB3;
+  }
+  
+  #scrollToTopButton.hide {
+    display: none;
+  }
+  

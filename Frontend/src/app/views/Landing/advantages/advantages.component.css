@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+/* Estilo para el contenedor principal */
+.advantages-carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 25px 0px 25px;
+  height: 350px;
+}
+
+/* Estilo para la sección de opciones */
+.advantages-section-options {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Estilo para el título de la sección de opciones */
+.advantages-section-title {
+  margin-bottom: 30px;
+  font-size: 35px;
+  color: #1B376F;
+  font-family: 'Plus Jakarta Sans';
+}
+
+/* Estilo para los botones de las opciones */
+.advantages-section-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  width: 82%;
+  padding: 5px;
+}
+
+.advantages-section-button:hover {
+  background: #CED4DA;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.advantages-section-options button {
+  color: #1B376F;  
+}
+
+/* Estilo para los iconos de los botones */
+.advantages-section-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Estilo para el carrusel de slides */
+.carrusel-slides {
+  flex: 1;
+  overflow-x: auto;
+}
+
+.slide {
+  flex: 0 0 auto;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.carrusel-slides-container {
+  display: flex;
+}
+
+.text-box {
+  background-color: #D9D9D9;
+  /* padding: 30px 30px 30px 30px; */
+  border-radius: 25px;
+  max-width: 56%;
+  flex-direction: column;
+  display: flex;
+  width: 750px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text-box p{
+    color: #1B376F;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    padding: 0px 70px 0px 60px;
+    text-align: center;
+}
+
+.text-box button {
+  background-color: #1AA1E1;
+  color: #fff;
+  border-radius: 25px;
+  border: solid 1px #fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  width: 128px;
+  height: 40px;
+  margin-top: 30px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/*imágenes */
+.slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.container-imgAdvantages {
+  /* max-width: 50%; 
+    max-height: 400px;  */
+  width: 382px;
+  height: 325px;
+  display: flex;
+  margin-left: auto;
+  object-fit: contain;
+}
+
+
+.slide .text-box {
+  position: absolute;
+  top: 85px;
+  left: 93px;
+  right: auto;
+  z-index: -1;
+}
+
+.flipped-img {
+    transform: scaleX(-1);
+}
+
+.material-symbols-outlined {
+  font-weight: 600;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    left: 30%;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Para tablets */
+@media (min-width: 431px) and (max-width: 1024px) {
+  .advantages-carousel {
+    padding: 25px 1px 0px 25px;
+    overflow: hidden;
+  }
+
+  .advantages-section-title {
+    font-size: 30px;
+  }
+
+  .advantages-section-button {
+    font-size: 20px;
+  }
+
+  .carrusel-slides {
+    width: 100%;
+  }
+  .slide .text-box {
+    width: 100%;
+    left: 0;
+    top: 4rem;
+  }
+
+  .text-box p {
+    font-size: 13px;
+    padding: 10px 20px;
+    margin: 0;
+  }
+
+  .text-box button {
+    width: 95px;
+    height: 25px;
+    font-size: 13px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .container-imgAdvantages {
+    width: 50%;
+    margin-left: 0;
+  }
+  .material-symbols-outlined {
+    left: 48.5%;
+  }
+  .container-imgAdvantages {
+    width: 70%;
+    margin-left: 8rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  .img-Advantages {
+    width: 100%;
+  }
+}
+
+/* Para mobile */
+@media (max-width: 414px) {
+
+  .carrusel-slides {
+    width: 115%;
+  }
+  .advantages-carousel {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .advantages-section-title {
+    font-size: 25px;
+  }
+  .advantages-section-options {
+    display: flex;
+    flex-direction: column;
+    width: 102%;
+  }
+  .advantages-section-options button {
+    display:flex;
+    width: 95%;
+  }
+
+  .advantages-section-button {
+    font-size: 18px;
+  }
+
+  .slide .text-box {
+    top: 45px;
+    right: auto;
+    left: 2rem;
+  }
+
+  .text-box {
+    width: 80%;
+    height: auto;
+  }
+
+  .text-box p {
+    font-size: 13px;
+    padding: 15px 20px;
+    margin: 0;
+    line-height: normal;
+  }
+
+  .text-box button {
+    width: 95px;
+    height: 25px;
+    font-size: 11px;
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .material-symbols-outlined {
+    left: 85%;
+  }
+
+  .container-imgAdvantages {
+    width: 100%;
+    margin-left: 10.5rem;
+    display: flex;
+    align-items: flex-end;
+  }
+  .img-Advantages {
+    width: 55%;
+  }
+}
+
+@media screen and (min-width: 430px) and (max-width: 430.5px) {
+  .advantages-section-options {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .carrusel-slides {
+    width: 110% !important;
+  }
+  .advantages-carousel {
+    display: flex !important;
+    flex-direction: column !important;
+    height: fit-content !important;
+  }
+  .advantages-section-title {
+    font-size: 28px !important;
+  }
+  .advantages-section-options button {
+    display: flex !important;
+    width: 100% !important;
+  }
+  .advantages-section-button {
+    font-size: 20px !important;
+  }
+  .slide .text-box {
+    top: 45px !important;
+    right: auto !important;
+    left: 2.5rem !important;
+  }
+  .text-box {
+    width: 85% !important;
+    height: auto !important;
+  }
+  .text-box p {
+    font-size: 14px !important;
+    padding: 18px 22px !important;
+    margin: 0 !important;
+    font-weight: 500;
+  }
+  .text-box button {
+    width: 100px !important;
+    height: 30px !important;
+    font-size: 11px !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .material-symbols-outlined {
+    left: 90% !important;
+  }
+  .container-imgAdvantages {
+    width: 85% !important;
+    margin-left: 13.4rem !important;
+    display: flex !important;
+    align-items: flex-end !important;
+  }
+  .img-Advantages {
+    width: 60% !important;
+  }
+}
+

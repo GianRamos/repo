@@ -1,0 +1,152 @@
+.b17
+	background-color c-3
+	border-radius 20px 20px 0 0
+	padding 54px 0 94px 0
+	margin-top -20px
+	@media screen and (max-width 767px)
+		border-radius 10px 10px 0 0
+		padding-bottom 70px
+
+.b17-content
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	justify-content center
+	align-items flex-start
+	max-width 1224px
+
+.b17-item
+	display block
+	width calc(100% / 3 - 24px)
+	overflow hidden
+	border-radius 20px
+	position relative
+	margin 24px 12px 0 12px
+	@media screen and (min-width 1025px)
+		&:hover
+			.b17-image:before
+				opacity 0
+				visibility hidden
+				transition all .25s ease .10s
+			.b17-image:after
+				opacity 1
+				transition all .25s ease
+			
+			
+	@media screen and (max-width 1024px)
+		width calc(100% / 3 - 14px)
+		margin 14px 7px 0 7px
+	@media screen and (max-width 960px)
+		width calc(100% / 2 - 14px)
+	@media screen and (max-width 767px)
+		width 100%
+		margin-top 0
+		margin-left 0
+		margin-right 0
+		margin-bottom 10px
+		&:last-child
+			margin-bottom 0
+	
+.b17-item:nth-child(1),
+.b17-item:nth-child(2)
+	width calc(100% / 2 - 24px)
+	@media screen and (max-width 1024px)
+		width calc(100% / 2 - 14px)
+	@media screen and (max-width 960px)
+		width 100%
+
+.b17-image
+	width 100%
+	position relative
+	margin 0
+	&:before
+		content ""
+		width 100%
+		height 100%
+		background linear-gradient(180deg, rgba(2, 13, 30, 0.00) 32.91%, rgba(2, 13, 30, 0.82) 99.94%)
+		position absolute
+		bottom 0
+		left 0
+	&:after
+		content ""
+		width 100%
+		height 100%
+		background linear-gradient(180deg, rgba(0, 0, 0, 0.30) 32.91%, #000 99.94%)
+		opacity 0
+		position absolute
+		bottom 0
+		left 0
+
+
+	img
+		img-res()
+
+.b17-info
+	display flex
+	flex-direction column
+	justify-content flex-end
+	width 100%
+	height 100%
+	position absolute
+	top 0
+	left 0
+	box-sizing border-box
+	padding 0 33px 33px 26px
+	@media screen and (max-width 1024px)
+		padding 0 20px 30px 20px
+	@media screen and (max-width 767px)
+		padding 0 10px 20px 10px
+
+.b17-wrap
+	position relative
+	padding-right 35px
+	@media screen and (max-width 767px)
+		padding-right 25px
+
+.b17-title
+	display block
+	line-height 38px
+	color c-3
+	font-family t-0
+	font-weight 500
+	font-size 30px
+	margin 0 0 6px 0
+	@media screen and (max-width 1024px)
+		line-height 1.3
+		font-size 26px
+	@media screen and (max-width 767px)
+		font-size 20px
+
+.b17-description
+	display block
+	line-height 24px
+	color c-3
+	font-family t-0
+	font-weight 300
+	font-size 16px
+	margin 0
+	@media screen and (max-width 1024px)
+		line-height 1.3
+		font-size 15px
+	@media screen and (max-width 767px)
+		font-size 14px
+
+	p
+		margin 0
+
+.b17-arrow
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 25px
+	height 25px
+	color c-3
+	font-size 20px
+	position absolute
+	bottom 0
+	right 0
+	@media screen and (max-width 1024px)
+		width 20px
+		height 20px
+		font-size 15px

@@ -1,0 +1,141 @@
+.contenedor_data_comprobante {
+    background-color: #BFBFBF;
+    filter: brightness(90%);
+    padding: 1.4rem;
+    border-radius: 20px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+    margin-bottom: .1rem;
+    color: #1B376F;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.box_estado_sistema {
+    background-color: #1B376F;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+.title_box_system, span {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.box_system_state {
+    background-color: #8BCAFC;
+    height: 30px;
+}
+.box_system_text {
+    color: #081836;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.box_list_items {
+    background: linear-gradient(to bottom, #278EDB, #154C75);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+.list_items_text {
+    color: #081836;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.box_system_output {
+    height: 35px;
+    background-color: #f8f8f9;
+}
+.span_output, span {
+    color: #1B376F;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.box_list_btns {
+    background-color: #f8f8f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+    height: 40%;
+}
+.btn {
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+} 
+.icon {
+    width: 45px;
+}
+.icon_30px {
+    width: 30px;
+    height: 30px;
+}
+
+.list_items {
+    background-color: #F8F8F9;
+    border-radius: 15px;
+    height: 150px;
+    width: 97%;
+}
+.title_table {
+    color: #1B376F;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-style: italic;
+    background-color: #D9D9D9;
+}
+
+.btn_1 {
+    background-color: #113D5E;
+}
+.btn_2 {
+    background-color: #0B5A84;
+}
+
+h2 {
+    color: #081836;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.upload-section {
+    border: 3px dashed rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #D9D9D9;
+}
+
+.upload-section-content {
+    border-radius: 8px;
+    padding: 1rem;
+    height: 6.5rem;
+    width: 100%;
+}
+
+.upload-section-text {
+    width: 100%;
+    font-size: 14px;
+}
+.upload-section-text p {
+    font-weight: 600;
+    margin: 0;
+}
+
+.button_tab {
+    background-color: #1B376F;
+    height: 81px;
+    width: 100%;
+}
+
+.btn {
+    color: #081836;
+    background-color: #8BCAFC;
+    font-weight:500;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}

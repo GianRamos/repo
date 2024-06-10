@@ -1,0 +1,81 @@
+<div class="cnt-wrapper">
+  <div class="wrapper">
+      <section class="b20">
+          <div class="b20-content wancho">
+              <div class="b20-title"><a href="listado-servicios-2.html">Nuestros Servicios</a></div>
+              <h2 class="b20-subtitle">Gestión de Trámites Legales</h2>
+              <figure class="b20-image">
+                  <img src="../../../../../assets/images/nuestros-servicios/tramitesLINEA.svg">
+              </figure>
+          </div>
+      </section>
+
+      <section class="b21">
+          <div class="b21-content wancho">
+              <div class="b21-left">
+                  <div class="b21-title">El servicio de gestión de trámites legales de GestiPyme permite a los clientes iniciar y gestionar todos sus procesos legales y administrativos de manera virtual. Esta solución está diseñada para simplificar la burocracia, minimizar la necesidad de interacciones presenciales, y acelerar los tiempos de procesamiento de documentos legales y permisos necesarios para la operación de negocios.</div>
+              </div>
+              <div class="b21-right">
+                  <div class="b21-subtitle">Requisitos del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Información del Cliente:</span> Los clientes deben proporcionar datos básicos de la empresa, como RUC, dirección, y representante legal.</li>
+                          <li><span class="bolder-text">Documentación Específica: </span> Dependiendo del trámite, se requerirán diferentes documentos, como escrituras, contratos, permisos anteriores, entre otros.</li>
+                      </ul>
+                  </div>
+                  <div class="b21-subtitle">Funcionalidades del Servicio:</div>
+                  <div class="b21-description">
+                      <ul>
+                          <li><span class="bolder-text">Portal de Trámites en Línea:</span> Plataforma accesible donde los clientes pueden iniciar trámites, cargar documentos y seguir el estado de sus procesos en tiempo real.</li>
+                          <li><span class="bolder-text">Asistencia Virtual: </span> Soporte continuo a través de asistentes virtuales y personal especializado disponible para resolver dudas y guiar a los clientes en cada paso.</li>
+                          <li><span class="bolder-text">Automatización de Procesos:</span> Uso de tecnología para automatizar la recolección y envío de documentos a las entidades correspondientes, asegurando precisión y eficiencia.</li>
+                          <li><span class="bolder-text">Notificaciones y Alertas: </span>Sistema de notificaciones que informa a los clientes sobre la evolución de sus trámites y cualquier acción requerida de su parte.</li>
+                      </ul>
+                  </div>
+                  <!-- <div class="b21-note">
+                      <p>IMPORTANTE: * Las funcionalidades del servicio pueden variar según la asesoría solicitada</p>
+                  </div> -->
+              </div>
+          </div>
+      </section>
+  </div>
+</div>
+
+<!-- Contenedor del menú responsive -->
+<div class="menu-sidebar" data-menu="left-in">
+  <div class="menu-sidebar-cnt"></div>
+</div>
+<div class="divider">
+
+</div>
+
+<app-businessbanner></app-businessbanner>
+<app-footer></app-footer>
+
+<script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/validationform/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="../static/js/main.js" type="text/javascript"></script>
+<!-- JSADD START -->
+
+<script type="text/javascript">
+  $(function(){
+      // FOOTER RESPONSIVE - ACORDEÓN
+      if($(window).innerWidth() < 1025){
+          $('.footerOpenToggle').on('click', function(event){
+              if ($(this).hasClass('active')) {
+                  $(this).removeClass('active').parent().find('.footer_toggle_contain').stop().slideUp();
+              } else {
+                  $('.footer_title').removeClass('active');
+                  $('.footer_toggle_contain').stop().slideUp();
+                  $(this).addClass('active').parent().find('.footer_toggle_contain').stop().slideToggle();
+              }
+          });
+      }
+  });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+      // Otro código JavaScript
+  });
+</script>

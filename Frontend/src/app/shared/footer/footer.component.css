@@ -1,0 +1,176 @@
+footer {
+    background-color: #154C75;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    color: #F8F8F9;
+}
+
+ul, ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 13px;
+}
+
+.logoSlogan {
+    height: 180px;
+    margin: 10px;
+    margin-top: 40px;
+}
+.iconsFooter{
+    height: 64px;
+    margin: 5px;
+    margin-top: 15px;
+}
+
+.container_icons_socialMedia ul {
+    list-style-type: none;
+    gap: 5px;
+    display: flex; 
+}
+.container_icons_socialMedia img{
+    height: 25px;
+}
+
+.complains-book{
+    margin-bottom: 1rem !important;
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+}
+.col h4 {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.footer-copyright {
+    background-color: #154C75;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    padding: 5px;
+    color: #F8F8F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #F8F8F9;
+}
+
+
+@media (min-width: 431px) and (max-width: 1024px) {
+    .logoSlogan {
+        height: 6rem;
+        margin-top: 5rem;
+    }
+    .container_icons_socialMedia {
+        width: 50%;
+    }
+
+    .container_icons_socialMedia img{
+        height: 20px;
+    }
+    .container_icons_socialMedia ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+    }
+
+}
+@media screen and (min-width: 768px) {
+    .footer-mobile {
+      display: none; /* Oculta el footer mobile para pantallas grandes */
+    }
+  }
+
+@media screen and (max-width: 414px) {
+    .logoSlogan {
+        height: 6rem;
+        margin-top: 0;
+        align-items: center;
+    }
+    .logo-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .row {
+        display: none;
+    }
+    .accordion-mobile {
+        display: block;
+    }
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .accordion-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+    .accordion-content ul {
+        display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 430px) and (max-width: 431px) {
+    .footer-container {
+        width: 100vw;
+    }
+    .logoSlogan {
+        height: 6rem;
+        margin-top: 0;
+        align-items: center;
+    }
+    .logo-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .row {
+        display: none;
+    }
+    .accordion-mobile {
+        display: block;
+    }
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .accordion-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .accordion-content ul {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .footer-copyright {
+        width: 100vw;
+    }
+}
